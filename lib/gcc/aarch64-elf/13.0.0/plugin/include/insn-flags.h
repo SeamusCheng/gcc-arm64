@@ -56,6 +56,10 @@
 		 plus_constant (Pmode, \
 				XEXP (operands[1], 0), \
 				GET_MODE_SIZE (DImode))))
+#define HAVE_load_pair_dw_didd (rtx_equal_p (XEXP (operands[3], 0), \
+		 plus_constant (Pmode, \
+				XEXP (operands[1], 0), \
+				GET_MODE_SIZE (DImode))))
 #define HAVE_load_pair_dw_dfdi (rtx_equal_p (XEXP (operands[3], 0), \
 		 plus_constant (Pmode, \
 				XEXP (operands[1], 0), \
@@ -64,6 +68,22 @@
 		 plus_constant (Pmode, \
 				XEXP (operands[1], 0), \
 				GET_MODE_SIZE (DFmode))))
+#define HAVE_load_pair_dw_dfdd (rtx_equal_p (XEXP (operands[3], 0), \
+		 plus_constant (Pmode, \
+				XEXP (operands[1], 0), \
+				GET_MODE_SIZE (DFmode))))
+#define HAVE_load_pair_dw_dddi (rtx_equal_p (XEXP (operands[3], 0), \
+		 plus_constant (Pmode, \
+				XEXP (operands[1], 0), \
+				GET_MODE_SIZE (DDmode))))
+#define HAVE_load_pair_dw_dddf (rtx_equal_p (XEXP (operands[3], 0), \
+		 plus_constant (Pmode, \
+				XEXP (operands[1], 0), \
+				GET_MODE_SIZE (DDmode))))
+#define HAVE_load_pair_dw_dddd (rtx_equal_p (XEXP (operands[3], 0), \
+		 plus_constant (Pmode, \
+				XEXP (operands[1], 0), \
+				GET_MODE_SIZE (DDmode))))
 #define HAVE_load_pair_dw_tftf (TARGET_SIMD \
     && rtx_equal_p (XEXP (operands[3], 0), \
 		    plus_constant (Pmode, \
@@ -93,6 +113,10 @@
 		 plus_constant (Pmode, \
 				XEXP (operands[0], 0), \
 				GET_MODE_SIZE (DImode))))
+#define HAVE_store_pair_dw_didd (rtx_equal_p (XEXP (operands[2], 0), \
+		 plus_constant (Pmode, \
+				XEXP (operands[0], 0), \
+				GET_MODE_SIZE (DImode))))
 #define HAVE_store_pair_dw_dfdi (rtx_equal_p (XEXP (operands[2], 0), \
 		 plus_constant (Pmode, \
 				XEXP (operands[0], 0), \
@@ -101,6 +125,22 @@
 		 plus_constant (Pmode, \
 				XEXP (operands[0], 0), \
 				GET_MODE_SIZE (DFmode))))
+#define HAVE_store_pair_dw_dfdd (rtx_equal_p (XEXP (operands[2], 0), \
+		 plus_constant (Pmode, \
+				XEXP (operands[0], 0), \
+				GET_MODE_SIZE (DFmode))))
+#define HAVE_store_pair_dw_dddi (rtx_equal_p (XEXP (operands[2], 0), \
+		 plus_constant (Pmode, \
+				XEXP (operands[0], 0), \
+				GET_MODE_SIZE (DDmode))))
+#define HAVE_store_pair_dw_dddf (rtx_equal_p (XEXP (operands[2], 0), \
+		 plus_constant (Pmode, \
+				XEXP (operands[0], 0), \
+				GET_MODE_SIZE (DDmode))))
+#define HAVE_store_pair_dw_dddd (rtx_equal_p (XEXP (operands[2], 0), \
+		 plus_constant (Pmode, \
+				XEXP (operands[0], 0), \
+				GET_MODE_SIZE (DDmode))))
 #define HAVE_store_pair_dw_tftf (TARGET_SIMD && \
     rtx_equal_p (XEXP (operands[2], 0), \
 		 plus_constant (Pmode, \
@@ -116,8 +156,10 @@
 #define HAVE_loadwb_pairdf_di ((INTVAL (operands[5]) == GET_MODE_SIZE (DFmode)) && (ptr_mode == DImode || Pmode == DImode))
 #define HAVE_loadwb_pairti_si ((TARGET_SIMD && INTVAL (operands[5]) == GET_MODE_SIZE (TImode)) && (ptr_mode == SImode || Pmode == SImode))
 #define HAVE_loadwb_pairtf_si ((TARGET_SIMD && INTVAL (operands[5]) == GET_MODE_SIZE (TFmode)) && (ptr_mode == SImode || Pmode == SImode))
+#define HAVE_loadwb_pairtd_si ((TARGET_SIMD && INTVAL (operands[5]) == GET_MODE_SIZE (TDmode)) && (ptr_mode == SImode || Pmode == SImode))
 #define HAVE_loadwb_pairti_di ((TARGET_SIMD && INTVAL (operands[5]) == GET_MODE_SIZE (TImode)) && (ptr_mode == DImode || Pmode == DImode))
 #define HAVE_loadwb_pairtf_di ((TARGET_SIMD && INTVAL (operands[5]) == GET_MODE_SIZE (TFmode)) && (ptr_mode == DImode || Pmode == DImode))
+#define HAVE_loadwb_pairtd_di ((TARGET_SIMD && INTVAL (operands[5]) == GET_MODE_SIZE (TDmode)) && (ptr_mode == DImode || Pmode == DImode))
 #define HAVE_storewb_pairsi_si ((INTVAL (operands[5]) == INTVAL (operands[4]) + GET_MODE_SIZE (SImode)) && (ptr_mode == SImode || Pmode == SImode))
 #define HAVE_storewb_pairsi_di ((INTVAL (operands[5]) == INTVAL (operands[4]) + GET_MODE_SIZE (SImode)) && (ptr_mode == DImode || Pmode == DImode))
 #define HAVE_storewb_pairdi_si ((INTVAL (operands[5]) == INTVAL (operands[4]) + GET_MODE_SIZE (DImode)) && (ptr_mode == SImode || Pmode == SImode))
@@ -132,12 +174,18 @@
 #define HAVE_storewb_pairtf_si ((TARGET_SIMD \
    && INTVAL (operands[5]) \
       == INTVAL (operands[4]) + GET_MODE_SIZE (TFmode)) && (ptr_mode == SImode || Pmode == SImode))
+#define HAVE_storewb_pairtd_si ((TARGET_SIMD \
+   && INTVAL (operands[5]) \
+      == INTVAL (operands[4]) + GET_MODE_SIZE (TDmode)) && (ptr_mode == SImode || Pmode == SImode))
 #define HAVE_storewb_pairti_di ((TARGET_SIMD \
    && INTVAL (operands[5]) \
       == INTVAL (operands[4]) + GET_MODE_SIZE (TImode)) && (ptr_mode == DImode || Pmode == DImode))
 #define HAVE_storewb_pairtf_di ((TARGET_SIMD \
    && INTVAL (operands[5]) \
       == INTVAL (operands[4]) + GET_MODE_SIZE (TFmode)) && (ptr_mode == DImode || Pmode == DImode))
+#define HAVE_storewb_pairtd_di ((TARGET_SIMD \
+   && INTVAL (operands[5]) \
+      == INTVAL (operands[4]) + GET_MODE_SIZE (TDmode)) && (ptr_mode == DImode || Pmode == DImode))
 #define HAVE_addsi3_compare0 1
 #define HAVE_adddi3_compare0 1
 #define HAVE_addsi3_compareC 1
@@ -232,6 +280,9 @@
 #define HAVE_and_one_cmpl_rotrsi3 1
 #define HAVE_ior_one_cmpl_rotrsi3 1
 #define HAVE_xor_one_cmpl_rotrsi3 1
+#define HAVE_and_one_cmpl_rotlsi3 1
+#define HAVE_ior_one_cmpl_rotlsi3 1
+#define HAVE_xor_one_cmpl_rotlsi3 1
 #define HAVE_and_one_cmpl_ashldi3 1
 #define HAVE_ior_one_cmpl_ashldi3 1
 #define HAVE_xor_one_cmpl_ashldi3 1
@@ -244,17 +295,37 @@
 #define HAVE_and_one_cmpl_rotrdi3 1
 #define HAVE_ior_one_cmpl_rotrdi3 1
 #define HAVE_xor_one_cmpl_rotrdi3 1
+#define HAVE_and_one_cmpl_rotldi3 1
+#define HAVE_ior_one_cmpl_rotldi3 1
+#define HAVE_xor_one_cmpl_rotldi3 1
+#define HAVE_and_one_cmpl_ashlsidi_uxtw 1
+#define HAVE_ior_one_cmpl_ashlsidi_uxtw 1
+#define HAVE_xor_one_cmpl_ashlsidi_uxtw 1
+#define HAVE_and_one_cmpl_ashrsidi_uxtw 1
+#define HAVE_ior_one_cmpl_ashrsidi_uxtw 1
+#define HAVE_xor_one_cmpl_ashrsidi_uxtw 1
+#define HAVE_and_one_cmpl_lshrsidi_uxtw 1
+#define HAVE_ior_one_cmpl_lshrsidi_uxtw 1
+#define HAVE_xor_one_cmpl_lshrsidi_uxtw 1
+#define HAVE_and_one_cmpl_rotrsidi_uxtw 1
+#define HAVE_ior_one_cmpl_rotrsidi_uxtw 1
+#define HAVE_xor_one_cmpl_rotrsidi_uxtw 1
+#define HAVE_and_one_cmpl_rotlsidi_uxtw 1
+#define HAVE_ior_one_cmpl_rotlsidi_uxtw 1
+#define HAVE_xor_one_cmpl_rotlsidi_uxtw 1
 #define HAVE_clzsi2 1
 #define HAVE_clzdi2 1
 #define HAVE_clrsbsi2 1
 #define HAVE_clrsbdi2 1
-#define HAVE_rbitsi2 1
-#define HAVE_rbitdi2 1
+#define HAVE_aarch64_rbitsi 1
+#define HAVE_aarch64_rbitdi 1
 #define HAVE_ctzsi2 1
 #define HAVE_ctzdi2 1
 #define HAVE_bswapsi2 1
 #define HAVE_bswapdi2 1
 #define HAVE_bswaphi2 1
+#define HAVE_aarch64_rev16si 1
+#define HAVE_aarch64_rev16di 1
 #define HAVE_rev16si2 (aarch_rev16_shleft_mask_imm_p (operands[3], SImode) \
    && aarch_rev16_shright_mask_imm_p (operands[2], SImode))
 #define HAVE_rev16di2 (aarch_rev16_shleft_mask_imm_p (operands[3], DImode) \
@@ -429,12 +500,16 @@
 #define HAVE_copysigndf3_insn (TARGET_FLOAT && TARGET_SIMD)
 #define HAVE_aarch64_movdi_tilow (TARGET_FLOAT && (reload_completed || reload_in_progress))
 #define HAVE_aarch64_movdi_tflow (TARGET_FLOAT && (reload_completed || reload_in_progress))
+#define HAVE_aarch64_movdi_tdlow (TARGET_FLOAT && (reload_completed || reload_in_progress))
 #define HAVE_aarch64_movdi_tihigh (TARGET_FLOAT && (reload_completed || reload_in_progress))
 #define HAVE_aarch64_movdi_tfhigh (TARGET_FLOAT && (reload_completed || reload_in_progress))
+#define HAVE_aarch64_movdi_tdhigh (TARGET_FLOAT && (reload_completed || reload_in_progress))
 #define HAVE_aarch64_movtihigh_di (TARGET_FLOAT && (reload_completed || reload_in_progress))
 #define HAVE_aarch64_movtfhigh_di (TARGET_FLOAT && (reload_completed || reload_in_progress))
+#define HAVE_aarch64_movtdhigh_di (TARGET_FLOAT && (reload_completed || reload_in_progress))
 #define HAVE_aarch64_movtilow_di (TARGET_FLOAT && (reload_completed || reload_in_progress))
 #define HAVE_aarch64_movtflow_di (TARGET_FLOAT && (reload_completed || reload_in_progress))
+#define HAVE_aarch64_movtdlow_di (TARGET_FLOAT && (reload_completed || reload_in_progress))
 #define HAVE_aarch64_movtilow_tilow (TARGET_FLOAT && (reload_completed || reload_in_progress))
 #define HAVE_add_losym_si (ptr_mode == SImode || Pmode == SImode)
 #define HAVE_add_losym_di (ptr_mode == DImode || Pmode == DImode)
@@ -6918,6 +6993,9 @@
 #define HAVE_movsf 1
 #define HAVE_movdf 1
 #define HAVE_movtf 1
+#define HAVE_movsd 1
+#define HAVE_movdd 1
+#define HAVE_movtd 1
 #define HAVE_aarch64_cpymemdi (TARGET_MOPS)
 #define HAVE_cpymemdi (!STRICT_ALIGNMENT || TARGET_MOPS)
 #define HAVE_movmemdi (TARGET_MOPS)
@@ -7058,6 +7136,12 @@
 #define HAVE_aarch64_reload_movcpdfdi ((TARGET_FLOAT) && (ptr_mode == DImode || Pmode == DImode))
 #define HAVE_aarch64_reload_movcptfsi ((TARGET_FLOAT) && (ptr_mode == SImode || Pmode == SImode))
 #define HAVE_aarch64_reload_movcptfdi ((TARGET_FLOAT) && (ptr_mode == DImode || Pmode == DImode))
+#define HAVE_aarch64_reload_movcpsdsi ((TARGET_FLOAT) && (ptr_mode == SImode || Pmode == SImode))
+#define HAVE_aarch64_reload_movcpsddi ((TARGET_FLOAT) && (ptr_mode == DImode || Pmode == DImode))
+#define HAVE_aarch64_reload_movcpddsi ((TARGET_FLOAT) && (ptr_mode == SImode || Pmode == SImode))
+#define HAVE_aarch64_reload_movcpdddi ((TARGET_FLOAT) && (ptr_mode == DImode || Pmode == DImode))
+#define HAVE_aarch64_reload_movcptdsi ((TARGET_FLOAT) && (ptr_mode == SImode || Pmode == SImode))
+#define HAVE_aarch64_reload_movcptddi ((TARGET_FLOAT) && (ptr_mode == DImode || Pmode == DImode))
 #define HAVE_aarch64_reload_movcpv8qisi ((TARGET_FLOAT) && (ptr_mode == SImode || Pmode == SImode))
 #define HAVE_aarch64_reload_movcpv8qidi ((TARGET_FLOAT) && (ptr_mode == DImode || Pmode == DImode))
 #define HAVE_aarch64_reload_movcpv16qisi ((TARGET_FLOAT) && (ptr_mode == SImode || Pmode == SImode))
@@ -7080,6 +7164,7 @@
 #define HAVE_aarch64_reload_movcpv2dfdi ((TARGET_FLOAT) && (ptr_mode == DImode || Pmode == DImode))
 #define HAVE_aarch64_reload_movti (TARGET_FLOAT)
 #define HAVE_aarch64_reload_movtf (TARGET_FLOAT)
+#define HAVE_aarch64_reload_movtd (TARGET_FLOAT)
 #define HAVE_add_losym 1
 #define HAVE_tlsgd_small_si (ptr_mode == SImode)
 #define HAVE_tlsgd_small_di (ptr_mode == DImode)
@@ -8293,6 +8378,7 @@
 #define HAVE_vec_extractv8hfv4hf (TARGET_SIMD)
 #define HAVE_vec_extractv8bfv4bf (TARGET_SIMD)
 #define HAVE_vec_extractv4sfv2sf (TARGET_SIMD)
+#define HAVE_vec_extractv2div1di (TARGET_SIMD)
 #define HAVE_vec_extractv2dfv1df (TARGET_SIMD)
 #define HAVE_aarch64_fmlal_lowv2sf (TARGET_F16FML)
 #define HAVE_aarch64_fmlsl_lowv2sf (TARGET_F16FML)
@@ -10084,8 +10170,13 @@ extern rtx        gen_load_pair_sw_sisf                              (rtx, rtx, 
 extern rtx        gen_load_pair_sw_sfsf                              (rtx, rtx, rtx, rtx);
 extern rtx        gen_load_pair_dw_didi                              (rtx, rtx, rtx, rtx);
 extern rtx        gen_load_pair_dw_didf                              (rtx, rtx, rtx, rtx);
+extern rtx        gen_load_pair_dw_didd                              (rtx, rtx, rtx, rtx);
 extern rtx        gen_load_pair_dw_dfdi                              (rtx, rtx, rtx, rtx);
 extern rtx        gen_load_pair_dw_dfdf                              (rtx, rtx, rtx, rtx);
+extern rtx        gen_load_pair_dw_dfdd                              (rtx, rtx, rtx, rtx);
+extern rtx        gen_load_pair_dw_dddi                              (rtx, rtx, rtx, rtx);
+extern rtx        gen_load_pair_dw_dddf                              (rtx, rtx, rtx, rtx);
+extern rtx        gen_load_pair_dw_dddd                              (rtx, rtx, rtx, rtx);
 extern rtx        gen_load_pair_dw_tftf                              (rtx, rtx, rtx, rtx);
 extern rtx        gen_store_pair_sw_sisi                             (rtx, rtx, rtx, rtx);
 extern rtx        gen_store_pair_sw_sfsi                             (rtx, rtx, rtx, rtx);
@@ -10093,8 +10184,13 @@ extern rtx        gen_store_pair_sw_sisf                             (rtx, rtx, 
 extern rtx        gen_store_pair_sw_sfsf                             (rtx, rtx, rtx, rtx);
 extern rtx        gen_store_pair_dw_didi                             (rtx, rtx, rtx, rtx);
 extern rtx        gen_store_pair_dw_didf                             (rtx, rtx, rtx, rtx);
+extern rtx        gen_store_pair_dw_didd                             (rtx, rtx, rtx, rtx);
 extern rtx        gen_store_pair_dw_dfdi                             (rtx, rtx, rtx, rtx);
 extern rtx        gen_store_pair_dw_dfdf                             (rtx, rtx, rtx, rtx);
+extern rtx        gen_store_pair_dw_dfdd                             (rtx, rtx, rtx, rtx);
+extern rtx        gen_store_pair_dw_dddi                             (rtx, rtx, rtx, rtx);
+extern rtx        gen_store_pair_dw_dddf                             (rtx, rtx, rtx, rtx);
+extern rtx        gen_store_pair_dw_dddd                             (rtx, rtx, rtx, rtx);
 extern rtx        gen_store_pair_dw_tftf                             (rtx, rtx, rtx, rtx);
 extern rtx        gen_loadwb_pairsi_si                               (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_loadwb_pairsi_di                               (rtx, rtx, rtx, rtx, rtx, rtx);
@@ -10106,8 +10202,10 @@ extern rtx        gen_loadwb_pairsf_di                               (rtx, rtx, 
 extern rtx        gen_loadwb_pairdf_di                               (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_loadwb_pairti_si                               (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_loadwb_pairtf_si                               (rtx, rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_loadwb_pairtd_si                               (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_loadwb_pairti_di                               (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_loadwb_pairtf_di                               (rtx, rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_loadwb_pairtd_di                               (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_storewb_pairsi_si                              (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_storewb_pairsi_di                              (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_storewb_pairdi_si                              (rtx, rtx, rtx, rtx, rtx, rtx);
@@ -10118,8 +10216,10 @@ extern rtx        gen_storewb_pairsf_di                              (rtx, rtx, 
 extern rtx        gen_storewb_pairdf_di                              (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_storewb_pairti_si                              (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_storewb_pairtf_si                              (rtx, rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_storewb_pairtd_si                              (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_storewb_pairti_di                              (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_storewb_pairtf_di                              (rtx, rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_storewb_pairtd_di                              (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_addsi3_compare0                                (rtx, rtx, rtx);
 extern rtx        gen_adddi3_compare0                                (rtx, rtx, rtx);
 extern rtx        gen_addsi3_compareC                                (rtx, rtx, rtx);
@@ -10214,6 +10314,9 @@ extern rtx        gen_xor_one_cmpl_lshrsi3                           (rtx, rtx, 
 extern rtx        gen_and_one_cmpl_rotrsi3                           (rtx, rtx, rtx, rtx);
 extern rtx        gen_ior_one_cmpl_rotrsi3                           (rtx, rtx, rtx, rtx);
 extern rtx        gen_xor_one_cmpl_rotrsi3                           (rtx, rtx, rtx, rtx);
+extern rtx        gen_and_one_cmpl_rotlsi3                           (rtx, rtx, rtx, rtx);
+extern rtx        gen_ior_one_cmpl_rotlsi3                           (rtx, rtx, rtx, rtx);
+extern rtx        gen_xor_one_cmpl_rotlsi3                           (rtx, rtx, rtx, rtx);
 extern rtx        gen_and_one_cmpl_ashldi3                           (rtx, rtx, rtx, rtx);
 extern rtx        gen_ior_one_cmpl_ashldi3                           (rtx, rtx, rtx, rtx);
 extern rtx        gen_xor_one_cmpl_ashldi3                           (rtx, rtx, rtx, rtx);
@@ -10226,17 +10329,37 @@ extern rtx        gen_xor_one_cmpl_lshrdi3                           (rtx, rtx, 
 extern rtx        gen_and_one_cmpl_rotrdi3                           (rtx, rtx, rtx, rtx);
 extern rtx        gen_ior_one_cmpl_rotrdi3                           (rtx, rtx, rtx, rtx);
 extern rtx        gen_xor_one_cmpl_rotrdi3                           (rtx, rtx, rtx, rtx);
+extern rtx        gen_and_one_cmpl_rotldi3                           (rtx, rtx, rtx, rtx);
+extern rtx        gen_ior_one_cmpl_rotldi3                           (rtx, rtx, rtx, rtx);
+extern rtx        gen_xor_one_cmpl_rotldi3                           (rtx, rtx, rtx, rtx);
+extern rtx        gen_and_one_cmpl_ashlsidi_uxtw                     (rtx, rtx, rtx, rtx);
+extern rtx        gen_ior_one_cmpl_ashlsidi_uxtw                     (rtx, rtx, rtx, rtx);
+extern rtx        gen_xor_one_cmpl_ashlsidi_uxtw                     (rtx, rtx, rtx, rtx);
+extern rtx        gen_and_one_cmpl_ashrsidi_uxtw                     (rtx, rtx, rtx, rtx);
+extern rtx        gen_ior_one_cmpl_ashrsidi_uxtw                     (rtx, rtx, rtx, rtx);
+extern rtx        gen_xor_one_cmpl_ashrsidi_uxtw                     (rtx, rtx, rtx, rtx);
+extern rtx        gen_and_one_cmpl_lshrsidi_uxtw                     (rtx, rtx, rtx, rtx);
+extern rtx        gen_ior_one_cmpl_lshrsidi_uxtw                     (rtx, rtx, rtx, rtx);
+extern rtx        gen_xor_one_cmpl_lshrsidi_uxtw                     (rtx, rtx, rtx, rtx);
+extern rtx        gen_and_one_cmpl_rotrsidi_uxtw                     (rtx, rtx, rtx, rtx);
+extern rtx        gen_ior_one_cmpl_rotrsidi_uxtw                     (rtx, rtx, rtx, rtx);
+extern rtx        gen_xor_one_cmpl_rotrsidi_uxtw                     (rtx, rtx, rtx, rtx);
+extern rtx        gen_and_one_cmpl_rotlsidi_uxtw                     (rtx, rtx, rtx, rtx);
+extern rtx        gen_ior_one_cmpl_rotlsidi_uxtw                     (rtx, rtx, rtx, rtx);
+extern rtx        gen_xor_one_cmpl_rotlsidi_uxtw                     (rtx, rtx, rtx, rtx);
 extern rtx        gen_clzsi2                                         (rtx, rtx);
 extern rtx        gen_clzdi2                                         (rtx, rtx);
 extern rtx        gen_clrsbsi2                                       (rtx, rtx);
 extern rtx        gen_clrsbdi2                                       (rtx, rtx);
-extern rtx        gen_rbitsi2                                        (rtx, rtx);
-extern rtx        gen_rbitdi2                                        (rtx, rtx);
+extern rtx        gen_aarch64_rbitsi                                 (rtx, rtx);
+extern rtx        gen_aarch64_rbitdi                                 (rtx, rtx);
 extern rtx        gen_ctzsi2                                         (rtx, rtx);
 extern rtx        gen_ctzdi2                                         (rtx, rtx);
 extern rtx        gen_bswapsi2                                       (rtx, rtx);
 extern rtx        gen_bswapdi2                                       (rtx, rtx);
 extern rtx        gen_bswaphi2                                       (rtx, rtx);
+extern rtx        gen_aarch64_rev16si                                (rtx, rtx);
+extern rtx        gen_aarch64_rev16di                                (rtx, rtx);
 extern rtx        gen_rev16si2                                       (rtx, rtx, rtx, rtx);
 extern rtx        gen_rev16di2                                       (rtx, rtx, rtx, rtx);
 extern rtx        gen_rev16si2_alt                                   (rtx, rtx, rtx, rtx);
@@ -10407,12 +10530,16 @@ extern rtx        gen_copysignsf3_insn                               (rtx, rtx, 
 extern rtx        gen_copysigndf3_insn                               (rtx, rtx, rtx, rtx);
 extern rtx        gen_aarch64_movdi_tilow                            (rtx, rtx);
 extern rtx        gen_aarch64_movdi_tflow                            (rtx, rtx);
+extern rtx        gen_aarch64_movdi_tdlow                            (rtx, rtx);
 extern rtx        gen_aarch64_movdi_tihigh                           (rtx, rtx);
 extern rtx        gen_aarch64_movdi_tfhigh                           (rtx, rtx);
+extern rtx        gen_aarch64_movdi_tdhigh                           (rtx, rtx);
 extern rtx        gen_aarch64_movtihigh_di                           (rtx, rtx);
 extern rtx        gen_aarch64_movtfhigh_di                           (rtx, rtx);
+extern rtx        gen_aarch64_movtdhigh_di                           (rtx, rtx);
 extern rtx        gen_aarch64_movtilow_di                            (rtx, rtx);
 extern rtx        gen_aarch64_movtflow_di                            (rtx, rtx);
+extern rtx        gen_aarch64_movtdlow_di                            (rtx, rtx);
 extern rtx        gen_aarch64_movtilow_tilow                         (rtx, rtx);
 extern rtx        gen_add_losym_si                                   (rtx, rtx, rtx);
 extern rtx        gen_add_losym_di                                   (rtx, rtx, rtx);
@@ -18051,6 +18178,9 @@ extern rtx        gen_movbf                                          (rtx, rtx);
 extern rtx        gen_movsf                                          (rtx, rtx);
 extern rtx        gen_movdf                                          (rtx, rtx);
 extern rtx        gen_movtf                                          (rtx, rtx);
+extern rtx        gen_movsd                                          (rtx, rtx);
+extern rtx        gen_movdd                                          (rtx, rtx);
+extern rtx        gen_movtd                                          (rtx, rtx);
 extern rtx        gen_aarch64_cpymemdi                               (rtx, rtx, rtx);
 extern rtx        gen_cpymemdi                                       (rtx, rtx, rtx, rtx);
 extern rtx        gen_movmemdi                                       (rtx, rtx, rtx, rtx);
@@ -18183,6 +18313,12 @@ extern rtx        gen_aarch64_reload_movcpdfsi                       (rtx, rtx, 
 extern rtx        gen_aarch64_reload_movcpdfdi                       (rtx, rtx, rtx);
 extern rtx        gen_aarch64_reload_movcptfsi                       (rtx, rtx, rtx);
 extern rtx        gen_aarch64_reload_movcptfdi                       (rtx, rtx, rtx);
+extern rtx        gen_aarch64_reload_movcpsdsi                       (rtx, rtx, rtx);
+extern rtx        gen_aarch64_reload_movcpsddi                       (rtx, rtx, rtx);
+extern rtx        gen_aarch64_reload_movcpddsi                       (rtx, rtx, rtx);
+extern rtx        gen_aarch64_reload_movcpdddi                       (rtx, rtx, rtx);
+extern rtx        gen_aarch64_reload_movcptdsi                       (rtx, rtx, rtx);
+extern rtx        gen_aarch64_reload_movcptddi                       (rtx, rtx, rtx);
 extern rtx        gen_aarch64_reload_movcpv8qisi                     (rtx, rtx, rtx);
 extern rtx        gen_aarch64_reload_movcpv8qidi                     (rtx, rtx, rtx);
 extern rtx        gen_aarch64_reload_movcpv16qisi                    (rtx, rtx, rtx);
@@ -18205,6 +18341,7 @@ extern rtx        gen_aarch64_reload_movcpv2dfsi                     (rtx, rtx, 
 extern rtx        gen_aarch64_reload_movcpv2dfdi                     (rtx, rtx, rtx);
 extern rtx        gen_aarch64_reload_movti                           (rtx, rtx, rtx);
 extern rtx        gen_aarch64_reload_movtf                           (rtx, rtx, rtx);
+extern rtx        gen_aarch64_reload_movtd                           (rtx, rtx, rtx);
 extern rtx        gen_add_losym                                      (rtx, rtx, rtx);
 extern rtx        gen_tlsgd_small_si                                 (rtx, rtx);
 extern rtx        gen_tlsgd_small_di                                 (rtx, rtx);
@@ -19418,6 +19555,7 @@ extern rtx        gen_vec_extractv4siv2si                            (rtx, rtx, 
 extern rtx        gen_vec_extractv8hfv4hf                            (rtx, rtx, rtx);
 extern rtx        gen_vec_extractv8bfv4bf                            (rtx, rtx, rtx);
 extern rtx        gen_vec_extractv4sfv2sf                            (rtx, rtx, rtx);
+extern rtx        gen_vec_extractv2div1di                            (rtx, rtx, rtx);
 extern rtx        gen_vec_extractv2dfv1df                            (rtx, rtx, rtx);
 extern rtx        gen_aarch64_fmlal_lowv2sf                          (rtx, rtx, rtx, rtx);
 extern rtx        gen_aarch64_fmlsl_lowv2sf                          (rtx, rtx, rtx, rtx);
