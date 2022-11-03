@@ -1103,8 +1103,16 @@ frange::set_varying (tree type)
   m_type = type;
   m_min = frange_val_min (type);
   m_max = frange_val_max (type);
-  m_pos_nan = true;
-  m_neg_nan = true;
+  if (HONOR_NANS (m_type))
+    {
+      m_pos_nan = true;
+      m_neg_nan = true;
+    }
+  else
+    {
+      m_pos_nan = false;
+      m_neg_nan = false;
+    }
 }
 
 inline void
@@ -1193,10 +1201,10 @@ real_min_representable (const_tree type)
 inline REAL_VALUE_TYPE
 frange_val_min (const_tree type)
 {
-  if (flag_finite_math_only)
-    return real_min_representable (type);
-  else
+  if (HONOR_INFINITIES (type))
     return dconstninf;
+  else
+    return real_min_representable (type);
 }
 
 // Return the maximum value for TYPE.
@@ -1204,10 +1212,10 @@ frange_val_min (const_tree type)
 inline REAL_VALUE_TYPE
 frange_val_max (const_tree type)
 {
-  if (flag_finite_math_only)
-    return real_max_representable (type);
-  else
+  if (HONOR_INFINITIES (type))
     return dconstinf;
+  else
+    return real_max_representable (type);
 }
 
 // Return TRUE if R is the minimum value for TYPE.

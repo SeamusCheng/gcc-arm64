@@ -1452,6 +1452,12 @@
 #endif
 
 
+/* Define to 1 if you have the `getauxval' function. */
+#ifndef USED_FOR_TARGET
+#define HAVE_GETAUXVAL 1
+#endif
+
+
 /* Define to 1 if you have the `getchar_unlocked' function. */
 #ifndef USED_FOR_TARGET
 #define HAVE_GETCHAR_UNLOCKED 1
@@ -2319,6 +2325,12 @@
 #endif
 
 
+/* Specify if mutliarch is enabled. */
+#ifndef USED_FOR_TARGET
+/* #undef ENABLE_MULTIARCH */
+#endif
+
+
 /* The size of `dev_t', as computed by sizeof. */
 #ifndef USED_FOR_TARGET
 #define SIZEOF_DEV_T 8
@@ -2679,7 +2691,3 @@
 /* #undef vfork */
 #endif
 
-/* Define to 1 if you have the `getauxval' function. */
-#ifndef USED_FOR_TARGET
-#define HAVE_GETAUXVAL 1
-#endif
