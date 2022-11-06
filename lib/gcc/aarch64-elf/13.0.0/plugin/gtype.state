@@ -4,7 +4,7 @@
 ;;; Don't parse this file wihout knowing GCC gengtype internals.
 ;;; This file should be parsed by the same gengtype which wrote it.
 
-(!version  "13.0.0 20221103 (Bleeding Edge)")
+(!version  "13.0.0 20221104 (Bleeding Edge)")
 (!srcdir  "../../gcc/gcc")
 (!languages 10 ada c cp d fortran go jit lto objc objcp)
 (!fileslist 230 0
@@ -15846,15 +15846,15 @@
    (!type already_seen 725)
   )
   gc_pointed_to "string_concat"
-  (!srcfileloc  "input.h" 260)
+  (!srcfileloc  "input.h" 261)
   (!fields 2 
    (!pair  "m_num"
     (!type already_seen 2)
-    (!srcfileloc  "input.h" 258)
+    (!srcfileloc  "input.h" 259)
     nil )
    (!pair  "m_locs"
     (!type already_seen 3)
-    (!srcfileloc  "input.h" 259)
+    (!srcfileloc  "input.h" 260)
     (!options 
      (!option atomic string  "")
     )
@@ -15867,29 +15867,29 @@
    (!type already_seen 727)
   )
   gc_pointed_to "string_concat_db"
-  (!srcfileloc  "input.h" 285)
+  (!srcfileloc  "input.h" 286)
   (!fields 1 
    (!pair  "m_table"
     (!type pointer 729 nil  gc_used
      (!type user_struct 730 
       (!type already_seen 729)
       gc_pointed_to "hash_map<location_hash,string_concat*>"
-      (!srcfileloc  "input.h" 284)
+      (!srcfileloc  "input.h" 285)
       (!fields 2 
        (!pair  "string_concat"
         (!type already_seen 726)
-        (!srcfileloc  "input.h" 284)
+        (!srcfileloc  "input.h" 285)
         nil )
        (!pair  "location_hash"
         (!type undefined 731 nil  gc_unused "location_hash"
-         (!srcfileloc  "input.h" 284)
+         (!srcfileloc  "input.h" 285)
         )
-        (!srcfileloc  "input.h" 284)
+        (!srcfileloc  "input.h" 285)
         nil )
       )
      )
     )
-    (!srcfileloc  "input.h" 284)
+    (!srcfileloc  "input.h" 285)
     nil )
   )
   nil 1023 nil nil )
@@ -29044,39 +29044,39 @@
  )
  
  (!type struct 2094 nil  gc_pointed_to "sat_entry"
-  (!srcfileloc  "cp/constraint.cc" 2455)
+  (!srcfileloc  "cp/constraint.cc" 2458)
   (!fields 8 
    (!pair  "atom"
     (!type already_seen 23)
-    (!srcfileloc  "cp/constraint.cc" 2425)
+    (!srcfileloc  "cp/constraint.cc" 2428)
     nil )
    (!pair  "args"
     (!type already_seen 23)
-    (!srcfileloc  "cp/constraint.cc" 2428)
+    (!srcfileloc  "cp/constraint.cc" 2431)
     nil )
    (!pair  "result"
     (!type already_seen 23)
-    (!srcfileloc  "cp/constraint.cc" 2435)
+    (!srcfileloc  "cp/constraint.cc" 2438)
     nil )
    (!pair  "location"
     (!type already_seen 2)
-    (!srcfileloc  "cp/constraint.cc" 2439)
+    (!srcfileloc  "cp/constraint.cc" 2442)
     nil )
    (!pair  "ftc_begin"
     (!type already_seen 2)
-    (!srcfileloc  "cp/constraint.cc" 2444)
+    (!srcfileloc  "cp/constraint.cc" 2447)
     nil )
    (!pair  "ftc_end"
     (!type already_seen 2)
-    (!srcfileloc  "cp/constraint.cc" 2444)
+    (!srcfileloc  "cp/constraint.cc" 2447)
     nil )
    (!pair  "diagnose_instability"
     (!type already_seen 2)
-    (!srcfileloc  "cp/constraint.cc" 2449)
+    (!srcfileloc  "cp/constraint.cc" 2452)
     nil )
    (!pair  "evaluating"
     (!type already_seen 2)
-    (!srcfileloc  "cp/constraint.cc" 2454)
+    (!srcfileloc  "cp/constraint.cc" 2457)
     nil )
   )
   (!options 
@@ -29085,7 +29085,7 @@
   516 nil nil )
  
  (!type struct 2095 nil  gc_used "sat_hasher"
-  (!srcfileloc  "cp/constraint.cc" 2527)
+  (!srcfileloc  "cp/constraint.cc" 2530)
   (!fields 0 )
   nil 516 nil nil )
  
@@ -29094,11 +29094,11 @@
    (!type already_seen 2096)
   )
   gc_pointed_to "hash_table<sat_hasher>"
-  (!srcfileloc  "cp/constraint.cc" 2527)
+  (!srcfileloc  "cp/constraint.cc" 2530)
   (!fields 1 
    (!pair  "sat_hasher"
     (!type already_seen 2095)
-    (!srcfileloc  "cp/constraint.cc" 2527)
+    (!srcfileloc  "cp/constraint.cc" 2530)
     nil )
   )
  )
@@ -30098,7 +30098,7 @@
   nil 0 nil nil )
  
  (!type undefined 2233 nil  gc_unused "class_to_loc_map_t::iterator"
-  (!srcfileloc  "cp/parser.cc" 33981)
+  (!srcfileloc  "cp/parser.cc" 33982)
  )
  
  (!type struct 2234 
@@ -31386,11 +31386,11 @@
   nil )
  (!pair  "iter_t"
   (!type already_seen 2233)
-  (!srcfileloc  "cp/parser.cc" 33981)
+  (!srcfileloc  "cp/parser.cc" 33982)
   nil )
  (!pair  "class_to_loc_map_t::iterator"
   (!type already_seen 2233)
-  (!srcfileloc  "cp/parser.cc" 33981)
+  (!srcfileloc  "cp/parser.cc" 33982)
   nil )
  (!pair  "cp_parser_expression_stack"
   (!type array 2362 nil  gc_unused "NUM_PREC_VALUES" 
@@ -31690,11 +31690,11 @@
   nil )
  (!pair  "sat_hasher"
   (!type already_seen 2095)
-  (!srcfileloc  "cp/constraint.cc" 2527)
+  (!srcfileloc  "cp/constraint.cc" 2530)
   nil )
  (!pair  "hash_table<sat_hasher>"
   (!type already_seen 2096)
-  (!srcfileloc  "cp/constraint.cc" 2527)
+  (!srcfileloc  "cp/constraint.cc" 2530)
   nil )
  (!pair  "atom_hasher"
   (!type already_seen 2034)
@@ -34668,19 +34668,19 @@
   nil )
  (!pair  "location_hash"
   (!type already_seen 731)
-  (!srcfileloc  "input.h" 284)
+  (!srcfileloc  "input.h" 285)
   nil )
  (!pair  "hash_map<location_hash,string_concat*>"
   (!type already_seen 730)
-  (!srcfileloc  "input.h" 284)
+  (!srcfileloc  "input.h" 285)
   nil )
  (!pair  "string_concat_db"
   (!type already_seen 727)
-  (!srcfileloc  "input.h" 265)
+  (!srcfileloc  "input.h" 266)
   nil )
  (!pair  "string_concat"
   (!type already_seen 725)
-  (!srcfileloc  "input.h" 256)
+  (!srcfileloc  "input.h" 257)
   nil )
  (!pair  "cpp_cb"
   (!type already_seen 2)
@@ -35996,7 +35996,7 @@
   nil )
  (!pair  "generic_parm_count"
   (!type already_seen 2)
-  (!srcfileloc  "cp/parser.cc" 48827)
+  (!srcfileloc  "cp/parser.cc" 48828)
   nil )
  (!pair  "cp_parser_decl_specs_attrs"
   (!type already_seen 83)
@@ -36346,21 +36346,21 @@
   nil )
  (!pair  "decl_satisfied_cache"
   (!type already_seen 392)
-  (!srcfileloc  "cp/constraint.cc" 2530)
+  (!srcfileloc  "cp/constraint.cc" 2533)
   (!options 
    (!option deletable string  "")
   )
  )
  (!pair  "sat_cache"
   (!type already_seen 2097)
-  (!srcfileloc  "cp/constraint.cc" 2527)
+  (!srcfileloc  "cp/constraint.cc" 2530)
   (!options 
    (!option deletable string  "")
   )
  )
  (!pair  "failed_type_completions"
   (!type already_seen 83)
-  (!srcfileloc  "cp/constraint.cc" 2385)
+  (!srcfileloc  "cp/constraint.cc" 2388)
   (!options 
    (!option deletable string  "")
   )
