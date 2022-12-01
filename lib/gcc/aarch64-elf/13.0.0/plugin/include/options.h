@@ -9466,7 +9466,7 @@ enum opt_code
   OPT_Wanalyzer_write_to_string_literal = 500,/* -Wanalyzer-write-to-string-literal */
   OPT_Wargument_mismatch = 501,              /* -Wargument-mismatch */
   OPT_Warith_conversion = 502,               /* -Warith-conversion */
-  OPT_Warray_bounds = 503,                   /* -Warray-bounds */
+  /* OPT_Warray_bounds = 503, */             /* -Warray-bounds */
   OPT_Warray_bounds_ = 504,                  /* -Warray-bounds= */
   OPT_Warray_compare = 505,                  /* -Warray-compare */
   /* OPT_Warray_parameter = 506, */          /* -Warray-parameter */
