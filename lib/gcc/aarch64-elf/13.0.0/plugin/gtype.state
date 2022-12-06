@@ -4,7 +4,7 @@
 ;;; Don't parse this file wihout knowing GCC gengtype internals.
 ;;; This file should be parsed by the same gengtype which wrote it.
 
-(!version  "13.0.0 20221204 (Bleeding Edge)")
+(!version  "13.0.0 20221206 (Bleeding Edge)")
 (!srcdir  "../../gcc/gcc")
 (!languages 10 ada c cp d fortran go jit lto objc objcp)
 (!fileslist 232 0
@@ -30243,15 +30243,15 @@
    (!type already_seen 2254)
   )
   gc_pointed_to "hash_map<tree,tree_pair_p>"
-  (!srcfileloc  "cp/pt.cc" 30039)
+  (!srcfileloc  "cp/pt.cc" 30024)
   (!fields 2 
    (!pair  "tree_pair_p"
     (!type already_seen 534)
-    (!srcfileloc  "cp/pt.cc" 30039)
+    (!srcfileloc  "cp/pt.cc" 30024)
     nil )
    (!pair  "tree"
     (!type already_seen 23)
-    (!srcfileloc  "cp/pt.cc" 30039)
+    (!srcfileloc  "cp/pt.cc" 30024)
     nil )
   )
  )
@@ -31396,7 +31396,7 @@
   nil )
  (!pair  "hash_map<tree,tree_pair_p>"
   (!type already_seen 2254)
-  (!srcfileloc  "cp/pt.cc" 30039)
+  (!srcfileloc  "cp/pt.cc" 30024)
   nil )
  (!pair  "pending_template"
   (!type already_seen 2238)
@@ -35961,28 +35961,28 @@
   nil )
  (!pair  "dguide_cache"
   (!type already_seen 2255)
-  (!srcfileloc  "cp/pt.cc" 30039)
+  (!srcfileloc  "cp/pt.cc" 30024)
   (!options 
    (!option deletable string  "")
   )
  )
  (!pair  "explicit_specifier_map"
   (!type already_seen 936)
-  (!srcfileloc  "cp/pt.cc" 14040)
+  (!srcfileloc  "cp/pt.cc" 14025)
   (!options 
    (!option cache string  "")
   )
  )
  (!pair  "defarg_inst"
   (!type already_seen 1550)
-  (!srcfileloc  "cp/pt.cc" 13902)
+  (!srcfileloc  "cp/pt.cc" 13887)
   (!options 
    (!option cache string  "")
   )
  )
  (!pair  "last_error_tinst_level"
   (!type already_seen 2015)
-  (!srcfileloc  "cp/pt.cc" 10985)
+  (!srcfileloc  "cp/pt.cc" 10970)
   nil )
  (!pair  "pending_template_freelist_head"
   (!type already_seen 2239)
@@ -36809,7 +36809,7 @@
  )
  (!pair  "thunk_labelno"
   (!type already_seen 2)
-  (!srcfileloc  "ada/gcc-interface/trans.cc" 10881)
+  (!srcfileloc  "ada/gcc-interface/trans.cc" 10883)
   nil )
  (!pair  "gnu_loop_stack"
   (!type already_seen 1884)
@@ -37077,13 +37077,13 @@
   nil )
  (!pair  "aarch64_sls_shared_thunks_needed"
   (!type already_seen 2)
-  (!srcfileloc  "config/aarch64/aarch64.cc" 27184)
+  (!srcfileloc  "config/aarch64/aarch64.cc" 27216)
   nil )
  (!pair  "aarch64_sls_shared_thunks"
   (!type array 2427 nil  gc_used "30" 
    (!type already_seen 23)
   )
-  (!srcfileloc  "config/aarch64/aarch64.cc" 27183)
+  (!srcfileloc  "config/aarch64/aarch64.cc" 27215)
   nil )
  (!pair  "va_list_type"
   (!type already_seen 23)
