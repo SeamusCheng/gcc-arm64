@@ -4,7 +4,7 @@
 ;;; Don't parse this file wihout knowing GCC gengtype internals.
 ;;; This file should be parsed by the same gengtype which wrote it.
 
-(!version  "13.0.1 20230202 (Bleeding Edge)")
+(!version  "13.0.1 20230205 (Bleeding Edge)")
 (!srcdir  "../../gcc/gcc")
 (!languages 12 ada c cp d fortran go jit lto m2 objc objcp rust)
 (!fileslist 242 0
@@ -37235,7 +37235,7 @@
   nil )
  (!pair  "cv_cache"
   (!type already_seen 394)
-  (!srcfileloc  "cp/constexpr.cc" 8528)
+  (!srcfileloc  "cp/constexpr.cc" 8524)
   (!options 
    (!option deletable string  "")
   )
@@ -37254,11 +37254,11 @@
   nil )
  (!pair  "dvirt_fn"
   (!type already_seen 23)
-  (!srcfileloc  "cp/class.cc" 9893)
+  (!srcfileloc  "cp/class.cc" 9909)
   nil )
  (!pair  "abort_fndecl_addr"
   (!type already_seen 23)
-  (!srcfileloc  "cp/class.cc" 9892)
+  (!srcfileloc  "cp/class.cc" 9908)
   nil )
  (!pair  "enum_to_min_precision"
   (!type already_seen 2086)
@@ -37777,11 +37777,11 @@
  )
  (!pair  "hwasan_ctor_statements"
   (!type already_seen 23)
-  (!srcfileloc  "asan.cc" 4597)
+  (!srcfileloc  "asan.cc" 4598)
   nil )
  (!pair  "asan_ctor_statements"
   (!type already_seen 23)
-  (!srcfileloc  "asan.cc" 3545)
+  (!srcfileloc  "asan.cc" 3546)
   nil )
  (!pair  "asan_detect_stack_use_after_return"
   (!type already_seen 23)
@@ -38047,7 +38047,7 @@
   nil )
  (!pair  "gcc_eh_personality_decl"
   (!type already_seen 23)
-  (!srcfileloc  "tree.cc" 12120)
+  (!srcfileloc  "tree.cc" 12127)
   nil )
  (!pair  "anon_cnt"
   (!type already_seen 2)
@@ -38761,7 +38761,7 @@
   nil )
  (!pair  "callmem"
   (!type already_seen 100)
-  (!srcfileloc  "cselib.cc" 238)
+  (!srcfileloc  "cselib.cc" 252)
   nil )
  (!pair  "bitmap_ggc_free"
   (!type already_seen 389)
