@@ -75,6 +75,12 @@ extern enum attr_exynos_m1_neon_type get_attr_exynos_m1_neon_type (rtx_insn *);
 #define HAVE_ATTR_tsv110_neon_type 1
 extern enum attr_tsv110_neon_type get_attr_tsv110_neon_type (rtx_insn *);
 
+#define HAVE_ATTR_add_vec_concat_subst_le 1
+extern enum attr_add_vec_concat_subst_le get_attr_add_vec_concat_subst_le (rtx_insn *);
+
+#define HAVE_ATTR_add_vec_concat_subst_be 1
+extern enum attr_add_vec_concat_subst_be get_attr_add_vec_concat_subst_be (rtx_insn *);
+
 extern int num_delay_slots (rtx_insn *);
 extern int eligible_for_delay (rtx_insn *, int, rtx_insn *, int);
 
