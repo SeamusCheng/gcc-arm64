@@ -1786,27 +1786,51 @@
 #define HAVE_aarch64_rbitv8qi_vec_concatz_be ((BYTES_BIG_ENDIAN) && (TARGET_SIMD))
 #define HAVE_aarch64_rbitv16qi (TARGET_SIMD)
 #define HAVE_aarch64_fcadd90v4hf ((TARGET_COMPLEX) && (TARGET_SIMD_F16INST))
+#define HAVE_aarch64_fcadd90v4hf_vec_concatz_le ((!BYTES_BIG_ENDIAN) && ((TARGET_COMPLEX) && (TARGET_SIMD_F16INST)))
+#define HAVE_aarch64_fcadd90v4hf_vec_concatz_be ((BYTES_BIG_ENDIAN) && ((TARGET_COMPLEX) && (TARGET_SIMD_F16INST)))
 #define HAVE_aarch64_fcadd270v4hf ((TARGET_COMPLEX) && (TARGET_SIMD_F16INST))
+#define HAVE_aarch64_fcadd270v4hf_vec_concatz_le ((!BYTES_BIG_ENDIAN) && ((TARGET_COMPLEX) && (TARGET_SIMD_F16INST)))
+#define HAVE_aarch64_fcadd270v4hf_vec_concatz_be ((BYTES_BIG_ENDIAN) && ((TARGET_COMPLEX) && (TARGET_SIMD_F16INST)))
 #define HAVE_aarch64_fcadd90v8hf ((TARGET_COMPLEX) && (TARGET_SIMD_F16INST))
 #define HAVE_aarch64_fcadd270v8hf ((TARGET_COMPLEX) && (TARGET_SIMD_F16INST))
 #define HAVE_aarch64_fcadd90v2sf (TARGET_COMPLEX)
+#define HAVE_aarch64_fcadd90v2sf_vec_concatz_le ((!BYTES_BIG_ENDIAN) && (TARGET_COMPLEX))
+#define HAVE_aarch64_fcadd90v2sf_vec_concatz_be ((BYTES_BIG_ENDIAN) && (TARGET_COMPLEX))
 #define HAVE_aarch64_fcadd270v2sf (TARGET_COMPLEX)
+#define HAVE_aarch64_fcadd270v2sf_vec_concatz_le ((!BYTES_BIG_ENDIAN) && (TARGET_COMPLEX))
+#define HAVE_aarch64_fcadd270v2sf_vec_concatz_be ((BYTES_BIG_ENDIAN) && (TARGET_COMPLEX))
 #define HAVE_aarch64_fcadd90v4sf (TARGET_COMPLEX)
 #define HAVE_aarch64_fcadd270v4sf (TARGET_COMPLEX)
 #define HAVE_aarch64_fcadd90v2df (TARGET_COMPLEX)
 #define HAVE_aarch64_fcadd270v2df (TARGET_COMPLEX)
 #define HAVE_aarch64_fcmla0v4hf ((TARGET_COMPLEX) && (TARGET_SIMD_F16INST))
+#define HAVE_aarch64_fcmla0v4hf_vec_concatz_le ((!BYTES_BIG_ENDIAN) && ((TARGET_COMPLEX) && (TARGET_SIMD_F16INST)))
+#define HAVE_aarch64_fcmla0v4hf_vec_concatz_be ((BYTES_BIG_ENDIAN) && ((TARGET_COMPLEX) && (TARGET_SIMD_F16INST)))
 #define HAVE_aarch64_fcmla90v4hf ((TARGET_COMPLEX) && (TARGET_SIMD_F16INST))
+#define HAVE_aarch64_fcmla90v4hf_vec_concatz_le ((!BYTES_BIG_ENDIAN) && ((TARGET_COMPLEX) && (TARGET_SIMD_F16INST)))
+#define HAVE_aarch64_fcmla90v4hf_vec_concatz_be ((BYTES_BIG_ENDIAN) && ((TARGET_COMPLEX) && (TARGET_SIMD_F16INST)))
 #define HAVE_aarch64_fcmla180v4hf ((TARGET_COMPLEX) && (TARGET_SIMD_F16INST))
+#define HAVE_aarch64_fcmla180v4hf_vec_concatz_le ((!BYTES_BIG_ENDIAN) && ((TARGET_COMPLEX) && (TARGET_SIMD_F16INST)))
+#define HAVE_aarch64_fcmla180v4hf_vec_concatz_be ((BYTES_BIG_ENDIAN) && ((TARGET_COMPLEX) && (TARGET_SIMD_F16INST)))
 #define HAVE_aarch64_fcmla270v4hf ((TARGET_COMPLEX) && (TARGET_SIMD_F16INST))
+#define HAVE_aarch64_fcmla270v4hf_vec_concatz_le ((!BYTES_BIG_ENDIAN) && ((TARGET_COMPLEX) && (TARGET_SIMD_F16INST)))
+#define HAVE_aarch64_fcmla270v4hf_vec_concatz_be ((BYTES_BIG_ENDIAN) && ((TARGET_COMPLEX) && (TARGET_SIMD_F16INST)))
 #define HAVE_aarch64_fcmla0v8hf ((TARGET_COMPLEX) && (TARGET_SIMD_F16INST))
 #define HAVE_aarch64_fcmla90v8hf ((TARGET_COMPLEX) && (TARGET_SIMD_F16INST))
 #define HAVE_aarch64_fcmla180v8hf ((TARGET_COMPLEX) && (TARGET_SIMD_F16INST))
 #define HAVE_aarch64_fcmla270v8hf ((TARGET_COMPLEX) && (TARGET_SIMD_F16INST))
 #define HAVE_aarch64_fcmla0v2sf (TARGET_COMPLEX)
+#define HAVE_aarch64_fcmla0v2sf_vec_concatz_le ((!BYTES_BIG_ENDIAN) && (TARGET_COMPLEX))
+#define HAVE_aarch64_fcmla0v2sf_vec_concatz_be ((BYTES_BIG_ENDIAN) && (TARGET_COMPLEX))
 #define HAVE_aarch64_fcmla90v2sf (TARGET_COMPLEX)
+#define HAVE_aarch64_fcmla90v2sf_vec_concatz_le ((!BYTES_BIG_ENDIAN) && (TARGET_COMPLEX))
+#define HAVE_aarch64_fcmla90v2sf_vec_concatz_be ((BYTES_BIG_ENDIAN) && (TARGET_COMPLEX))
 #define HAVE_aarch64_fcmla180v2sf (TARGET_COMPLEX)
+#define HAVE_aarch64_fcmla180v2sf_vec_concatz_le ((!BYTES_BIG_ENDIAN) && (TARGET_COMPLEX))
+#define HAVE_aarch64_fcmla180v2sf_vec_concatz_be ((BYTES_BIG_ENDIAN) && (TARGET_COMPLEX))
 #define HAVE_aarch64_fcmla270v2sf (TARGET_COMPLEX)
+#define HAVE_aarch64_fcmla270v2sf_vec_concatz_le ((!BYTES_BIG_ENDIAN) && (TARGET_COMPLEX))
+#define HAVE_aarch64_fcmla270v2sf_vec_concatz_be ((BYTES_BIG_ENDIAN) && (TARGET_COMPLEX))
 #define HAVE_aarch64_fcmla0v4sf (TARGET_COMPLEX)
 #define HAVE_aarch64_fcmla90v4sf (TARGET_COMPLEX)
 #define HAVE_aarch64_fcmla180v4sf (TARGET_COMPLEX)
@@ -1816,17 +1840,33 @@
 #define HAVE_aarch64_fcmla180v2df (TARGET_COMPLEX)
 #define HAVE_aarch64_fcmla270v2df (TARGET_COMPLEX)
 #define HAVE_aarch64_fcmla_lane0v4hf ((TARGET_COMPLEX) && (TARGET_SIMD_F16INST))
+#define HAVE_aarch64_fcmla_lane0v4hf_vec_concatz_le ((!BYTES_BIG_ENDIAN) && ((TARGET_COMPLEX) && (TARGET_SIMD_F16INST)))
+#define HAVE_aarch64_fcmla_lane0v4hf_vec_concatz_be ((BYTES_BIG_ENDIAN) && ((TARGET_COMPLEX) && (TARGET_SIMD_F16INST)))
 #define HAVE_aarch64_fcmla_lane90v4hf ((TARGET_COMPLEX) && (TARGET_SIMD_F16INST))
+#define HAVE_aarch64_fcmla_lane90v4hf_vec_concatz_le ((!BYTES_BIG_ENDIAN) && ((TARGET_COMPLEX) && (TARGET_SIMD_F16INST)))
+#define HAVE_aarch64_fcmla_lane90v4hf_vec_concatz_be ((BYTES_BIG_ENDIAN) && ((TARGET_COMPLEX) && (TARGET_SIMD_F16INST)))
 #define HAVE_aarch64_fcmla_lane180v4hf ((TARGET_COMPLEX) && (TARGET_SIMD_F16INST))
+#define HAVE_aarch64_fcmla_lane180v4hf_vec_concatz_le ((!BYTES_BIG_ENDIAN) && ((TARGET_COMPLEX) && (TARGET_SIMD_F16INST)))
+#define HAVE_aarch64_fcmla_lane180v4hf_vec_concatz_be ((BYTES_BIG_ENDIAN) && ((TARGET_COMPLEX) && (TARGET_SIMD_F16INST)))
 #define HAVE_aarch64_fcmla_lane270v4hf ((TARGET_COMPLEX) && (TARGET_SIMD_F16INST))
+#define HAVE_aarch64_fcmla_lane270v4hf_vec_concatz_le ((!BYTES_BIG_ENDIAN) && ((TARGET_COMPLEX) && (TARGET_SIMD_F16INST)))
+#define HAVE_aarch64_fcmla_lane270v4hf_vec_concatz_be ((BYTES_BIG_ENDIAN) && ((TARGET_COMPLEX) && (TARGET_SIMD_F16INST)))
 #define HAVE_aarch64_fcmla_lane0v8hf ((TARGET_COMPLEX) && (TARGET_SIMD_F16INST))
 #define HAVE_aarch64_fcmla_lane90v8hf ((TARGET_COMPLEX) && (TARGET_SIMD_F16INST))
 #define HAVE_aarch64_fcmla_lane180v8hf ((TARGET_COMPLEX) && (TARGET_SIMD_F16INST))
 #define HAVE_aarch64_fcmla_lane270v8hf ((TARGET_COMPLEX) && (TARGET_SIMD_F16INST))
 #define HAVE_aarch64_fcmla_lane0v2sf (TARGET_COMPLEX)
+#define HAVE_aarch64_fcmla_lane0v2sf_vec_concatz_le ((!BYTES_BIG_ENDIAN) && (TARGET_COMPLEX))
+#define HAVE_aarch64_fcmla_lane0v2sf_vec_concatz_be ((BYTES_BIG_ENDIAN) && (TARGET_COMPLEX))
 #define HAVE_aarch64_fcmla_lane90v2sf (TARGET_COMPLEX)
+#define HAVE_aarch64_fcmla_lane90v2sf_vec_concatz_le ((!BYTES_BIG_ENDIAN) && (TARGET_COMPLEX))
+#define HAVE_aarch64_fcmla_lane90v2sf_vec_concatz_be ((BYTES_BIG_ENDIAN) && (TARGET_COMPLEX))
 #define HAVE_aarch64_fcmla_lane180v2sf (TARGET_COMPLEX)
+#define HAVE_aarch64_fcmla_lane180v2sf_vec_concatz_le ((!BYTES_BIG_ENDIAN) && (TARGET_COMPLEX))
+#define HAVE_aarch64_fcmla_lane180v2sf_vec_concatz_be ((BYTES_BIG_ENDIAN) && (TARGET_COMPLEX))
 #define HAVE_aarch64_fcmla_lane270v2sf (TARGET_COMPLEX)
+#define HAVE_aarch64_fcmla_lane270v2sf_vec_concatz_le ((!BYTES_BIG_ENDIAN) && (TARGET_COMPLEX))
+#define HAVE_aarch64_fcmla_lane270v2sf_vec_concatz_be ((BYTES_BIG_ENDIAN) && (TARGET_COMPLEX))
 #define HAVE_aarch64_fcmla_lane0v4sf (TARGET_COMPLEX)
 #define HAVE_aarch64_fcmla_lane90v4sf (TARGET_COMPLEX)
 #define HAVE_aarch64_fcmla_lane180v4sf (TARGET_COMPLEX)
@@ -1836,9 +1876,17 @@
 #define HAVE_aarch64_fcmla_lane180v2df (TARGET_COMPLEX)
 #define HAVE_aarch64_fcmla_lane270v2df (TARGET_COMPLEX)
 #define HAVE_aarch64_fcmla_laneq0v4hf (TARGET_COMPLEX)
+#define HAVE_aarch64_fcmla_laneq0v4hf_vec_concatz_le ((!BYTES_BIG_ENDIAN) && (TARGET_COMPLEX))
+#define HAVE_aarch64_fcmla_laneq0v4hf_vec_concatz_be ((BYTES_BIG_ENDIAN) && (TARGET_COMPLEX))
 #define HAVE_aarch64_fcmla_laneq90v4hf (TARGET_COMPLEX)
+#define HAVE_aarch64_fcmla_laneq90v4hf_vec_concatz_le ((!BYTES_BIG_ENDIAN) && (TARGET_COMPLEX))
+#define HAVE_aarch64_fcmla_laneq90v4hf_vec_concatz_be ((BYTES_BIG_ENDIAN) && (TARGET_COMPLEX))
 #define HAVE_aarch64_fcmla_laneq180v4hf (TARGET_COMPLEX)
+#define HAVE_aarch64_fcmla_laneq180v4hf_vec_concatz_le ((!BYTES_BIG_ENDIAN) && (TARGET_COMPLEX))
+#define HAVE_aarch64_fcmla_laneq180v4hf_vec_concatz_be ((BYTES_BIG_ENDIAN) && (TARGET_COMPLEX))
 #define HAVE_aarch64_fcmla_laneq270v4hf (TARGET_COMPLEX)
+#define HAVE_aarch64_fcmla_laneq270v4hf_vec_concatz_le ((!BYTES_BIG_ENDIAN) && (TARGET_COMPLEX))
+#define HAVE_aarch64_fcmla_laneq270v4hf_vec_concatz_be ((BYTES_BIG_ENDIAN) && (TARGET_COMPLEX))
 #define HAVE_aarch64_fcmlaq_lane0v8hf (TARGET_COMPLEX)
 #define HAVE_aarch64_fcmlaq_lane90v8hf (TARGET_COMPLEX)
 #define HAVE_aarch64_fcmlaq_lane180v8hf (TARGET_COMPLEX)
@@ -11890,27 +11938,51 @@ extern rtx        gen_aarch64_rbitv8qi_vec_concatz_le                  (rtx, rtx
 extern rtx        gen_aarch64_rbitv8qi_vec_concatz_be                  (rtx, rtx, rtx);
 extern rtx        gen_aarch64_rbitv16qi                                (rtx, rtx);
 extern rtx        gen_aarch64_fcadd90v4hf                              (rtx, rtx, rtx);
+extern rtx        gen_aarch64_fcadd90v4hf_vec_concatz_le               (rtx, rtx, rtx, rtx);
+extern rtx        gen_aarch64_fcadd90v4hf_vec_concatz_be               (rtx, rtx, rtx, rtx);
 extern rtx        gen_aarch64_fcadd270v4hf                             (rtx, rtx, rtx);
+extern rtx        gen_aarch64_fcadd270v4hf_vec_concatz_le              (rtx, rtx, rtx, rtx);
+extern rtx        gen_aarch64_fcadd270v4hf_vec_concatz_be              (rtx, rtx, rtx, rtx);
 extern rtx        gen_aarch64_fcadd90v8hf                              (rtx, rtx, rtx);
 extern rtx        gen_aarch64_fcadd270v8hf                             (rtx, rtx, rtx);
 extern rtx        gen_aarch64_fcadd90v2sf                              (rtx, rtx, rtx);
+extern rtx        gen_aarch64_fcadd90v2sf_vec_concatz_le               (rtx, rtx, rtx, rtx);
+extern rtx        gen_aarch64_fcadd90v2sf_vec_concatz_be               (rtx, rtx, rtx, rtx);
 extern rtx        gen_aarch64_fcadd270v2sf                             (rtx, rtx, rtx);
+extern rtx        gen_aarch64_fcadd270v2sf_vec_concatz_le              (rtx, rtx, rtx, rtx);
+extern rtx        gen_aarch64_fcadd270v2sf_vec_concatz_be              (rtx, rtx, rtx, rtx);
 extern rtx        gen_aarch64_fcadd90v4sf                              (rtx, rtx, rtx);
 extern rtx        gen_aarch64_fcadd270v4sf                             (rtx, rtx, rtx);
 extern rtx        gen_aarch64_fcadd90v2df                              (rtx, rtx, rtx);
 extern rtx        gen_aarch64_fcadd270v2df                             (rtx, rtx, rtx);
 extern rtx        gen_aarch64_fcmla0v4hf                               (rtx, rtx, rtx, rtx);
+extern rtx        gen_aarch64_fcmla0v4hf_vec_concatz_le                (rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_aarch64_fcmla0v4hf_vec_concatz_be                (rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_aarch64_fcmla90v4hf                              (rtx, rtx, rtx, rtx);
+extern rtx        gen_aarch64_fcmla90v4hf_vec_concatz_le               (rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_aarch64_fcmla90v4hf_vec_concatz_be               (rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_aarch64_fcmla180v4hf                             (rtx, rtx, rtx, rtx);
+extern rtx        gen_aarch64_fcmla180v4hf_vec_concatz_le              (rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_aarch64_fcmla180v4hf_vec_concatz_be              (rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_aarch64_fcmla270v4hf                             (rtx, rtx, rtx, rtx);
+extern rtx        gen_aarch64_fcmla270v4hf_vec_concatz_le              (rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_aarch64_fcmla270v4hf_vec_concatz_be              (rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_aarch64_fcmla0v8hf                               (rtx, rtx, rtx, rtx);
 extern rtx        gen_aarch64_fcmla90v8hf                              (rtx, rtx, rtx, rtx);
 extern rtx        gen_aarch64_fcmla180v8hf                             (rtx, rtx, rtx, rtx);
 extern rtx        gen_aarch64_fcmla270v8hf                             (rtx, rtx, rtx, rtx);
 extern rtx        gen_aarch64_fcmla0v2sf                               (rtx, rtx, rtx, rtx);
+extern rtx        gen_aarch64_fcmla0v2sf_vec_concatz_le                (rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_aarch64_fcmla0v2sf_vec_concatz_be                (rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_aarch64_fcmla90v2sf                              (rtx, rtx, rtx, rtx);
+extern rtx        gen_aarch64_fcmla90v2sf_vec_concatz_le               (rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_aarch64_fcmla90v2sf_vec_concatz_be               (rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_aarch64_fcmla180v2sf                             (rtx, rtx, rtx, rtx);
+extern rtx        gen_aarch64_fcmla180v2sf_vec_concatz_le              (rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_aarch64_fcmla180v2sf_vec_concatz_be              (rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_aarch64_fcmla270v2sf                             (rtx, rtx, rtx, rtx);
+extern rtx        gen_aarch64_fcmla270v2sf_vec_concatz_le              (rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_aarch64_fcmla270v2sf_vec_concatz_be              (rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_aarch64_fcmla0v4sf                               (rtx, rtx, rtx, rtx);
 extern rtx        gen_aarch64_fcmla90v4sf                              (rtx, rtx, rtx, rtx);
 extern rtx        gen_aarch64_fcmla180v4sf                             (rtx, rtx, rtx, rtx);
@@ -11920,17 +11992,33 @@ extern rtx        gen_aarch64_fcmla90v2df                              (rtx, rtx
 extern rtx        gen_aarch64_fcmla180v2df                             (rtx, rtx, rtx, rtx);
 extern rtx        gen_aarch64_fcmla270v2df                             (rtx, rtx, rtx, rtx);
 extern rtx        gen_aarch64_fcmla_lane0v4hf                          (rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_aarch64_fcmla_lane0v4hf_vec_concatz_le           (rtx, rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_aarch64_fcmla_lane0v4hf_vec_concatz_be           (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_aarch64_fcmla_lane90v4hf                         (rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_aarch64_fcmla_lane90v4hf_vec_concatz_le          (rtx, rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_aarch64_fcmla_lane90v4hf_vec_concatz_be          (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_aarch64_fcmla_lane180v4hf                        (rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_aarch64_fcmla_lane180v4hf_vec_concatz_le         (rtx, rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_aarch64_fcmla_lane180v4hf_vec_concatz_be         (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_aarch64_fcmla_lane270v4hf                        (rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_aarch64_fcmla_lane270v4hf_vec_concatz_le         (rtx, rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_aarch64_fcmla_lane270v4hf_vec_concatz_be         (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_aarch64_fcmla_lane0v8hf                          (rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_aarch64_fcmla_lane90v8hf                         (rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_aarch64_fcmla_lane180v8hf                        (rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_aarch64_fcmla_lane270v8hf                        (rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_aarch64_fcmla_lane0v2sf                          (rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_aarch64_fcmla_lane0v2sf_vec_concatz_le           (rtx, rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_aarch64_fcmla_lane0v2sf_vec_concatz_be           (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_aarch64_fcmla_lane90v2sf                         (rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_aarch64_fcmla_lane90v2sf_vec_concatz_le          (rtx, rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_aarch64_fcmla_lane90v2sf_vec_concatz_be          (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_aarch64_fcmla_lane180v2sf                        (rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_aarch64_fcmla_lane180v2sf_vec_concatz_le         (rtx, rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_aarch64_fcmla_lane180v2sf_vec_concatz_be         (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_aarch64_fcmla_lane270v2sf                        (rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_aarch64_fcmla_lane270v2sf_vec_concatz_le         (rtx, rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_aarch64_fcmla_lane270v2sf_vec_concatz_be         (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_aarch64_fcmla_lane0v4sf                          (rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_aarch64_fcmla_lane90v4sf                         (rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_aarch64_fcmla_lane180v4sf                        (rtx, rtx, rtx, rtx, rtx);
@@ -11940,9 +12028,17 @@ extern rtx        gen_aarch64_fcmla_lane90v2df                         (rtx, rtx
 extern rtx        gen_aarch64_fcmla_lane180v2df                        (rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_aarch64_fcmla_lane270v2df                        (rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_aarch64_fcmla_laneq0v4hf                         (rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_aarch64_fcmla_laneq0v4hf_vec_concatz_le          (rtx, rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_aarch64_fcmla_laneq0v4hf_vec_concatz_be          (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_aarch64_fcmla_laneq90v4hf                        (rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_aarch64_fcmla_laneq90v4hf_vec_concatz_le         (rtx, rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_aarch64_fcmla_laneq90v4hf_vec_concatz_be         (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_aarch64_fcmla_laneq180v4hf                       (rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_aarch64_fcmla_laneq180v4hf_vec_concatz_le        (rtx, rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_aarch64_fcmla_laneq180v4hf_vec_concatz_be        (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_aarch64_fcmla_laneq270v4hf                       (rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_aarch64_fcmla_laneq270v4hf_vec_concatz_le        (rtx, rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_aarch64_fcmla_laneq270v4hf_vec_concatz_be        (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_aarch64_fcmlaq_lane0v8hf                         (rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_aarch64_fcmlaq_lane90v8hf                        (rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_aarch64_fcmlaq_lane180v8hf                       (rtx, rtx, rtx, rtx, rtx);
