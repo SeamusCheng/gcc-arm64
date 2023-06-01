@@ -4,7 +4,7 @@
 ;;; Don't parse this file wihout knowing GCC gengtype internals.
 ;;; This file should be parsed by the same gengtype which wrote it.
 
-(!version  "14.0.0 20230528 (Bleeding Edge)")
+(!version  "14.0.0 20230601 (Bleeding Edge)")
 (!srcdir  "../../gcc/gcc")
 (!languages 12 ada c cp d fortran go jit lto m2 objc objcp rust)
 (!fileslist 242 0
@@ -9784,21 +9784,21 @@
                                                      (!fields 1 
                                                       (!pair  "wide_int_storage"
                                                        (!type struct 499 nil  gc_used "wide_int_storage"
-                                                        (!srcfileloc  "wide-int.h" 1092)
+                                                        (!srcfileloc  "wide-int.h" 1090)
                                                         (!fields 3 
                                                          (!pair  "val"
                                                           (!type array 500 nil  gc_used "WIDE_INT_MAX_ELTS" 
                                                            (!type already_seen 2)
                                                           )
-                                                          (!srcfileloc  "wide-int.h" 1066)
+                                                          (!srcfileloc  "wide-int.h" 1067)
                                                           nil )
                                                          (!pair  "len"
                                                           (!type already_seen 2)
-                                                          (!srcfileloc  "wide-int.h" 1067)
+                                                          (!srcfileloc  "wide-int.h" 1068)
                                                           nil )
                                                          (!pair  "precision"
                                                           (!type already_seen 2)
-                                                          (!srcfileloc  "wide-int.h" 1068)
+                                                          (!srcfileloc  "wide-int.h" 1069)
                                                           nil )
                                                         )
                                                         nil 4095 nil nil )
@@ -17923,14 +17923,14 @@
   nil 0 nil nil )
  
  (!type struct 889 nil  gc_unused "generic_wide_int"
-  (!srcfileloc  "wide-int.h" 778)
+  (!srcfileloc  "wide-int.h" 779)
   (!fields 0 )
   nil 4095 nil 
   (!type already_seen 888)
  )
  
  (!type undefined 890 nil  gc_unused "ASSIGNMENT_OPERATOR"
-  (!srcfileloc  "wide-int.h" 758)
+  (!srcfileloc  "wide-int.h" 759)
  )
  
  (!type struct 891 nil  gc_unused "int_traits"nil 
@@ -17938,38 +17938,38 @@
   nil 0 nil nil )
  
  (!type struct 892 nil  gc_unused "fixed_wide_int_storage"
-  (!srcfileloc  "wide-int.h" 1239)
+  (!srcfileloc  "wide-int.h" 1237)
   (!fields 2 
    (!pair  "val"
     (!type array 893 nil  gc_unused "WIDE_INT_MAX_HWIS (N)" 
      (!type already_seen 2)
     )
-    (!srcfileloc  "wide-int.h" 1221)
+    (!srcfileloc  "wide-int.h" 1219)
     nil )
    (!pair  "len"
     (!type already_seen 2)
-    (!srcfileloc  "wide-int.h" 1222)
+    (!srcfileloc  "wide-int.h" 1220)
     nil )
   )
   nil 4095 nil nil )
  
  (!type struct 894 nil  gc_unused "trailing_wide_int_storage"
-  (!srcfileloc  "wide-int.h" 1370)
+  (!srcfileloc  "wide-int.h" 1368)
   (!fields 0 )
   nil 4095 nil nil )
  
  (!type user_struct 895 nil  gc_unused "generic_wide_int<trailing_wide_int_storage>"
-  (!srcfileloc  "wide-int.h" 1370)
+  (!srcfileloc  "wide-int.h" 1368)
   (!fields 1 
    (!pair  "trailing_wide_int_storage"
     (!type already_seen 894)
-    (!srcfileloc  "wide-int.h" 1370)
+    (!srcfileloc  "wide-int.h" 1368)
     nil )
   )
  )
  
  (!type user_struct 896 nil  gc_unused "trailing_wide_ints"
-  (!srcfileloc  "wide-int.h" 1421)
+  (!srcfileloc  "wide-int.h" 1419)
   (!fields 0 )
  )
  
@@ -20521,15 +20521,15 @@
    (!type already_seen 1114)
   )
   gc_pointed_to "vec<alias_set_entry*,va_gc>"
-  (!srcfileloc  "alias.cc" 280)
+  (!srcfileloc  "alias.cc" 267)
   (!fields 2 
    (!pair  "va_gc"
     (!type already_seen 80)
-    (!srcfileloc  "alias.cc" 280)
+    (!srcfileloc  "alias.cc" 267)
     nil )
    (!pair  "alias_set_entry"
     (!type already_seen 1113)
-    (!srcfileloc  "alias.cc" 280)
+    (!srcfileloc  "alias.cc" 267)
     nil )
   )
  )
@@ -26522,48 +26522,48 @@
   (!fields 0 )
   nil 0 nil nil )
  
- (!type struct 1832 nil  gc_unused "anonymous:../../gcc/gcc/config/aarch64/aarch64-builtins.cc:676"nil 
+ (!type struct 1832 nil  gc_unused "anonymous:../../gcc/gcc/config/aarch64/aarch64-builtins.cc:699"nil 
   (!fields 0 )
   nil 0 nil nil )
  
- (!type struct 1833 nil  gc_unused "anonymous:../../gcc/gcc/config/aarch64/aarch64-builtins.cc:685"nil 
+ (!type struct 1833 nil  gc_unused "anonymous:../../gcc/gcc/config/aarch64/aarch64-builtins.cc:708"nil 
   (!fields 0 )
   nil 0 nil nil )
  
- (!type struct 1834 nil  gc_unused "anonymous:../../gcc/gcc/config/aarch64/aarch64-builtins.cc:695"nil 
+ (!type struct 1834 nil  gc_unused "anonymous:../../gcc/gcc/config/aarch64/aarch64-builtins.cc:718"nil 
   (!fields 0 )
   nil 0 nil nil )
  
  (!type struct 1835 nil  gc_used "aarch64_simd_type_info"
-  (!srcfileloc  "config/aarch64/aarch64-builtins.cc" 899)
+  (!srcfileloc  "config/aarch64/aarch64-builtins.cc" 922)
   (!fields 7 
    (!pair  "type"
     (!type already_seen 2)
-    (!srcfileloc  "config/aarch64/aarch64-builtins.cc" 873)
+    (!srcfileloc  "config/aarch64/aarch64-builtins.cc" 896)
     nil )
    (!pair  "name"
     (!type already_seen 11)
-    (!srcfileloc  "config/aarch64/aarch64-builtins.cc" 876)
+    (!srcfileloc  "config/aarch64/aarch64-builtins.cc" 899)
     nil )
    (!pair  "mangle"
     (!type already_seen 11)
-    (!srcfileloc  "config/aarch64/aarch64-builtins.cc" 886)
+    (!srcfileloc  "config/aarch64/aarch64-builtins.cc" 909)
     nil )
    (!pair  "itype"
     (!type already_seen 23)
-    (!srcfileloc  "config/aarch64/aarch64-builtins.cc" 889)
+    (!srcfileloc  "config/aarch64/aarch64-builtins.cc" 912)
     nil )
    (!pair  "eltype"
     (!type already_seen 23)
-    (!srcfileloc  "config/aarch64/aarch64-builtins.cc" 892)
+    (!srcfileloc  "config/aarch64/aarch64-builtins.cc" 915)
     nil )
    (!pair  "mode"
     (!type already_seen 2)
-    (!srcfileloc  "config/aarch64/aarch64-builtins.cc" 895)
+    (!srcfileloc  "config/aarch64/aarch64-builtins.cc" 918)
     nil )
    (!pair  "q"
     (!type already_seen 2)
-    (!srcfileloc  "config/aarch64/aarch64-builtins.cc" 898)
+    (!srcfileloc  "config/aarch64/aarch64-builtins.cc" 921)
     nil )
   )
   nil 4095 nil nil )
@@ -26572,11 +26572,11 @@
   (!fields 0 )
   nil 0 nil nil )
  
- (!type struct 1837 nil  gc_unused "anonymous:../../gcc/gcc/config/aarch64/aarch64-builtins.cc:1770"nil 
+ (!type struct 1837 nil  gc_unused "anonymous:../../gcc/gcc/config/aarch64/aarch64-builtins.cc:1793"nil 
   (!fields 0 )
   nil 0 nil nil )
  
- (!type struct 1838 nil  gc_unused "anonymous:../../gcc/gcc/config/aarch64/aarch64-builtins.cc:1817"nil 
+ (!type struct 1838 nil  gc_unused "anonymous:../../gcc/gcc/config/aarch64/aarch64-builtins.cc:1840"nil 
   (!fields 0 )
   nil 0 nil nil )
  
@@ -32486,7 +32486,7 @@
   nil )
  (!pair  "builtin_type"
   (!type already_seen 2)
-  (!srcfileloc  "ada/gcc-interface/utils.cc" 6152)
+  (!srcfileloc  "ada/gcc-interface/utils.cc" 6153)
   nil )
  (!pair  "pad_type_hasher"
   (!type already_seen 1901)
@@ -32506,7 +32506,7 @@
   nil )
  (!pair  "atomic_acces_t"
   (!type already_seen 2)
-  (!srcfileloc  "ada/gcc-interface/trans.cc" 4180)
+  (!srcfileloc  "ada/gcc-interface/trans.cc" 4184)
   nil )
  (!pair  "vec<loop_info,va_gc>"
   (!type already_seen 1891)
@@ -32534,7 +32534,7 @@
   nil )
  (!pair  "vinfo_t"
   (!type already_seen 1880)
-  (!srcfileloc  "ada/gcc-interface/decl.cc" 7916)
+  (!srcfileloc  "ada/gcc-interface/decl.cc" 7937)
   nil )
  (!pair  "intrin_binding_t"
   (!type already_seen 1878)
@@ -32596,23 +32596,23 @@
   nil )
  (!pair  "builtin_simd_arg"
   (!type already_seen 2)
-  (!srcfileloc  "config/aarch64/aarch64-builtins.cc" 2029)
+  (!srcfileloc  "config/aarch64/aarch64-builtins.cc" 2052)
   nil )
  (!pair  "ls64_builtins_data"
   (!type already_seen 1838)
-  (!srcfileloc  "config/aarch64/aarch64-builtins.cc" 1821)
+  (!srcfileloc  "config/aarch64/aarch64-builtins.cc" 1844)
   nil )
  (!pair  "aarch64_simd_intrinsic_datum"
   (!type already_seen 1834)
-  (!srcfileloc  "config/aarch64/aarch64-builtins.cc" 703)
+  (!srcfileloc  "config/aarch64/aarch64-builtins.cc" 726)
   nil )
  (!pair  "aarch64_fcmla_laneq_builtin_datum"
   (!type already_seen 1833)
-  (!srcfileloc  "config/aarch64/aarch64-builtins.cc" 691)
+  (!srcfileloc  "config/aarch64/aarch64-builtins.cc" 714)
   nil )
  (!pair  "aarch64_crc_builtin_datum"
   (!type already_seen 1832)
-  (!srcfileloc  "config/aarch64/aarch64-builtins.cc" 681)
+  (!srcfileloc  "config/aarch64/aarch64-builtins.cc" 704)
   nil )
  (!pair  "aarch64_simd_builtin_datum"
   (!type already_seen 1831)
@@ -34000,7 +34000,7 @@
   nil )
  (!pair  "vec<alias_set_entry*,va_gc>"
   (!type already_seen 1114)
-  (!srcfileloc  "alias.cc" 280)
+  (!srcfileloc  "alias.cc" 267)
   nil )
  (!pair  "alias_set_hash"
   (!type already_seen 1109)
@@ -34656,31 +34656,31 @@
   nil )
  (!pair  "trailing_wide_ints"
   (!type already_seen 896)
-  (!srcfileloc  "wide-int.h" 1421)
+  (!srcfileloc  "wide-int.h" 1419)
   nil )
  (!pair  "trailing_wide_int"
   (!type already_seen 895)
-  (!srcfileloc  "wide-int.h" 1370)
+  (!srcfileloc  "wide-int.h" 1368)
   nil )
  (!pair  "trailing_wide_int_storage"
   (!type already_seen 894)
-  (!srcfileloc  "wide-int.h" 1370)
+  (!srcfileloc  "wide-int.h" 1368)
   nil )
  (!pair  "generic_wide_int<trailing_wide_int_storage>"
   (!type already_seen 895)
-  (!srcfileloc  "wide-int.h" 1370)
+  (!srcfileloc  "wide-int.h" 1368)
   nil )
  (!pair  "fixed_wide_int_storage"
   (!type already_seen 892)
-  (!srcfileloc  "wide-int.h" 1225)
+  (!srcfileloc  "wide-int.h" 1223)
   nil )
  (!pair  "ASSIGNMENT_OPERATOR"
   (!type already_seen 890)
-  (!srcfileloc  "wide-int.h" 758)
+  (!srcfileloc  "wide-int.h" 759)
   nil )
  (!pair  "generic_wide_int"
   (!type already_seen 889)
-  (!srcfileloc  "wide-int.h" 719)
+  (!srcfileloc  "wide-int.h" 720)
   nil )
  (!pair  "T1"
   (!type already_seen 886)
@@ -37462,23 +37462,23 @@
   nil )
  (!pair  "gnat_eh_personality_decl"
   (!type already_seen 23)
-  (!srcfileloc  "ada/gcc-interface/misc.cc" 1283)
+  (!srcfileloc  "ada/gcc-interface/misc.cc" 1290)
   nil )
  (!pair  "built_in_attributes"
   (!type array 2428 nil  gc_used "(int) ATTR_LAST" 
    (!type already_seen 23)
   )
-  (!srcfileloc  "ada/gcc-interface/utils.cc" 6322)
+  (!srcfileloc  "ada/gcc-interface/utils.cc" 6323)
   nil )
  (!pair  "builtin_types"
   (!type array 2429 nil  gc_used "(int) BT_LAST + 1" 
    (!type already_seen 23)
   )
-  (!srcfileloc  "ada/gcc-interface/utils.cc" 6155)
+  (!srcfileloc  "ada/gcc-interface/utils.cc" 6156)
   nil )
  (!pair  "dummy_global"
   (!type already_seen 23)
-  (!srcfileloc  "ada/gcc-interface/utils.cc" 5908)
+  (!srcfileloc  "ada/gcc-interface/utils.cc" 5909)
   nil )
  (!pair  "pad_type_hash_table"
   (!type already_seen 1903)
@@ -37554,7 +37554,7 @@
  )
  (!pair  "thunk_labelno"
   (!type already_seen 2)
-  (!srcfileloc  "ada/gcc-interface/trans.cc" 10891)
+  (!srcfileloc  "ada/gcc-interface/trans.cc" 10855)
   nil )
  (!pair  "gnu_loop_stack"
   (!type already_seen 1892)
@@ -37661,19 +37661,19 @@
   nil )
  (!pair  "ls64_arm_data_t"
   (!type already_seen 23)
-  (!srcfileloc  "config/aarch64/aarch64-builtins.cc" 1823)
+  (!srcfileloc  "config/aarch64/aarch64-builtins.cc" 1846)
   nil )
  (!pair  "aarch64_simd_intXI_type_node"
   (!type already_seen 23)
-  (!srcfileloc  "config/aarch64/aarch64-builtins.cc" 913)
+  (!srcfileloc  "config/aarch64/aarch64-builtins.cc" 936)
   nil )
  (!pair  "aarch64_simd_intCI_type_node"
   (!type already_seen 23)
-  (!srcfileloc  "config/aarch64/aarch64-builtins.cc" 912)
+  (!srcfileloc  "config/aarch64/aarch64-builtins.cc" 935)
   nil )
  (!pair  "aarch64_simd_intOI_type_node"
   (!type already_seen 23)
-  (!srcfileloc  "config/aarch64/aarch64-builtins.cc" 911)
+  (!srcfileloc  "config/aarch64/aarch64-builtins.cc" 934)
   nil )
  (!pair  "aarch64_simd_tuple_types"
   (!type array 2440 nil  gc_used "ARM_NEON_H_TYPES_LAST" 
@@ -37681,19 +37681,19 @@
     (!type already_seen 23)
    )
   )
-  (!srcfileloc  "config/aarch64/aarch64-builtins.cc" 909)
+  (!srcfileloc  "config/aarch64/aarch64-builtins.cc" 932)
   nil )
  (!pair  "aarch64_simd_types"
   (!type array 2442 nil  gc_used "" 
    (!type already_seen 1835)
   )
-  (!srcfileloc  "config/aarch64/aarch64-builtins.cc" 903)
+  (!srcfileloc  "config/aarch64/aarch64-builtins.cc" 926)
   nil )
  (!pair  "aarch64_builtin_decls"
   (!type array 2443 nil  gc_used "AARCH64_BUILTIN_MAX" 
    (!type already_seen 23)
   )
-  (!srcfileloc  "config/aarch64/aarch64-builtins.cc" 830)
+  (!srcfileloc  "config/aarch64/aarch64-builtins.cc" 853)
   nil )
  (!pair  "analyzer_stashed_constants"
   (!type already_seen 394)
@@ -37828,25 +37828,25 @@
   nil )
  (!pair  "aarch64_sls_shared_thunks_needed"
   (!type already_seen 2)
-  (!srcfileloc  "config/aarch64/aarch64.cc" 27398)
+  (!srcfileloc  "config/aarch64/aarch64.cc" 27460)
   nil )
  (!pair  "aarch64_sls_shared_thunks"
   (!type array 2449 nil  gc_used "30" 
    (!type already_seen 23)
   )
-  (!srcfileloc  "config/aarch64/aarch64.cc" 27397)
+  (!srcfileloc  "config/aarch64/aarch64.cc" 27459)
   nil )
  (!pair  "va_list_type"
   (!type already_seen 23)
-  (!srcfileloc  "config/aarch64/aarch64.cc" 19614)
+  (!srcfileloc  "config/aarch64/aarch64.cc" 19668)
   nil )
  (!pair  "aarch64_previous_fndecl"
   (!type already_seen 23)
-  (!srcfileloc  "config/aarch64/aarch64.cc" 18599)
+  (!srcfileloc  "config/aarch64/aarch64.cc" 18653)
   nil )
  (!pair  "tls_get_addr_libfunc"
   (!type already_seen 100)
-  (!srcfileloc  "config/aarch64/aarch64.cc" 4413)
+  (!srcfileloc  "config/aarch64/aarch64.cc" 4417)
   nil )
  (!pair  "stack_chk_fail_decl"
   (!type already_seen 23)
@@ -38260,14 +38260,14 @@
     (!type already_seen 100)
    )
   )
-  (!srcfileloc  "emit-rtl.cc" 6487)
+  (!srcfileloc  "emit-rtl.cc" 6483)
   (!options 
    (!option deletable string  "")
   )
  )
  (!pair  "free_sequence_stack"
   (!type already_seen 1000)
-  (!srcfileloc  "emit-rtl.cc" 5471)
+  (!srcfileloc  "emit-rtl.cc" 5467)
   (!options 
    (!option deletable string  "")
   )
@@ -38745,34 +38745,34 @@
  )
  (!pair  "frame_set"
   (!type already_seen 2)
-  (!srcfileloc  "alias.cc" 1373)
+  (!srcfileloc  "alias.cc" 1360)
   nil )
  (!pair  "varargs_set"
   (!type already_seen 2)
-  (!srcfileloc  "alias.cc" 1351)
+  (!srcfileloc  "alias.cc" 1338)
   nil )
  (!pair  "alias_sets"
   (!type already_seen 1115)
-  (!srcfileloc  "alias.cc" 280)
+  (!srcfileloc  "alias.cc" 267)
   nil )
  (!pair  "reg_known_value"
   (!type already_seen 221)
-  (!srcfileloc  "alias.cc" 258)
+  (!srcfileloc  "alias.cc" 245)
   nil )
  (!pair  "old_reg_base_value"
   (!type already_seen 221)
-  (!srcfileloc  "alias.cc" 239)
+  (!srcfileloc  "alias.cc" 226)
   (!options 
    (!option deletable string  "")
   )
  )
  (!pair  "arg_base_value"
   (!type already_seen 100)
-  (!srcfileloc  "alias.cc" 231)
+  (!srcfileloc  "alias.cc" 218)
   nil )
  (!pair  "reg_base_value"
   (!type already_seen 221)
-  (!srcfileloc  "alias.cc" 226)
+  (!srcfileloc  "alias.cc" 213)
   nil )
  (!pair  "restinsn"
   (!type already_seen 297)
