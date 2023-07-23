@@ -4,7 +4,7 @@
 ;;; Don't parse this file wihout knowing GCC gengtype internals.
 ;;; This file should be parsed by the same gengtype which wrote it.
 
-(!version  "14.0.0 20230720 (Bleeding Edge)")
+(!version  "14.0.0 20230723 (Bleeding Edge)")
 (!srcdir  "../../gcc/gcc")
 (!languages 12 ada c cp d fortran go jit lto m2 objc objcp rust)
 (!fileslist 242 0
@@ -6222,54 +6222,54 @@
                                          (!type struct 291 
                                           (!type already_seen 290)
                                           gc_pointed_to "niter_desc"
-                                          (!srcfileloc  "cfgloop.h" 497)
+                                          (!srcfileloc  "cfgloop.h" 502)
                                           (!fields 11 
                                            (!pair  "out_edge"
                                             (!type already_seen 275)
-                                            (!srcfileloc  "cfgloop.h" 464)
+                                            (!srcfileloc  "cfgloop.h" 469)
                                             nil )
                                            (!pair  "in_edge"
                                             (!type already_seen 275)
-                                            (!srcfileloc  "cfgloop.h" 467)
+                                            (!srcfileloc  "cfgloop.h" 472)
                                             nil )
                                            (!pair  "simple_p"
                                             (!type already_seen 2)
-                                            (!srcfileloc  "cfgloop.h" 471)
+                                            (!srcfileloc  "cfgloop.h" 476)
                                             nil )
                                            (!pair  "const_iter"
                                             (!type already_seen 2)
-                                            (!srcfileloc  "cfgloop.h" 474)
+                                            (!srcfileloc  "cfgloop.h" 479)
                                             nil )
                                            (!pair  "niter"
                                             (!type already_seen 2)
-                                            (!srcfileloc  "cfgloop.h" 477)
+                                            (!srcfileloc  "cfgloop.h" 482)
                                             nil )
                                            (!pair  "assumptions"
                                             (!type already_seen 100)
-                                            (!srcfileloc  "cfgloop.h" 480)
+                                            (!srcfileloc  "cfgloop.h" 485)
                                             nil )
                                            (!pair  "noloop_assumptions"
                                             (!type already_seen 100)
-                                            (!srcfileloc  "cfgloop.h" 484)
+                                            (!srcfileloc  "cfgloop.h" 489)
                                             nil )
                                            (!pair  "infinite"
                                             (!type already_seen 100)
-                                            (!srcfileloc  "cfgloop.h" 487)
+                                            (!srcfileloc  "cfgloop.h" 492)
                                             nil )
                                            (!pair  "signed_p"
                                             (!type already_seen 2)
-                                            (!srcfileloc  "cfgloop.h" 490)
+                                            (!srcfileloc  "cfgloop.h" 495)
                                             nil )
                                            (!pair  "mode"
                                             (!type struct 292 nil  gc_used "scalar_int_mode"
                                              (!srcfileloc  "coretypes.h" 66)
                                              (!fields 0 )
                                              nil 4095 nil nil )
-                                            (!srcfileloc  "cfgloop.h" 493)
+                                            (!srcfileloc  "cfgloop.h" 498)
                                             nil )
                                            (!pair  "niter_expr"
                                             (!type already_seen 100)
-                                            (!srcfileloc  "cfgloop.h" 496)
+                                            (!srcfileloc  "cfgloop.h" 501)
                                             nil )
                                           )
                                           nil 4095 nil nil )
@@ -17487,15 +17487,15 @@
      (!type struct 839 
       (!type already_seen 838)
       gc_pointed_to "cgraph_rtl_info"
-      (!srcfileloc  "rtl.h" 4566)
+      (!srcfileloc  "rtl.h" 4564)
       (!fields 2 
        (!pair  "preferred_incoming_stack_boundary"
         (!type already_seen 2)
-        (!srcfileloc  "rtl.h" 4561)
+        (!srcfileloc  "rtl.h" 4559)
         nil )
        (!pair  "function_used_regs"
         (!type already_seen 2)
-        (!srcfileloc  "rtl.h" 4565)
+        (!srcfileloc  "rtl.h" 4563)
         nil )
       )
       nil 4095 nil nil )
@@ -27349,31 +27349,31 @@
    (!type already_seen 1932)
   )
   gc_pointed_to "vec<tree_gc_vec,va_gc>"
-  (!srcfileloc  "c-family/c-common.cc" 8289)
+  (!srcfileloc  "c-family/c-common.cc" 8290)
   (!fields 2 
    (!pair  "va_gc"
     (!type already_seen 80)
-    (!srcfileloc  "c-family/c-common.cc" 8289)
+    (!srcfileloc  "c-family/c-common.cc" 8290)
     nil )
    (!pair  "tree_gc_vec"
     (!type already_seen 85)
-    (!srcfileloc  "c-family/c-common.cc" 8289)
+    (!srcfileloc  "c-family/c-common.cc" 8290)
     nil )
   )
  )
  
  (!type user_struct 1934 nil  gc_unused "hash_set<char*,false,nofree_string_hash>"
-  (!srcfileloc  "c-family/c-common.cc" 9262)
+  (!srcfileloc  "c-family/c-common.cc" 9263)
   (!fields 2 
    (!pair  "nofree_string_hash"
     (!type undefined 1935 nil  gc_unused "nofree_string_hash"
-     (!srcfileloc  "c-family/c-common.cc" 9262)
+     (!srcfileloc  "c-family/c-common.cc" 9263)
     )
-    (!srcfileloc  "c-family/c-common.cc" 9262)
+    (!srcfileloc  "c-family/c-common.cc" 9263)
     nil )
    (!pair  "false"
     (!type already_seen 878)
-    (!srcfileloc  "c-family/c-common.cc" 9262)
+    (!srcfileloc  "c-family/c-common.cc" 9263)
     nil )
   )
  )
@@ -27381,7 +27381,7 @@
  (!type already_seen 1935)
  
  (!type user_struct 1936 nil  gc_unused "hash_map<char*,per_file_includes_t*>"
-  (!srcfileloc  "c-family/c-common.cc" 9267)
+  (!srcfileloc  "c-family/c-common.cc" 9268)
   (!fields 1 
    (!pair  "per_file_includes_t"
     (!type pointer 1937 nil  gc_unused
@@ -27391,7 +27391,7 @@
       (!fields 0 )
       nil 0 nil nil )
     )
-    (!srcfileloc  "c-family/c-common.cc" 9267)
+    (!srcfileloc  "c-family/c-common.cc" 9268)
     nil )
   )
  )
@@ -32542,31 +32542,31 @@
   nil )
  (!pair  "added_includes_t"
   (!type already_seen 1936)
-  (!srcfileloc  "c-family/c-common.cc" 9267)
+  (!srcfileloc  "c-family/c-common.cc" 9268)
   nil )
  (!pair  "hash_map<char*,per_file_includes_t*>"
   (!type already_seen 1936)
-  (!srcfileloc  "c-family/c-common.cc" 9267)
+  (!srcfileloc  "c-family/c-common.cc" 9268)
   nil )
  (!pair  "per_file_includes_t"
   (!type already_seen 1934)
-  (!srcfileloc  "c-family/c-common.cc" 9262)
+  (!srcfileloc  "c-family/c-common.cc" 9263)
   nil )
  (!pair  "nofree_string_hash"
   (!type already_seen 1935)
-  (!srcfileloc  "c-family/c-common.cc" 9262)
+  (!srcfileloc  "c-family/c-common.cc" 9263)
   nil )
  (!pair  "hash_set<char*,false,nofree_string_hash>"
   (!type already_seen 1934)
-  (!srcfileloc  "c-family/c-common.cc" 9262)
+  (!srcfileloc  "c-family/c-common.cc" 9263)
   nil )
  (!pair  "vec<tree_gc_vec,va_gc>"
   (!type already_seen 1932)
-  (!srcfileloc  "c-family/c-common.cc" 8289)
+  (!srcfileloc  "c-family/c-common.cc" 8290)
   nil )
  (!pair  "tree_gc_vec"
   (!type already_seen 85)
-  (!srcfileloc  "c-family/c-common.cc" 8288)
+  (!srcfileloc  "c-family/c-common.cc" 8289)
   nil )
  (!pair  "vec<const_char_p,va_gc>"
   (!type already_seen 1930)
@@ -33084,11 +33084,11 @@
   nil )
  (!pair  "uid_range_p"
   (!type already_seen 1693)
-  (!srcfileloc  "passes.cc" 1043)
+  (!srcfileloc  "passes.cc" 1036)
   nil )
  (!pair  "char_ptr"
   (!type already_seen 9)
-  (!srcfileloc  "passes.cc" 923)
+  (!srcfileloc  "passes.cc" 916)
   nil )
  (!pair  "aarch64_cc"
   (!type already_seen 2)
@@ -37356,7 +37356,7 @@
   nil )
  (!pair  "default_arg_context"
   (!type already_seen 85)
-  (!srcfileloc  "cp/call.cc" 9179)
+  (!srcfileloc  "cp/call.cc" 9182)
   nil )
  (!pair  "unemitted_tinfo_decls"
   (!type already_seen 85)
@@ -37505,7 +37505,7 @@
  )
  (!pair  "tree_vector_cache"
   (!type already_seen 1933)
-  (!srcfileloc  "c-family/c-common.cc" 8289)
+  (!srcfileloc  "c-family/c-common.cc" 8290)
   (!options 
    (!option deletable string  "")
   )
@@ -39065,7 +39065,7 @@
   nil )
  (!pair  "stack_limit_rtx"
   (!type already_seen 100)
-  (!srcfileloc  "rtl.h" 4496)
+  (!srcfileloc  "rtl.h" 4494)
   nil )
  (!pair  "default_target_rtl"
   (!type already_seen 590)
