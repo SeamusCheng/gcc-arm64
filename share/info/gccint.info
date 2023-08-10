@@ -38281,9 +38281,17 @@ This is about addressing modes.
      would ever accept.
 
  -- Target Hook: bool TARGET_LEGITIMATE_ADDRESS_P (machine_mode MODE,
-          rtx X, bool STRICT)
+          rtx X, bool STRICT, code_helper CH)
      A function that returns whether X (an RTX) is a legitimate memory
      address on the target machine for a memory operand of mode MODE.
+     If CH is not ‘ERROR_MARK’, it can be called from middle-end to
+     determine if it is valid to use X as a memory operand for RTX insn
+     which is generated for the given code_helper CH.  For example,
+     assuming the given CH is IFN_LEN_LOAD, on some target its
+     underlying hardware instructions support fewer addressing modes
+     than what are for the normal vector load and store, then with this
+     CH target can know the actual use context and return more exact
+     result.
 
      Legitimate addresses are defined in two variants: a strict variant
      and a non-strict one.  The STRICT parameter chooses which variant
@@ -43167,12 +43175,15 @@ keyword for named address space #1:
      space.
 
  -- Target Hook: bool TARGET_ADDR_SPACE_LEGITIMATE_ADDRESS_P
-          (machine_mode MODE, rtx EXP, bool STRICT, addr_space_t AS)
+          (machine_mode MODE, rtx EXP, bool STRICT, addr_space_t AS,
+          code_helper CH)
      Define this to return true if EXP is a valid address for mode MODE
-     in the named address space AS.  The STRICT parameter says whether
-     strict addressing is in effect after reload has finished.  This
-     target hook is the same as the ‘TARGET_LEGITIMATE_ADDRESS_P’ target
-     hook, except that it includes explicit named address space support.
+     in the named address space AS with the use context CH.  The STRICT
+     parameter says whether strict addressing is in effect after reload
+     has finished.  The CH indicates what context EXP will be used for.
+     This target hook is the same as the ‘TARGET_LEGITIMATE_ADDRESS_P’
+     target hook, except that it includes explicit named address space
+     support.
 
  -- Target Hook: rtx TARGET_ADDR_SPACE_LEGITIMIZE_ADDRESS (rtx X, rtx
           OLDX, machine_mode MODE, addr_space_t AS)
@@ -54650,7 +54661,7 @@ Concept Index
 * branch prediction:                     Profile information.
                                                              (line   24)
 * BRANCH_COST:                           Costs.              (line  104)
-* break_out_memory_refs:                 Addressing Modes.   (line  134)
+* break_out_memory_refs:                 Addressing Modes.   (line  142)
 * BREAK_STMT:                            Statements for C and C++.
                                                              (line    6)
 * BSS_SECTION_ASM_OP:                    Sections.           (line   67)
@@ -54987,7 +54998,7 @@ Concept Index
                                                              (line    6)
 * copysign:                              Arithmetic.         (line  262)
 * copysignM3 instruction pattern:        Standard Names.     (line 1430)
-* copy_rtx:                              Addressing Modes.   (line  189)
+* copy_rtx:                              Addressing Modes.   (line  197)
 * copy_rtx_if_shared:                    Sharing.            (line   65)
 * cosM2 instruction pattern:             Standard Names.     (line 1196)
 * costs of instructions:                 Costs.              (line    6)
@@ -55427,7 +55438,7 @@ Concept Index
 * final_presence_set:                    Processor pipeline description.
                                                              (line  223)
 * final_sequence:                        Instruction Output. (line  144)
-* FIND_BASE_TERM:                        Addressing Modes.   (line  117)
+* FIND_BASE_TERM:                        Addressing Modes.   (line  125)
 * finite state automaton minimization:   Processor pipeline description.
                                                              (line  304)
 * FINI_ARRAY_SECTION_ASM_OP:             Sections.           (line  113)
@@ -56011,7 +56022,7 @@ Concept Index
                                                              (line   18)
 * GLOBAL_INIT_PRIORITY:                  Functions for C++.  (line  141)
 * global_regs:                           Register Basics.    (line  102)
-* GO_IF_LEGITIMATE_ADDRESS:              Addressing Modes.   (line   90)
+* GO_IF_LEGITIMATE_ADDRESS:              Addressing Modes.   (line   98)
 * greater than:                          Comparisons.        (line   50)
 * greater than <1>:                      Comparisons.        (line   54)
 * greater than <2>:                      Comparisons.        (line   62)
@@ -56376,7 +56387,7 @@ Concept Index
 * left rotate:                           Arithmetic.         (line  201)
 * left shift:                            Arithmetic.         (line  179)
 * LEGITIMATE_PIC_OPERAND_P:              PIC.                (line   31)
-* LEGITIMIZE_RELOAD_ADDRESS:             Addressing Modes.   (line  150)
+* LEGITIMIZE_RELOAD_ADDRESS:             Addressing Modes.   (line  158)
 * length:                                GTY Options.        (line   47)
 * len_load_M instruction pattern:        Standard Names.     (line  458)
 * len_store_M instruction pattern:       Standard Names.     (line  480)
@@ -57002,7 +57013,7 @@ Concept Index
 * PUSH_ARGS_REVERSED:                    Stack Arguments.    (line   28)
 * push_operand:                          Machine-Independent Predicates.
                                                              (line   80)
-* push_reload:                           Addressing Modes.   (line  176)
+* push_reload:                           Addressing Modes.   (line  184)
 * PUSH_ROUNDING:                         Stack Arguments.    (line   34)
 * PUT_CODE:                              RTL Objects.        (line   47)
 * PUT_MODE:                              Machine Modes.      (line  384)
@@ -57138,7 +57149,7 @@ Concept Index
 * REG_NOTES:                             Insns.              (line  337)
 * REG_NOTE_KIND:                         Insns.              (line  349)
 * REG_OFFSET:                            Special Accessors.  (line   62)
-* REG_OK_STRICT:                         Addressing Modes.   (line   99)
+* REG_OK_STRICT:                         Addressing Modes.   (line  107)
 * REG_PARM_STACK_SPACE:                  Stack Arguments.    (line   61)
 * REG_PARM_STACK_SPACE, and TARGET_FUNCTION_ARG: Register Arguments.
                                                              (line   43)
@@ -57500,7 +57511,7 @@ Concept Index
 * strcpy:                                Storage Layout.     (line  267)
 * STRICT_ALIGNMENT:                      Storage Layout.     (line  364)
 * strict_low_part:                       RTL Declarations.   (line    9)
-* strict_memory_address_p:               Addressing Modes.   (line  186)
+* strict_memory_address_p:               Addressing Modes.   (line  194)
 * STRING_CST:                            Constant expressions.
                                                              (line    6)
 * string_length:                         GTY Options.        (line   76)
@@ -57618,23 +57629,23 @@ Concept Index
 * TARGET_ADDR_SPACE_ADDRESS_MODE:        Named Address Spaces.
                                                              (line   42)
 * TARGET_ADDR_SPACE_CONVERT:             Named Address Spaces.
-                                                             (line   89)
+                                                             (line   92)
 * TARGET_ADDR_SPACE_DEBUG:               Named Address Spaces.
-                                                             (line   99)
+                                                             (line  102)
 * TARGET_ADDR_SPACE_DIAGNOSE_USAGE:      Named Address Spaces.
-                                                             (line  103)
+                                                             (line  106)
 * TARGET_ADDR_SPACE_LEGITIMATE_ADDRESS_P: Named Address Spaces.
                                                              (line   59)
 * TARGET_ADDR_SPACE_LEGITIMIZE_ADDRESS:  Named Address Spaces.
-                                                             (line   67)
+                                                             (line   70)
 * TARGET_ADDR_SPACE_POINTER_MODE:        Named Address Spaces.
                                                              (line   36)
 * TARGET_ADDR_SPACE_SUBSET_P:            Named Address Spaces.
-                                                             (line   74)
+                                                             (line   77)
 * TARGET_ADDR_SPACE_VALID_POINTER_MODE:  Named Address Spaces.
                                                              (line   48)
 * TARGET_ADDR_SPACE_ZERO_ADDRESS_VALID:  Named Address Spaces.
-                                                             (line   83)
+                                                             (line   86)
 * TARGET_ALIGN_ANON_BITFIELD:            Storage Layout.     (line  441)
 * TARGET_ALLOCATE_INITIAL_VALUE:         Misc.               (line  822)
 * TARGET_ALLOCATE_STACK_SLOTS_FOR_ARGS:  Misc.               (line 1100)
@@ -57731,13 +57742,13 @@ Concept Index
 * TARGET_BINDS_LOCAL_P:                  Sections.           (line  322)
 * TARGET_BUILD_BUILTIN_VA_LIST:          Register Arguments. (line  275)
 * TARGET_BUILTIN_DECL:                   Misc.               (line  642)
-* TARGET_BUILTIN_RECIPROCAL:             Addressing Modes.   (line  269)
+* TARGET_BUILTIN_RECIPROCAL:             Addressing Modes.   (line  277)
 * TARGET_BUILTIN_SETJMP_FRAME_VALUE:     Frame Layout.       (line  101)
 * TARGET_CALLEE_COPIES:                  Register Arguments. (line  118)
 * TARGET_CALL_ARGS:                      Varargs.            (line  126)
 * TARGET_CALL_FUSAGE_CONTAINS_NON_CALLEE_CLOBBERS: Miscellaneous Register Hooks.
                                                              (line    6)
-* TARGET_CANNOT_FORCE_CONST_MEM:         Addressing Modes.   (line  242)
+* TARGET_CANNOT_FORCE_CONST_MEM:         Addressing Modes.   (line  250)
 * TARGET_CANNOT_MODIFY_JUMPS_P:          Misc.               (line  886)
 * TARGET_CANNOT_SUBSTITUTE_MEM_EQUIV_P:  Register Classes.   (line  615)
 * TARGET_CANONICALIZE_COMPARISON:        MODE_CC Condition Codes.
@@ -57769,7 +57780,7 @@ Concept Index
 * TARGET_CONDITIONAL_REGISTER_USAGE:     Register Basics.    (line  102)
 * TARGET_CONSTANT_ALIGNMENT:             Storage Layout.     (line  280)
 * TARGET_CONST_ANCHOR:                   Misc.               (line 1111)
-* TARGET_CONST_NOT_OK_FOR_DEBUG_P:       Addressing Modes.   (line  238)
+* TARGET_CONST_NOT_OK_FOR_DEBUG_P:       Addressing Modes.   (line  246)
 * TARGET_CONVERT_TO_TYPE:                Misc.               (line 1038)
 * TARGET_CPU_CPP_BUILTINS:               Run-time Target.    (line    8)
 * TARGET_CSTORE_MODE:                    Register Classes.   (line  652)
@@ -57800,7 +57811,7 @@ Concept Index
 * TARGET_DEFERRED_OUTPUT_DEFS:           Label Output.       (line  465)
 * TARGET_DELAY_SCHED2:                   DWARF.              (line   76)
 * TARGET_DELAY_VARTRACK:                 DWARF.              (line   80)
-* TARGET_DELEGITIMIZE_ADDRESS:           Addressing Modes.   (line  229)
+* TARGET_DELEGITIMIZE_ADDRESS:           Addressing Modes.   (line  237)
 * TARGET_DIFFERENT_ADDR_DISPLACEMENT_P:  Register Classes.   (line  607)
 * TARGET_DLLIMPORT_DECL_ATTRIBUTES:      Target Attributes.  (line   55)
 * TARGET_DOLOOP_COST_FOR_ADDRESS:        Misc.               (line  751)
@@ -57839,7 +57850,7 @@ Concept Index
 * TARGET_EMUTLS_VAR_SECTION:             Emulated TLS.       (line   30)
 * TARGET_ENCODE_SECTION_INFO:            Sections.           (line  265)
 * TARGET_ENCODE_SECTION_INFO and address validation: Addressing Modes.
-                                                             (line   82)
+                                                             (line   90)
 * TARGET_ENCODE_SECTION_INFO usage:      Instruction Output. (line  127)
 * TARGET_END_CALL_ARGS:                  Varargs.            (line  140)
 * TARGET_ENUM_VA_LIST_P:                 Register Arguments. (line  279)
@@ -57896,15 +57907,15 @@ Concept Index
                                                              (line   39)
 * TARGET_GIMPLE_FOLD_BUILTIN:            Misc.               (line  699)
 * TARGET_GIMPLIFY_VA_ARG_EXPR:           Register Arguments. (line  301)
-* TARGET_GOACC_ADJUST_PRIVATE_DECL:      Addressing Modes.   (line  584)
+* TARGET_GOACC_ADJUST_PRIVATE_DECL:      Addressing Modes.   (line  592)
 * TARGET_GOACC_CREATE_WORKER_BROADCAST_RECORD: Addressing Modes.
-                                                             (line  611)
-* TARGET_GOACC_DIM_LIMIT:                Addressing Modes.   (line  545)
-* TARGET_GOACC_EXPAND_VAR_DECL:          Addressing Modes.   (line  598)
-* TARGET_GOACC_FORK_JOIN:                Addressing Modes.   (line  549)
-* TARGET_GOACC_REDUCTION:                Addressing Modes.   (line  560)
-* TARGET_GOACC_SHARED_MEM_LAYOUT:        Addressing Modes.   (line  622)
-* TARGET_GOACC_VALIDATE_DIMS:            Addressing Modes.   (line  532)
+                                                             (line  619)
+* TARGET_GOACC_DIM_LIMIT:                Addressing Modes.   (line  553)
+* TARGET_GOACC_EXPAND_VAR_DECL:          Addressing Modes.   (line  606)
+* TARGET_GOACC_FORK_JOIN:                Addressing Modes.   (line  557)
+* TARGET_GOACC_REDUCTION:                Addressing Modes.   (line  568)
+* TARGET_GOACC_SHARED_MEM_LAYOUT:        Addressing Modes.   (line  630)
+* TARGET_GOACC_VALIDATE_DIMS:            Addressing Modes.   (line  540)
 * TARGET_HANDLE_C_OPTION:                Run-time Target.    (line   73)
 * TARGET_HANDLE_GENERIC_ATTRIBUTE:       Target Attributes.  (line   93)
 * TARGET_HANDLE_OPTION:                  Run-time Target.    (line   59)
@@ -57947,8 +57958,8 @@ Concept Index
 * TARGET_KEEP_LEAF_WHEN_PROFILED:        Profiling.          (line   39)
 * TARGET_LEGITIMATE_ADDRESS_P:           Addressing Modes.   (line   48)
 * TARGET_LEGITIMATE_COMBINED_INSN:       Misc.               (line  803)
-* TARGET_LEGITIMATE_CONSTANT_P:          Addressing Modes.   (line  213)
-* TARGET_LEGITIMIZE_ADDRESS:             Addressing Modes.   (line  129)
+* TARGET_LEGITIMATE_CONSTANT_P:          Addressing Modes.   (line  221)
+* TARGET_LEGITIMIZE_ADDRESS:             Addressing Modes.   (line  137)
 * TARGET_LEGITIMIZE_ADDRESS_DISPLACEMENT: Register Classes.  (line  623)
 * TARGET_LIBCALL_VALUE:                  Scalar Return.      (line   65)
 * TARGET_LIBC_HAS_FAST_FUNCTION:         Library Calls.      (line   85)
@@ -57982,7 +57993,7 @@ Concept Index
 * TARGET_MEMTAG_SET_TAG:                 Misc.               (line 1312)
 * TARGET_MEMTAG_TAG_SIZE:                Misc.               (line 1278)
 * TARGET_MEMTAG_UNTAGGED_POINTER:        Misc.               (line 1325)
-* TARGET_MEM_CONSTRAINT:                 Addressing Modes.   (line  107)
+* TARGET_MEM_CONSTRAINT:                 Addressing Modes.   (line  115)
 * TARGET_MEM_REF:                        Storage References. (line    6)
 * TARGET_MERGE_DECL_ATTRIBUTES:          Target Attributes.  (line   45)
 * TARGET_MERGE_TYPE_ATTRIBUTES:          Target Attributes.  (line   37)
@@ -57992,7 +58003,7 @@ Concept Index
 * TARGET_MODES_TIEABLE_P:                Values in Registers.
                                                              (line  123)
 * TARGET_MODE_AFTER:                     Mode Switching.     (line   57)
-* TARGET_MODE_DEPENDENT_ADDRESS_P:       Addressing Modes.   (line  196)
+* TARGET_MODE_DEPENDENT_ADDRESS_P:       Addressing Modes.   (line  204)
 * TARGET_MODE_EMIT:                      Mode Switching.     (line   42)
 * TARGET_MODE_ENTRY:                     Mode Switching.     (line   64)
 * TARGET_MODE_EXIT:                      Mode Switching.     (line   71)
@@ -58018,7 +58029,7 @@ Concept Index
 * TARGET_OBJFMT_CPP_BUILTINS:            Run-time Target.    (line   45)
 * TARGET_OFFLOAD_OPTIONS:                Misc.               (line 1181)
 * TARGET_OMIT_STRUCT_RETURN_REG:         Scalar Return.      (line  117)
-* TARGET_OMP_DEVICE_KIND_ARCH_ISA:       Addressing Modes.   (line  524)
+* TARGET_OMP_DEVICE_KIND_ARCH_ISA:       Addressing Modes.   (line  532)
 * TARGET_OPTAB_SUPPORTED_P:              Costs.              (line  306)
 * TARGET_OPTF:                           Misc.               (line  967)
 * TARGET_OPTION_FUNCTION_VERSIONS:       Target Attributes.  (line  165)
@@ -58040,10 +58051,10 @@ Concept Index
 * TARGET_PASS_BY_REFERENCE:              Register Arguments. (line  106)
 * TARGET_PCH_VALID_P:                    PCH Target.         (line   11)
 * TARGET_POSIX_IO:                       Misc.               (line  556)
-* TARGET_PRECOMPUTE_TLS_P:               Addressing Modes.   (line  221)
+* TARGET_PRECOMPUTE_TLS_P:               Addressing Modes.   (line  229)
 * TARGET_PREDICT_DOLOOP_P:               Misc.               (line  729)
 * TARGET_PREFERRED_DOLOOP_MODE:          Misc.               (line  793)
-* TARGET_PREFERRED_ELSE_VALUE:           Addressing Modes.   (line  568)
+* TARGET_PREFERRED_ELSE_VALUE:           Addressing Modes.   (line  576)
 * TARGET_PREFERRED_OUTPUT_RELOAD_CLASS:  Register Classes.   (line  284)
 * TARGET_PREFERRED_RELOAD_CLASS:         Register Classes.   (line  213)
 * TARGET_PREFERRED_RENAME_CLASS:         Register Classes.   (line  201)
@@ -58140,11 +58151,11 @@ Concept Index
                                                              (line   27)
 * TARGET_SHRINK_WRAP_SET_HANDLED_COMPONENTS: Shrink-wrapping separate components.
                                                              (line   58)
-* TARGET_SIMD_CLONE_ADJUST:              Addressing Modes.   (line  511)
+* TARGET_SIMD_CLONE_ADJUST:              Addressing Modes.   (line  519)
 * TARGET_SIMD_CLONE_COMPUTE_VECSIZE_AND_SIMDLEN: Addressing Modes.
-                                                             (line  499)
-* TARGET_SIMD_CLONE_USABLE:              Addressing Modes.   (line  515)
-* TARGET_SIMT_VF:                        Addressing Modes.   (line  521)
+                                                             (line  507)
+* TARGET_SIMD_CLONE_USABLE:              Addressing Modes.   (line  523)
+* TARGET_SIMT_VF:                        Addressing Modes.   (line  529)
 * TARGET_SLOW_UNALIGNED_ACCESS:          Costs.              (line  132)
 * TARGET_SMALL_REGISTER_CLASSES_FOR_MODE_P: Register Arguments.
                                                              (line  454)
@@ -58186,39 +58197,39 @@ Concept Index
 * TARGET_UPDATE_STACK_BOUNDARY:          Misc.               (line 1070)
 * TARGET_USES_WEAK_UNWIND_INFO:          Exception Handling. (line  123)
 * TARGET_USE_ANCHORS_FOR_SYMBOL_P:       Anchored Addresses. (line   53)
-* TARGET_USE_BLOCKS_FOR_CONSTANT_P:      Addressing Modes.   (line  256)
-* TARGET_USE_BLOCKS_FOR_DECL_P:          Addressing Modes.   (line  263)
+* TARGET_USE_BLOCKS_FOR_CONSTANT_P:      Addressing Modes.   (line  264)
+* TARGET_USE_BLOCKS_FOR_DECL_P:          Addressing Modes.   (line  271)
 * TARGET_USE_BY_PIECES_INFRASTRUCTURE_P: Costs.              (line  165)
 * TARGET_USE_PSEUDO_PIC_REG:             Register Arguments. (line   78)
 * TARGET_VALID_DLLIMPORT_ATTRIBUTE_P:    Target Attributes.  (line   66)
 * TARGET_VALID_POINTER_MODE:             Register Arguments. (line  307)
 * TARGET_VECTORIZE_AUTOVECTORIZE_VECTOR_MODES: Addressing Modes.
-                                                             (line  397)
-* TARGET_VECTORIZE_BUILTIN_GATHER:       Addressing Modes.   (line  485)
-* TARGET_VECTORIZE_BUILTIN_MASK_FOR_LOAD: Addressing Modes.  (line  274)
+                                                             (line  405)
+* TARGET_VECTORIZE_BUILTIN_GATHER:       Addressing Modes.   (line  493)
+* TARGET_VECTORIZE_BUILTIN_MASK_FOR_LOAD: Addressing Modes.  (line  282)
 * TARGET_VECTORIZE_BUILTIN_MD_VECTORIZED_FUNCTION: Addressing Modes.
-                                                             (line  365)
-* TARGET_VECTORIZE_BUILTIN_SCATTER:      Addressing Modes.   (line  492)
+                                                             (line  373)
+* TARGET_VECTORIZE_BUILTIN_SCATTER:      Addressing Modes.   (line  500)
 * TARGET_VECTORIZE_BUILTIN_VECTORIZATION_COST: Addressing Modes.
-                                                             (line  300)
+                                                             (line  308)
 * TARGET_VECTORIZE_BUILTIN_VECTORIZED_FUNCTION: Addressing Modes.
-                                                             (line  357)
-* TARGET_VECTORIZE_CREATE_COSTS:         Addressing Modes.   (line  473)
+                                                             (line  365)
+* TARGET_VECTORIZE_CREATE_COSTS:         Addressing Modes.   (line  481)
 * TARGET_VECTORIZE_EMPTY_MASK_IS_EXPENSIVE: Addressing Modes.
-                                                             (line  466)
-* TARGET_VECTORIZE_GET_MASK_MODE:        Addressing Modes.   (line  454)
+                                                             (line  474)
+* TARGET_VECTORIZE_GET_MASK_MODE:        Addressing Modes.   (line  462)
 * TARGET_VECTORIZE_PREFERRED_DIV_AS_SHIFTS_OVER_MULT: Addressing Modes.
-                                                             (line  348)
-* TARGET_VECTORIZE_PREFERRED_SIMD_MODE:  Addressing Modes.   (line  382)
+                                                             (line  356)
+* TARGET_VECTORIZE_PREFERRED_SIMD_MODE:  Addressing Modes.   (line  390)
 * TARGET_VECTORIZE_PREFERRED_VECTOR_ALIGNMENT: Addressing Modes.
-                                                             (line  306)
-* TARGET_VECTORIZE_RELATED_MODE:         Addressing Modes.   (line  428)
-* TARGET_VECTORIZE_SPLIT_REDUCTION:      Addressing Modes.   (line  389)
+                                                             (line  314)
+* TARGET_VECTORIZE_RELATED_MODE:         Addressing Modes.   (line  436)
+* TARGET_VECTORIZE_SPLIT_REDUCTION:      Addressing Modes.   (line  397)
 * TARGET_VECTORIZE_SUPPORT_VECTOR_MISALIGNMENT: Addressing Modes.
-                                                             (line  372)
+                                                             (line  380)
 * TARGET_VECTORIZE_VECTOR_ALIGNMENT_REACHABLE: Addressing Modes.
-                                                             (line  318)
-* TARGET_VECTORIZE_VEC_PERM_CONST:       Addressing Modes.   (line  324)
+                                                             (line  326)
+* TARGET_VECTORIZE_VEC_PERM_CONST:       Addressing Modes.   (line  332)
 * TARGET_VECTOR_ALIGNMENT:               Storage Layout.     (line  307)
 * TARGET_VECTOR_MODE_SUPPORTED_ANY_TARGET_P: Register Arguments.
                                                              (line  344)
@@ -58619,7 +58630,7 @@ Concept Index
 * vec_pack_ufix_trunc_M instruction pattern: Standard Names. (line  876)
 * vec_pack_usat_M instruction pattern:   Standard Names.     (line  869)
 * vec_permM instruction pattern:         Standard Names.     (line  556)
-* vec_permM instruction pattern <1>:     Addressing Modes.   (line  342)
+* vec_permM instruction pattern <1>:     Addressing Modes.   (line  350)
 * VEC_RSHIFT_EXPR:                       Vectors.            (line    6)
 * vec_select:                            Vector Operations.  (line   19)
 * vec_series:                            Vector Operations.  (line   41)
@@ -59151,94 +59162,94 @@ Node: Varargs1659137
 Node: Trampolines1667444
 Node: Library Calls1677228
 Node: Addressing Modes1683488
-Node: Anchored Addresses1715377
-Node: Condition Code1718108
-Node: MODE_CC Condition Codes1719965
-Node: Costs1726822
-Node: Scheduling1749530
-Node: Sections1773595
-Node: PIC1790323
-Node: Assembler Format1792424
-Node: File Framework1793563
-Ref: TARGET_HAVE_SWITCHABLE_BSS_SECTIONS1801282
-Node: Data Output1802983
-Node: Uninitialized Data1811409
-Node: Label Output1816504
-Node: Initialization1841637
-Node: Macros for Initialization1847833
-Node: Instruction Output1855156
-Node: Dispatch Tables1866035
-Node: Exception Region Output1871850
-Node: Alignment Output1879092
-Node: Debugging Info1882881
-Node: All Debuggers1883431
-Node: DWARF1886416
-Node: VMS Debug1892269
-Node: CTF Debug1892886
-Node: BTF Debug1893251
-Node: Floating Point1893598
-Node: Mode Switching1896379
-Node: Target Attributes1900896
-Node: Emulated TLS1912505
-Node: MIPS Coprocessors1915933
-Node: PCH Target1917100
-Node: C++ ABI1918984
-Node: D Language and ABI1923848
-Node: Named Address Spaces1927156
-Node: Misc1933167
-Ref: TARGET_SHIFT_TRUNCATION_MASK1941174
-Node: Host Config2003369
-Node: Host Common2004466
-Node: Filesystem2006860
-Node: Host Misc2011081
-Node: Fragments2013656
-Node: Target Fragment2014903
-Node: Host Fragment2026137
-Node: Collect22026381
-Node: Header Dirs2029228
-Node: Type Information2030699
-Node: GTY Options2034310
-Node: Inheritance and GTY2047574
-Ref: Inheritance and GTY-Footnote-12049169
-Node: User GC2049439
-Node: GGC Roots2053298
-Node: Files2054042
-Node: Invoking the garbage collector2056769
-Node: Troubleshooting2058445
-Node: Plugins2059548
-Node: Plugins loading2060677
-Node: Plugin API2061828
-Node: Plugins pass2069845
-Node: Plugins GC2071828
-Node: Plugins description2073613
-Node: Plugins attr2074163
-Node: Plugins recording2076491
-Node: Plugins gate2077369
-Node: Plugins tracking2077968
-Node: Plugins building2078564
-Node: LTO2082175
-Node: LTO Overview2083051
-Node: LTO object file layout2088943
-Node: IPA2093630
-Node: WHOPR2102840
-Node: Internal flags2107464
-Node: Match and Simplify2108899
-Node: GIMPLE API2109869
-Node: The Language2112695
-Node: Static Analyzer2125658
-Node: Analyzer Internals2125923
-Node: Debugging the Analyzer2141999
-Node: User Experience Guidelines2149612
-Node: Guidelines for Diagnostics2150549
-Ref: input_location_example2158901
-Node: Guidelines for Options2168796
-Node: Funding2168973
-Node: GNU Project2171499
-Node: Copying2172164
-Node: GNU Free Documentation License2209900
-Node: Contributors2235229
-Node: Option Index2277751
-Node: Concept Index2278646
+Node: Anchored Addresses1715891
+Node: Condition Code1718622
+Node: MODE_CC Condition Codes1720479
+Node: Costs1727336
+Node: Scheduling1750044
+Node: Sections1774109
+Node: PIC1790837
+Node: Assembler Format1792938
+Node: File Framework1794077
+Ref: TARGET_HAVE_SWITCHABLE_BSS_SECTIONS1801796
+Node: Data Output1803497
+Node: Uninitialized Data1811923
+Node: Label Output1817018
+Node: Initialization1842151
+Node: Macros for Initialization1848347
+Node: Instruction Output1855670
+Node: Dispatch Tables1866549
+Node: Exception Region Output1872364
+Node: Alignment Output1879606
+Node: Debugging Info1883395
+Node: All Debuggers1883945
+Node: DWARF1886930
+Node: VMS Debug1892783
+Node: CTF Debug1893400
+Node: BTF Debug1893765
+Node: Floating Point1894112
+Node: Mode Switching1896893
+Node: Target Attributes1901410
+Node: Emulated TLS1913019
+Node: MIPS Coprocessors1916447
+Node: PCH Target1917614
+Node: C++ ABI1919498
+Node: D Language and ABI1924362
+Node: Named Address Spaces1927670
+Node: Misc1933793
+Ref: TARGET_SHIFT_TRUNCATION_MASK1941800
+Node: Host Config2003995
+Node: Host Common2005092
+Node: Filesystem2007486
+Node: Host Misc2011707
+Node: Fragments2014282
+Node: Target Fragment2015529
+Node: Host Fragment2026763
+Node: Collect22027007
+Node: Header Dirs2029854
+Node: Type Information2031325
+Node: GTY Options2034936
+Node: Inheritance and GTY2048200
+Ref: Inheritance and GTY-Footnote-12049795
+Node: User GC2050065
+Node: GGC Roots2053924
+Node: Files2054668
+Node: Invoking the garbage collector2057395
+Node: Troubleshooting2059071
+Node: Plugins2060174
+Node: Plugins loading2061303
+Node: Plugin API2062454
+Node: Plugins pass2070471
+Node: Plugins GC2072454
+Node: Plugins description2074239
+Node: Plugins attr2074789
+Node: Plugins recording2077117
+Node: Plugins gate2077995
+Node: Plugins tracking2078594
+Node: Plugins building2079190
+Node: LTO2082801
+Node: LTO Overview2083677
+Node: LTO object file layout2089569
+Node: IPA2094256
+Node: WHOPR2103466
+Node: Internal flags2108090
+Node: Match and Simplify2109525
+Node: GIMPLE API2110495
+Node: The Language2113321
+Node: Static Analyzer2126284
+Node: Analyzer Internals2126549
+Node: Debugging the Analyzer2142625
+Node: User Experience Guidelines2150238
+Node: Guidelines for Diagnostics2151175
+Ref: input_location_example2159527
+Node: Guidelines for Options2169422
+Node: Funding2169599
+Node: GNU Project2172125
+Node: Copying2172790
+Node: GNU Free Documentation License2210526
+Node: Contributors2235855
+Node: Option Index2278377
+Node: Concept Index2279272
 
 End Tag Table
 
