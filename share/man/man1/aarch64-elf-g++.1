@@ -55,7 +55,7 @@
 .\" ========================================================================
 .\"
 .IX Title "GCC 1"
-.TH GCC 1 2023-08-10 gcc-14.0.0 GNU
+.TH GCC 1 2023-08-13 gcc-14.0.0 GNU
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -431,6 +431,7 @@ in the following sections.
 \&\-Wno\-analyzer\-tainted\-size
 \&\-Wanalyzer\-too\-complex
 \&\-Wno\-analyzer\-unsafe\-call\-within\-signal\-handler
+\&\-Wno\-analyzer\-unterminated\-string
 \&\-Wno\-analyzer\-use\-after\-free
 \&\-Wno\-analyzer\-use\-of\-pointer\-in\-stale\-stack\-frame
 \&\-Wno\-analyzer\-use\-of\-uninitialized\-value
@@ -4560,8 +4561,8 @@ pointers after reallocation.
 .Sp
 \&\fB\-Wuse\-after\-free=2\fR is included in \fB\-Wall\fR.
 .RE
-.IP "\fB\-Wuseless\-cast\fR (C++ and Objective\-C++ only)" 4
-.IX Item "-Wuseless-cast (C++ and Objective-C++ only)"
+.IP "\fB\-Wuseless\-cast\fR (C, Objective-C, C++ and Objective\-C++ only)" 4
+.IX Item "-Wuseless-cast (C, Objective-C, C++ and Objective-C++ only)"
 Warn when an expression is cast to its own type.  This warning does not
 occur when a class object is converted to a non-reference type as that
 is a way to create a temporary:
@@ -9572,6 +9573,7 @@ Enabling this option effectively enables the following warnings:
 \&\-Wanalyzer\-shift\-count\-overflow
 \&\-Wanalyzer\-stale\-setjmp\-buffer
 \&\-Wanalyzer\-unsafe\-call\-within\-signal\-handler
+\&\-Wanalyzer\-unterminated\-string
 \&\-Wanalyzer\-use\-after\-free
 \&\-Wanalyzer\-use\-of\-pointer\-in\-stale\-stack\-frame
 \&\-Wanalyzer\-use\-of\-uninitialized\-value
@@ -10076,6 +10078,15 @@ function known to be async-signal-unsafe (such as \f(CW\*(C`fprintf\*(C'\fR) is
 called from a signal handler.
 .Sp
 See  CWE\-479: Signal Handler Use of a Non-reentrant Function (\f(CW\*(C`https://cwe.mitre.org/data/definitions/479.html\*(C'\fR).
+.IP \fB\-Wno\-analyzer\-unterminated\-string\fR 4
+.IX Item "-Wno-analyzer-unterminated-string"
+This warning requires \fB\-fanalyzer\fR, which enables it; use
+\&\fB\-Wno\-analyzer\-unterminated\-string\fR to disable it.
+.Sp
+This diagnostic warns about code paths which attempt to find the length
+of an unterminated string.  For example, passing a pointer to an unterminated
+buffer to \f(CW\*(C`strlen\*(C'\fR would lead to accesses beyond the end of the buffer
+whilst attempting to find the terminating zero character.
 .IP \fB\-Wno\-analyzer\-use\-after\-free\fR 4
 .IX Item "-Wno-analyzer-use-after-free"
 This warning requires \fB\-fanalyzer\fR, which enables it; use

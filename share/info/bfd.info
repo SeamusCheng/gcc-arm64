@@ -1235,7 +1235,8 @@ is assumed that the instance implements all methods listed below).
 2.3.1.24 ‘bfd_read’
 ...................
 
- -- Function: bfd_size_type bfd_read (void *, bfd_size_type, bfd *);
+ -- Function: bfd_size_type bfd_read (void *, bfd_size_type, bfd *)
+          ATTRIBUTE_WARN_UNUSED_RESULT;
      Attempt to read SIZE bytes from ABFD’s iostream to PTR. Return the
      amount read.
 
@@ -1243,14 +1244,14 @@ is assumed that the instance implements all methods listed below).
 ....................
 
  -- Function: bfd_size_type bfd_write (const void *, bfd_size_type, bfd
-          *);
+          *) ATTRIBUTE_WARN_UNUSED_RESULT;
      Attempt to write SIZE bytes to ABFD’s iostream from PTR. Return the
      amount written.
 
 2.3.1.26 ‘bfd_tell’
 ...................
 
- -- Function: file_ptr bfd_tell (bfd *);
+ -- Function: file_ptr bfd_tell (bfd *) ATTRIBUTE_WARN_UNUSED_RESULT;
      Return ABFD’s iostream file position.
 
 2.3.1.27 ‘bfd_flush’
@@ -1262,14 +1263,16 @@ is assumed that the instance implements all methods listed below).
 2.3.1.28 ‘bfd_stat’
 ...................
 
- -- Function: int bfd_stat (bfd *, struct stat *);
+ -- Function: int bfd_stat (bfd *, struct stat *)
+          ATTRIBUTE_WARN_UNUSED_RESULT;
      Call fstat on ABFD’s iostream.  Return 0 on success, and a negative
      value on failure.
 
 2.3.1.29 ‘bfd_seek’
 ...................
 
- -- Function: int bfd_seek (bfd *, file_ptr, int);
+ -- Function: int bfd_seek (bfd *, file_ptr, int)
+          ATTRIBUTE_WARN_UNUSED_RESULT;
      Call fseek on ABFD’s iostream.  Return 0 on success, and a negative
      value on failure.
 
@@ -1323,7 +1326,7 @@ is assumed that the instance implements all methods listed below).
 
  -- Function: void *bfd_mmap (bfd *abfd, void *addr, bfd_size_type len,
           int prot, int flags, file_ptr offset, void **map_addr,
-          bfd_size_type *map_len);
+          bfd_size_type *map_len) ATTRIBUTE_WARN_UNUSED_RESULT;
      Return mmap()ed region of the file, if possible and implemented.
      LEN and OFFSET do not need to be page aligned.  The page aligned
      address and length are written to MAP_ADDR and MAP_LEN.
@@ -11094,7 +11097,7 @@ BFD Index
 * *bfd_make_section_anyway_with_flags:   section prototypes. (line   90)
 * *bfd_make_section_old_way:             section prototypes. (line   71)
 * *bfd_make_section_with_flags:          section prototypes. (line  121)
-* *bfd_mmap:                             Miscellaneous.      (line  464)
+* *bfd_mmap:                             Miscellaneous.      (line  467)
 * *bfd_openr:                            Opening and Closing.
                                                              (line   54)
 * *bfd_openr_iovec:                      Opening and Closing.
@@ -11312,8 +11315,8 @@ BFD Index
 * bfd_find_version_for_sym:              Writing the symbol table.
                                                              (line   98)
 * bfd_flavour_name:                      bfd_target.         (line  617)
-* bfd_flush:                             Miscellaneous.      (line  395)
-* bfd_flush <1>:                         Miscellaneous.      (line  399)
+* bfd_flush:                             Miscellaneous.      (line  396)
+* bfd_flush <1>:                         Miscellaneous.      (line  400)
 * bfd_follow_build_id_debuglink:         Opening and Closing.
                                                              (line  356)
 * bfd_follow_gnu_debugaltlink:           Opening and Closing.
@@ -11353,13 +11356,13 @@ BFD Index
                                                              (line  266)
 * bfd_get_error:                         Error reporting.    (line   48)
 * bfd_get_error <1>:                     Error reporting.    (line   53)
-* bfd_get_file_size:                     Miscellaneous.      (line  452)
-* bfd_get_file_size <1>:                 Miscellaneous.      (line  456)
+* bfd_get_file_size:                     Miscellaneous.      (line  455)
+* bfd_get_file_size <1>:                 Miscellaneous.      (line  459)
 * bfd_get_gp_size:                       Miscellaneous.      (line   92)
 * bfd_get_linker_section:                section prototypes. (line   33)
 * bfd_get_mach:                          Architectures.      (line  647)
-* bfd_get_mtime:                         Miscellaneous.      (line  415)
-* bfd_get_mtime <1>:                     Miscellaneous.      (line  419)
+* bfd_get_mtime:                         Miscellaneous.      (line  418)
+* bfd_get_mtime <1>:                     Miscellaneous.      (line  422)
 * bfd_get_next_mapent:                   Archives.           (line   56)
 * bfd_get_next_mapent <1>:               Archives.           (line   60)
 * bfd_get_next_section_by_name:          section prototypes. (line   22)
@@ -11373,8 +11376,8 @@ BFD Index
 * bfd_get_section_contents <1>:          section prototypes. (line  227)
 * bfd_get_sign_extend_vma:               Miscellaneous.      (line   70)
 * bfd_get_sign_extend_vma <1>:           Miscellaneous.      (line   74)
-* bfd_get_size:                          Miscellaneous.      (line  422)
-* bfd_get_size <1>:                      Miscellaneous.      (line  426)
+* bfd_get_size:                          Miscellaneous.      (line  425)
+* bfd_get_size <1>:                      Miscellaneous.      (line  429)
 * bfd_get_symtab_upper_bound:            symbol handling functions.
                                                              (line    5)
 * bfd_get_target_info:                   bfd_target.         (line  577)
@@ -11495,7 +11498,7 @@ BFD Index
                                                              (line  135)
 * bfd_merge_private_bfd_data <1>:        Writing the symbol table.
                                                              (line  139)
-* bfd_mmap:                              Miscellaneous.      (line  460)
+* bfd_mmap:                              Miscellaneous.      (line  463)
 * bfd_octets_per_byte:                   Architectures.      (line  707)
 * bfd_openr:                             Opening and Closing.
                                                              (line   50)
@@ -14012,8 +14015,8 @@ BFD Index
                                                              (line   57)
 * bfd_section_list_clear:                section prototypes. (line    7)
 * bfd_section_list_clear <1>:            section prototypes. (line   11)
-* bfd_seek:                              Miscellaneous.      (line  408)
-* bfd_seek <1>:                          Miscellaneous.      (line  412)
+* bfd_seek:                              Miscellaneous.      (line  410)
+* bfd_seek <1>:                          Miscellaneous.      (line  414)
 * bfd_set_archive_head:                  Archives.           (line   72)
 * bfd_set_archive_head <1>:              Archives.           (line   76)
 * bfd_set_arch_info:                     Architectures.      (line  624)
@@ -14058,8 +14061,8 @@ BFD Index
                                                              (line   61)
 * bfd_sprintf_vma:                       Miscellaneous.      (line  295)
 * bfd_sprintf_vma <1>:                   Miscellaneous.      (line  299)
-* bfd_stat:                              Miscellaneous.      (line  401)
-* bfd_stat <1>:                          Miscellaneous.      (line  405)
+* bfd_stat:                              Miscellaneous.      (line  402)
+* bfd_stat <1>:                          Miscellaneous.      (line  406)
 * bfd_strtab_hash:                       Write Other Derived Routines.
                                                              (line  110)
 * bfd_strtab_hash <1>:                   Write Other Derived Routines.
@@ -14072,10 +14075,10 @@ BFD Index
 * bfd_target <1>:                        bfd_target.         (line  581)
 * bfd_target <2>:                        bfd_target.         (line  611)
 * bfd_target_list:                       bfd_target.         (line  600)
-* bfd_tell:                              Miscellaneous.      (line  389)
-* bfd_tell <1>:                          Miscellaneous.      (line  393)
-* bfd_write:                             Miscellaneous.      (line  381)
-* bfd_write <1>:                         Miscellaneous.      (line  385)
+* bfd_tell:                              Miscellaneous.      (line  390)
+* bfd_tell <1>:                          Miscellaneous.      (line  394)
+* bfd_write:                             Miscellaneous.      (line  382)
+* bfd_write <1>:                         Miscellaneous.      (line  386)
 * char:                                  Error reporting.    (line   77)
 * char <1>:                              Error reporting.    (line  155)
 * char <2>:                              section prototypes. (line  273)
@@ -14134,59 +14137,59 @@ Node: typedef bfd13655
 Node: Error reporting27058
 Node: Initialization33393
 Node: Miscellaneous33932
-Node: Memory Usage53241
-Node: Sections54486
-Node: Section Input54971
-Node: Section Output56204
-Node: typedef asection58731
-Node: section prototypes76012
-Node: Symbols87587
-Node: Reading Symbols89208
-Node: Writing Symbols90316
-Node: Mini Symbols92084
-Node: typedef asymbol93086
-Node: symbol handling functions99296
-Node: Archives104608
-Node: Formats108828
-Node: Relocations111975
-Node: typedef arelent112708
-Node: howto manager126693
-Node: Core Files263613
-Node: Targets265646
-Node: bfd_target267693
-Node: Architectures294572
-Node: Opening and Closing326527
-Node: Internal342554
-Node: File Caching342658
-Node: Linker Functions344757
-Node: Creating a Linker Hash Table346455
-Node: Adding Symbols to the Hash Table348218
-Node: Differing file formats349126
-Node: Adding symbols from an object file350887
-Node: Adding symbols from an archive353121
-Node: Performing the Final Link355533
-Node: Information provided by the linker356790
-Node: Relocating the section contents357980
-Node: Writing the symbol table359800
-Node: Hash Tables367043
-Node: Creating and Freeing a Hash Table368245
-Node: Looking Up or Entering a String369547
-Node: Traversing a Hash Table370848
-Node: Deriving a New Hash Table Type371669
-Node: Define the Derived Structures372743
-Node: Write the Derived Creation Routine373864
-Node: Write Other Derived Routines376515
-Node: BFD back ends382044
-Node: What to Put Where382293
-Node: aout382451
-Node: coff388676
-Node: elf410185
-Node: mmo410588
-Node: File layout411468
-Node: Symbol-table417593
-Node: mmo section mapping421412
-Node: GNU Free Documentation License425110
-Node: BFD Index450377
+Node: Memory Usage53445
+Node: Sections54690
+Node: Section Input55175
+Node: Section Output56408
+Node: typedef asection58935
+Node: section prototypes76216
+Node: Symbols87791
+Node: Reading Symbols89412
+Node: Writing Symbols90520
+Node: Mini Symbols92288
+Node: typedef asymbol93290
+Node: symbol handling functions99500
+Node: Archives104812
+Node: Formats109032
+Node: Relocations112179
+Node: typedef arelent112912
+Node: howto manager126897
+Node: Core Files263817
+Node: Targets265850
+Node: bfd_target267897
+Node: Architectures294776
+Node: Opening and Closing326731
+Node: Internal342758
+Node: File Caching342862
+Node: Linker Functions344961
+Node: Creating a Linker Hash Table346659
+Node: Adding Symbols to the Hash Table348422
+Node: Differing file formats349330
+Node: Adding symbols from an object file351091
+Node: Adding symbols from an archive353325
+Node: Performing the Final Link355737
+Node: Information provided by the linker356994
+Node: Relocating the section contents358184
+Node: Writing the symbol table360004
+Node: Hash Tables367247
+Node: Creating and Freeing a Hash Table368449
+Node: Looking Up or Entering a String369751
+Node: Traversing a Hash Table371052
+Node: Deriving a New Hash Table Type371873
+Node: Define the Derived Structures372947
+Node: Write the Derived Creation Routine374068
+Node: Write Other Derived Routines376719
+Node: BFD back ends382248
+Node: What to Put Where382497
+Node: aout382655
+Node: coff388880
+Node: elf410389
+Node: mmo410792
+Node: File layout411672
+Node: Symbol-table417797
+Node: mmo section mapping421616
+Node: GNU Free Documentation License425314
+Node: BFD Index450581
 
 End Tag Table
 
