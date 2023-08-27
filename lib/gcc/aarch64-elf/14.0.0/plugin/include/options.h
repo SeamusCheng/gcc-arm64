@@ -2424,12 +2424,6 @@ extern int warn_analyzer_unsafe_call_within_signal_handler;
 #define warn_analyzer_unsafe_call_within_signal_handler global_options.x_warn_analyzer_unsafe_call_within_signal_handler
 #endif
 #ifdef GENERATOR_FILE
-extern int warn_analyzer_unterminated_string;
-#else
-  int x_warn_analyzer_unterminated_string;
-#define warn_analyzer_unterminated_string global_options.x_warn_analyzer_unterminated_string
-#endif
-#ifdef GENERATOR_FILE
 extern int warn_analyzer_use_after_free;
 #else
   int x_warn_analyzer_use_after_free;
@@ -2740,6 +2734,12 @@ extern int cpp_warn_comment;
 #else
   int x_cpp_warn_comment;
 #define cpp_warn_comment global_options.x_cpp_warn_comment
+#endif
+#ifdef GENERATOR_FILE
+extern int warn_compare_distinct_pointer_types;
+#else
+  int x_warn_compare_distinct_pointer_types;
+#define warn_compare_distinct_pointer_types global_options.x_warn_compare_distinct_pointer_types
 #endif
 #ifdef GENERATOR_FILE
 extern int warn_compare_reals;
@@ -9679,72 +9679,72 @@ enum opt_code
   OPT_Wanalyzer_tainted_size = 499,          /* -Wanalyzer-tainted-size */
   OPT_Wanalyzer_too_complex = 500,           /* -Wanalyzer-too-complex */
   OPT_Wanalyzer_unsafe_call_within_signal_handler = 501,/* -Wanalyzer-unsafe-call-within-signal-handler */
-  OPT_Wanalyzer_unterminated_string = 502,   /* -Wanalyzer-unterminated-string */
-  OPT_Wanalyzer_use_after_free = 503,        /* -Wanalyzer-use-after-free */
-  OPT_Wanalyzer_use_of_pointer_in_stale_stack_frame = 504,/* -Wanalyzer-use-of-pointer-in-stale-stack-frame */
-  OPT_Wanalyzer_use_of_uninitialized_value = 505,/* -Wanalyzer-use-of-uninitialized-value */
-  OPT_Wanalyzer_va_arg_type_mismatch = 506,  /* -Wanalyzer-va-arg-type-mismatch */
-  OPT_Wanalyzer_va_list_exhausted = 507,     /* -Wanalyzer-va-list-exhausted */
-  OPT_Wanalyzer_va_list_leak = 508,          /* -Wanalyzer-va-list-leak */
-  OPT_Wanalyzer_va_list_use_after_va_end = 509,/* -Wanalyzer-va-list-use-after-va-end */
-  OPT_Wanalyzer_write_to_const = 510,        /* -Wanalyzer-write-to-const */
-  OPT_Wanalyzer_write_to_string_literal = 511,/* -Wanalyzer-write-to-string-literal */
-  OPT_Wargument_mismatch = 512,              /* -Wargument-mismatch */
-  OPT_Warith_conversion = 513,               /* -Warith-conversion */
-  /* OPT_Warray_bounds = 514, */             /* -Warray-bounds */
-  OPT_Warray_bounds_ = 515,                  /* -Warray-bounds= */
-  OPT_Warray_compare = 516,                  /* -Warray-compare */
-  /* OPT_Warray_parameter = 517, */          /* -Warray-parameter */
-  OPT_Warray_parameter_ = 518,               /* -Warray-parameter= */
-  OPT_Warray_temporaries = 519,              /* -Warray-temporaries */
-  OPT_Wassign_intercept = 520,               /* -Wassign-intercept */
-  /* OPT_Wattribute_alias = 521, */          /* -Wattribute-alias */
-  OPT_Wattribute_alias_ = 522,               /* -Wattribute-alias= */
-  OPT_Wattribute_warning = 523,              /* -Wattribute-warning */
-  OPT_Wattributes = 524,                     /* -Wattributes */
-  OPT_Wattributes_ = 525,                    /* -Wattributes= */
-  OPT_Wbad_function_cast = 526,              /* -Wbad-function-cast */
-  /* OPT_Wbidi_chars = 527, */               /* -Wbidi-chars */
-  OPT_Wbidi_chars_ = 528,                    /* -Wbidi-chars= */
-  OPT_Wbool_compare = 529,                   /* -Wbool-compare */
-  OPT_Wbool_operation = 530,                 /* -Wbool-operation */
-  OPT_Wbuiltin_declaration_mismatch = 531,   /* -Wbuiltin-declaration-mismatch */
-  OPT_Wbuiltin_macro_redefined = 532,        /* -Wbuiltin-macro-redefined */
-  OPT_Wc___compat = 533,                     /* -Wc++-compat */
-  /* OPT_Wc__0x_compat = 534, */             /* -Wc++0x-compat */
-  OPT_Wc__11_compat = 535,                   /* -Wc++11-compat */
-  OPT_Wc__11_extensions = 536,               /* -Wc++11-extensions */
-  OPT_Wc__14_compat = 537,                   /* -Wc++14-compat */
-  OPT_Wc__14_extensions = 538,               /* -Wc++14-extensions */
-  OPT_Wc__17_compat = 539,                   /* -Wc++17-compat */
-  OPT_Wc__17_extensions = 540,               /* -Wc++17-extensions */
-  /* OPT_Wc__1z_compat = 541, */             /* -Wc++1z-compat */
-  OPT_Wc__20_compat = 542,                   /* -Wc++20-compat */
-  OPT_Wc__20_extensions = 543,               /* -Wc++20-extensions */
-  OPT_Wc__23_extensions = 544,               /* -Wc++23-extensions */
-  /* OPT_Wc__2a_compat = 545, */             /* -Wc++2a-compat */
-  OPT_Wc_binding_type = 546,                 /* -Wc-binding-type */
-  OPT_Wc11_c2x_compat = 547,                 /* -Wc11-c2x-compat */
-  OPT_Wc90_c99_compat = 548,                 /* -Wc90-c99-compat */
-  OPT_Wc99_c11_compat = 549,                 /* -Wc99-c11-compat */
-  OPT_Wcannot_profile = 550,                 /* -Wcannot-profile */
-  OPT_Wcast_align = 551,                     /* -Wcast-align */
-  OPT_Wcast_align_strict = 552,              /* -Wcast-align=strict */
-  OPT_Wcast_function_type = 553,             /* -Wcast-function-type */
-  OPT_Wcast_qual = 554,                      /* -Wcast-qual */
-  OPT_Wcast_result = 555,                    /* -Wcast-result */
-  /* OPT_Wcatch_value = 556, */              /* -Wcatch-value */
-  OPT_Wcatch_value_ = 557,                   /* -Wcatch-value= */
-  OPT_Wchanges_meaning = 558,                /* -Wchanges-meaning */
-  OPT_Wchar_subscripts = 559,                /* -Wchar-subscripts */
-  OPT_Wcharacter_truncation = 560,           /* -Wcharacter-truncation */
-  OPT_Wchkp = 561,                           /* -Wchkp */
-  OPT_Wclass_conversion = 562,               /* -Wclass-conversion */
-  OPT_Wclass_memaccess = 563,                /* -Wclass-memaccess */
-  OPT_Wclobbered = 564,                      /* -Wclobbered */
-  OPT_Wcomma_subscript = 565,                /* -Wcomma-subscript */
-  OPT_Wcomment = 566,                        /* -Wcomment */
-  /* OPT_Wcomments = 567, */                 /* -Wcomments */
+  OPT_Wanalyzer_use_after_free = 502,        /* -Wanalyzer-use-after-free */
+  OPT_Wanalyzer_use_of_pointer_in_stale_stack_frame = 503,/* -Wanalyzer-use-of-pointer-in-stale-stack-frame */
+  OPT_Wanalyzer_use_of_uninitialized_value = 504,/* -Wanalyzer-use-of-uninitialized-value */
+  OPT_Wanalyzer_va_arg_type_mismatch = 505,  /* -Wanalyzer-va-arg-type-mismatch */
+  OPT_Wanalyzer_va_list_exhausted = 506,     /* -Wanalyzer-va-list-exhausted */
+  OPT_Wanalyzer_va_list_leak = 507,          /* -Wanalyzer-va-list-leak */
+  OPT_Wanalyzer_va_list_use_after_va_end = 508,/* -Wanalyzer-va-list-use-after-va-end */
+  OPT_Wanalyzer_write_to_const = 509,        /* -Wanalyzer-write-to-const */
+  OPT_Wanalyzer_write_to_string_literal = 510,/* -Wanalyzer-write-to-string-literal */
+  OPT_Wargument_mismatch = 511,              /* -Wargument-mismatch */
+  OPT_Warith_conversion = 512,               /* -Warith-conversion */
+  /* OPT_Warray_bounds = 513, */             /* -Warray-bounds */
+  OPT_Warray_bounds_ = 514,                  /* -Warray-bounds= */
+  OPT_Warray_compare = 515,                  /* -Warray-compare */
+  /* OPT_Warray_parameter = 516, */          /* -Warray-parameter */
+  OPT_Warray_parameter_ = 517,               /* -Warray-parameter= */
+  OPT_Warray_temporaries = 518,              /* -Warray-temporaries */
+  OPT_Wassign_intercept = 519,               /* -Wassign-intercept */
+  /* OPT_Wattribute_alias = 520, */          /* -Wattribute-alias */
+  OPT_Wattribute_alias_ = 521,               /* -Wattribute-alias= */
+  OPT_Wattribute_warning = 522,              /* -Wattribute-warning */
+  OPT_Wattributes = 523,                     /* -Wattributes */
+  OPT_Wattributes_ = 524,                    /* -Wattributes= */
+  OPT_Wbad_function_cast = 525,              /* -Wbad-function-cast */
+  /* OPT_Wbidi_chars = 526, */               /* -Wbidi-chars */
+  OPT_Wbidi_chars_ = 527,                    /* -Wbidi-chars= */
+  OPT_Wbool_compare = 528,                   /* -Wbool-compare */
+  OPT_Wbool_operation = 529,                 /* -Wbool-operation */
+  OPT_Wbuiltin_declaration_mismatch = 530,   /* -Wbuiltin-declaration-mismatch */
+  OPT_Wbuiltin_macro_redefined = 531,        /* -Wbuiltin-macro-redefined */
+  OPT_Wc___compat = 532,                     /* -Wc++-compat */
+  /* OPT_Wc__0x_compat = 533, */             /* -Wc++0x-compat */
+  OPT_Wc__11_compat = 534,                   /* -Wc++11-compat */
+  OPT_Wc__11_extensions = 535,               /* -Wc++11-extensions */
+  OPT_Wc__14_compat = 536,                   /* -Wc++14-compat */
+  OPT_Wc__14_extensions = 537,               /* -Wc++14-extensions */
+  OPT_Wc__17_compat = 538,                   /* -Wc++17-compat */
+  OPT_Wc__17_extensions = 539,               /* -Wc++17-extensions */
+  /* OPT_Wc__1z_compat = 540, */             /* -Wc++1z-compat */
+  OPT_Wc__20_compat = 541,                   /* -Wc++20-compat */
+  OPT_Wc__20_extensions = 542,               /* -Wc++20-extensions */
+  OPT_Wc__23_extensions = 543,               /* -Wc++23-extensions */
+  /* OPT_Wc__2a_compat = 544, */             /* -Wc++2a-compat */
+  OPT_Wc_binding_type = 545,                 /* -Wc-binding-type */
+  OPT_Wc11_c2x_compat = 546,                 /* -Wc11-c2x-compat */
+  OPT_Wc90_c99_compat = 547,                 /* -Wc90-c99-compat */
+  OPT_Wc99_c11_compat = 548,                 /* -Wc99-c11-compat */
+  OPT_Wcannot_profile = 549,                 /* -Wcannot-profile */
+  OPT_Wcast_align = 550,                     /* -Wcast-align */
+  OPT_Wcast_align_strict = 551,              /* -Wcast-align=strict */
+  OPT_Wcast_function_type = 552,             /* -Wcast-function-type */
+  OPT_Wcast_qual = 553,                      /* -Wcast-qual */
+  OPT_Wcast_result = 554,                    /* -Wcast-result */
+  /* OPT_Wcatch_value = 555, */              /* -Wcatch-value */
+  OPT_Wcatch_value_ = 556,                   /* -Wcatch-value= */
+  OPT_Wchanges_meaning = 557,                /* -Wchanges-meaning */
+  OPT_Wchar_subscripts = 558,                /* -Wchar-subscripts */
+  OPT_Wcharacter_truncation = 559,           /* -Wcharacter-truncation */
+  OPT_Wchkp = 560,                           /* -Wchkp */
+  OPT_Wclass_conversion = 561,               /* -Wclass-conversion */
+  OPT_Wclass_memaccess = 562,                /* -Wclass-memaccess */
+  OPT_Wclobbered = 563,                      /* -Wclobbered */
+  OPT_Wcomma_subscript = 564,                /* -Wcomma-subscript */
+  OPT_Wcomment = 565,                        /* -Wcomment */
+  /* OPT_Wcomments = 566, */                 /* -Wcomments */
+  OPT_Wcompare_distinct_pointer_types = 567, /* -Wcompare-distinct-pointer-types */
   OPT_Wcompare_reals = 568,                  /* -Wcompare-reals */
   OPT_Wcomplain_wrong_lang = 569,            /* -Wcomplain-wrong-lang */
   OPT_Wconditionally_supported = 570,        /* -Wconditionally-supported */

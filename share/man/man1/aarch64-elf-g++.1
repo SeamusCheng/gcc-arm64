@@ -55,7 +55,7 @@
 .\" ========================================================================
 .\"
 .IX Title "GCC 1"
-.TH GCC 1 2023-08-17 gcc-14.0.0 GNU
+.TH GCC 1 2023-08-27 gcc-14.0.0 GNU
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -291,6 +291,7 @@ in the following sections.
 \&\-Wcast\-align  \-Wcast\-align=strict  \-Wcast\-function\-type  \-Wcast\-qual
 \&\-Wchar\-subscripts
 \&\-Wclobbered  \-Wcomment
+\&\-Wcompare\-distinct\-pointer\-types
 \&\-Wno\-complain\-wrong\-lang
 \&\-Wconversion  \-Wno\-coverage\-mismatch  \-Wno\-cpp
 \&\-Wdangling\-else  \-Wdangling\-pointer  \-Wdangling\-pointer=\fR\fIn\fR
@@ -432,7 +433,6 @@ in the following sections.
 \&\-Wno\-analyzer\-tainted\-size
 \&\-Wanalyzer\-too\-complex
 \&\-Wno\-analyzer\-unsafe\-call\-within\-signal\-handler
-\&\-Wno\-analyzer\-unterminated\-string
 \&\-Wno\-analyzer\-use\-after\-free
 \&\-Wno\-analyzer\-use\-of\-pointer\-in\-stale\-stack\-frame
 \&\-Wno\-analyzer\-use\-of\-uninitialized\-value
@@ -8539,6 +8539,10 @@ and the Fortran front end to compile \fIb.f90\fR.
 The latter front end diagnoses
 \&\fBf951: Warning: command-line option '\-fno\-rtti' is valid for C++/D/ObjC++ but not for Fortran\fR,
 which may be disabled with \fB\-Wno\-complain\-wrong\-lang\fR.
+.IP "\fB\-Wcompare\-distinct\-pointer\-types\fR (C and Objective-C only)" 4
+.IX Item "-Wcompare-distinct-pointer-types (C and Objective-C only)"
+Warn if pointers of distinct types are compared without a cast.  This
+warning is enabled by default.
 .IP \fB\-Wconversion\fR 4
 .IX Item "-Wconversion"
 Warn for implicit conversions that may alter a value. This includes
@@ -9574,7 +9578,6 @@ Enabling this option effectively enables the following warnings:
 \&\-Wanalyzer\-shift\-count\-overflow
 \&\-Wanalyzer\-stale\-setjmp\-buffer
 \&\-Wanalyzer\-unsafe\-call\-within\-signal\-handler
-\&\-Wanalyzer\-unterminated\-string
 \&\-Wanalyzer\-use\-after\-free
 \&\-Wanalyzer\-use\-of\-pointer\-in\-stale\-stack\-frame
 \&\-Wanalyzer\-use\-of\-uninitialized\-value
@@ -10079,15 +10082,6 @@ function known to be async-signal-unsafe (such as \f(CW\*(C`fprintf\*(C'\fR) is
 called from a signal handler.
 .Sp
 See  CWE\-479: Signal Handler Use of a Non-reentrant Function (\f(CW\*(C`https://cwe.mitre.org/data/definitions/479.html\*(C'\fR).
-.IP \fB\-Wno\-analyzer\-unterminated\-string\fR 4
-.IX Item "-Wno-analyzer-unterminated-string"
-This warning requires \fB\-fanalyzer\fR, which enables it; use
-\&\fB\-Wno\-analyzer\-unterminated\-string\fR to disable it.
-.Sp
-This diagnostic warns about code paths which attempt to find the length
-of an unterminated string.  For example, passing a pointer to an unterminated
-buffer to \f(CW\*(C`strlen\*(C'\fR would lead to accesses beyond the end of the buffer
-whilst attempting to find the terminating zero character.
 .IP \fB\-Wno\-analyzer\-use\-after\-free\fR 4
 .IX Item "-Wno-analyzer-use-after-free"
 This warning requires \fB\-fanalyzer\fR, which enables it; use
@@ -10346,6 +10340,9 @@ and of the following functions:
 .ie n .IP "*<""sigsetjmp"">" 4
 .el .IP *<\f(CWsigsetjmp\fR> 4
 .IX Item "*<sigsetjmp>"
+.ie n .IP "*<""strcat"">" 4
+.el .IP *<\f(CWstrcat\fR> 4
+.IX Item "*<strcat>"
 .ie n .IP "*<""strchr"">" 4
 .el .IP *<\f(CWstrchr\fR> 4
 .IX Item "*<strchr>"
