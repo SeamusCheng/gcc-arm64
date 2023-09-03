@@ -38344,7 +38344,7 @@ Here is an explanation of implicit calls to library routines.
      conventions by default.  This calling convention involves passing
      the object, the selector and the method arguments all at once to
      the method-lookup library function.  This is the usual setting when
-     targeting Darwin/Mac OS X systems, which have the NeXT runtime
+     targeting Darwin / macOS systems, which have the NeXT runtime
      installed.
 
      If the macro is set to 0, the "GNU" Objective-C message sending
@@ -45981,8 +45981,8 @@ process.
 
  Where NAME is the plugin name and EXT is the platform-specific dynamic
 library extension.  It should be ‘dll’ on Windows/MinGW, ‘dylib’ on
-Darwin/Mac OS X, and ‘so’ on all other platforms.  The plugin arguments
-are parsed by GCC and passed to respective plugins as key-value pairs.
+Darwin/macOS, and ‘so’ on all other platforms.  The plugin arguments are
+parsed by GCC and passed to respective plugins as key-value pairs.
 Multiple plugins can be invoked by specifying multiple ‘-fplugin’
 arguments.
 
@@ -50946,7 +50946,7 @@ GCC version 4.1:
    • Gael Thomas for ‘VMClassLoader’ boot packages support suggestions.
 
    • Andreas Tobler for Darwin and Solaris testing and fixing, ‘Qt4’
-     support for Darwin/OS X, ‘Graphics2D’ support, ‘gtk+’ updates.
+     support for Darwin / macOS, ‘Graphics2D’ support, ‘gtk+’ updates.
 
    • Dalibor Topic for better ‘DEBUG’ support, build cleanups and Kaffe
      integration.  ‘Qt4’ build infrastructure, ‘SHA1PRNG’ and
@@ -59305,95 +59305,95 @@ Node: Miscellaneous Register Hooks1663587
 Node: Varargs1664452
 Node: Trampolines1672759
 Node: Library Calls1682543
-Node: Addressing Modes1688803
-Node: Anchored Addresses1721206
-Node: Condition Code1723937
-Node: MODE_CC Condition Codes1725794
-Node: Costs1732651
-Node: Scheduling1755359
-Node: Sections1779424
-Node: PIC1796152
-Node: Assembler Format1798253
-Node: File Framework1799392
-Ref: TARGET_HAVE_SWITCHABLE_BSS_SECTIONS1807111
-Node: Data Output1808812
-Node: Uninitialized Data1817238
-Node: Label Output1822333
-Node: Initialization1847466
-Node: Macros for Initialization1853662
-Node: Instruction Output1860985
-Node: Dispatch Tables1871864
-Node: Exception Region Output1877679
-Node: Alignment Output1884921
-Node: Debugging Info1888710
-Node: All Debuggers1889260
-Node: DWARF1892245
-Node: VMS Debug1898098
-Node: CTF Debug1898715
-Node: BTF Debug1899080
-Node: Floating Point1899427
-Node: Mode Switching1902208
-Node: Target Attributes1906725
-Node: Emulated TLS1918334
-Node: MIPS Coprocessors1921762
-Node: PCH Target1922929
-Node: C++ ABI1924813
-Node: D Language and ABI1929677
-Node: Named Address Spaces1932985
-Node: Misc1939108
-Ref: TARGET_SHIFT_TRUNCATION_MASK1947115
-Node: Host Config2009325
-Node: Host Common2010422
-Node: Filesystem2012816
-Node: Host Misc2017037
-Node: Fragments2019612
-Node: Target Fragment2020859
-Node: Host Fragment2032093
-Node: Collect22032337
-Node: Header Dirs2035184
-Node: Type Information2036655
-Node: GTY Options2040266
-Node: Inheritance and GTY2053530
-Ref: Inheritance and GTY-Footnote-12055125
-Node: User GC2055395
-Node: GGC Roots2059254
-Node: Files2059998
-Node: Invoking the garbage collector2062725
-Node: Troubleshooting2064401
-Node: Plugins2065504
-Node: Plugins loading2066633
-Node: Plugin API2067784
-Node: Plugins pass2075801
-Node: Plugins GC2077784
-Node: Plugins description2079569
-Node: Plugins attr2080119
-Node: Plugins recording2082447
-Node: Plugins gate2083325
-Node: Plugins tracking2083924
-Node: Plugins building2084520
-Node: LTO2088131
-Node: LTO Overview2089007
-Node: LTO object file layout2094899
-Node: IPA2099586
-Node: WHOPR2108796
-Node: Internal flags2113420
-Node: Match and Simplify2114855
-Node: GIMPLE API2115825
-Node: The Language2118651
-Node: Static Analyzer2131614
-Node: Analyzer Internals2131879
-Node: Debugging the Analyzer2147955
-Node: User Experience Guidelines2155807
-Node: Guidelines for Diagnostics2156744
-Ref: input_location_example2165096
-Node: Guidelines for Options2174991
-Node: Funding2175168
-Node: GNU Project2177694
-Node: Copying2178359
-Node: GNU Free Documentation License2216095
-Node: Contributors2241424
-Node: Option Index2283946
-Node: Concept Index2284841
+Node: Addressing Modes1688802
+Node: Anchored Addresses1721205
+Node: Condition Code1723936
+Node: MODE_CC Condition Codes1725793
+Node: Costs1732650
+Node: Scheduling1755358
+Node: Sections1779423
+Node: PIC1796151
+Node: Assembler Format1798252
+Node: File Framework1799391
+Ref: TARGET_HAVE_SWITCHABLE_BSS_SECTIONS1807110
+Node: Data Output1808811
+Node: Uninitialized Data1817237
+Node: Label Output1822332
+Node: Initialization1847465
+Node: Macros for Initialization1853661
+Node: Instruction Output1860984
+Node: Dispatch Tables1871863
+Node: Exception Region Output1877678
+Node: Alignment Output1884920
+Node: Debugging Info1888709
+Node: All Debuggers1889259
+Node: DWARF1892244
+Node: VMS Debug1898097
+Node: CTF Debug1898714
+Node: BTF Debug1899079
+Node: Floating Point1899426
+Node: Mode Switching1902207
+Node: Target Attributes1906724
+Node: Emulated TLS1918333
+Node: MIPS Coprocessors1921761
+Node: PCH Target1922928
+Node: C++ ABI1924812
+Node: D Language and ABI1929676
+Node: Named Address Spaces1932984
+Node: Misc1939107
+Ref: TARGET_SHIFT_TRUNCATION_MASK1947114
+Node: Host Config2009324
+Node: Host Common2010421
+Node: Filesystem2012815
+Node: Host Misc2017036
+Node: Fragments2019611
+Node: Target Fragment2020858
+Node: Host Fragment2032092
+Node: Collect22032336
+Node: Header Dirs2035183
+Node: Type Information2036654
+Node: GTY Options2040265
+Node: Inheritance and GTY2053529
+Ref: Inheritance and GTY-Footnote-12055124
+Node: User GC2055394
+Node: GGC Roots2059253
+Node: Files2059997
+Node: Invoking the garbage collector2062724
+Node: Troubleshooting2064400
+Node: Plugins2065503
+Node: Plugins loading2066632
+Node: Plugin API2067780
+Node: Plugins pass2075797
+Node: Plugins GC2077780
+Node: Plugins description2079565
+Node: Plugins attr2080115
+Node: Plugins recording2082443
+Node: Plugins gate2083321
+Node: Plugins tracking2083920
+Node: Plugins building2084516
+Node: LTO2088127
+Node: LTO Overview2089003
+Node: LTO object file layout2094895
+Node: IPA2099582
+Node: WHOPR2108792
+Node: Internal flags2113416
+Node: Match and Simplify2114851
+Node: GIMPLE API2115821
+Node: The Language2118647
+Node: Static Analyzer2131610
+Node: Analyzer Internals2131875
+Node: Debugging the Analyzer2147951
+Node: User Experience Guidelines2155803
+Node: Guidelines for Diagnostics2156740
+Ref: input_location_example2165092
+Node: Guidelines for Options2174987
+Node: Funding2175164
+Node: GNU Project2177690
+Node: Copying2178355
+Node: GNU Free Documentation License2216091
+Node: Contributors2241420
+Node: Option Index2283945
+Node: Concept Index2284840
 
 End Tag Table
 

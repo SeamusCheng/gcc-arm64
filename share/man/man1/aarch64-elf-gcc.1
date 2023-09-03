@@ -55,7 +55,7 @@
 .\" ========================================================================
 .\"
 .IX Title "GCC 1"
-.TH GCC 1 2023-08-27 gcc-14.0.0 GNU
+.TH GCC 1 2023-09-03 gcc-14.0.0 GNU
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -419,6 +419,7 @@ in the following sections.
 \&\-Wno\-analyzer\-null\-argument
 \&\-Wno\-analyzer\-null\-dereference
 \&\-Wno\-analyzer\-out\-of\-bounds
+\&\-Wno\-analyzer\-overlapping\-buffers
 \&\-Wno\-analyzer\-possible\-null\-argument
 \&\-Wno\-analyzer\-possible\-null\-dereference
 \&\-Wno\-analyzer\-putenv\-of\-auto\-var
@@ -2949,6 +2950,9 @@ in C++14 and up.
 Version 18, which first appeard in G++ 13, fixes manglings of lambdas
 that have additional context.
 .Sp
+Version 19, which first appeard in G++ 14, fixes manglings of structured
+bindings to include ABI tags.
+.Sp
 See also \fB\-Wabi\fR.
 .IP \fB\-fabi\-compat\-version=\fR\fIn\fR 4
 .IX Item "-fabi-compat-version=n"
@@ -4611,7 +4615,7 @@ Use \fIclass-name\fR as the name of the class to instantiate for each
 literal string specified with the syntax \f(CW\*(C`@"..."\*(C'\fR.  The default
 class name is \f(CW\*(C`NXConstantString\*(C'\fR if the GNU runtime is being used, and
 \&\f(CW\*(C`NSConstantString\*(C'\fR if the NeXT runtime is being used (see below).  On
-Darwin (macOS, MacOS X) platforms, the \fB\-fconstant\-cfstrings\fR option, if
+Darwin / macOS platforms, the \fB\-fconstant\-cfstrings\fR option, if
 also present, overrides the \fB\-fconstant\-string\-class\fR setting and cause
 \&\f(CW\*(C`@"..."\*(C'\fR literals to be laid out as constant CoreFoundation strings.
 Note that \fB\-fconstant\-cfstrings\fR is an alias for the target-specific
@@ -4623,7 +4627,7 @@ runtime.  This is the default for most types of systems.
 .IP \fB\-fnext\-runtime\fR 4
 .IX Item "-fnext-runtime"
 Generate output compatible with the NeXT runtime.  This is the default
-for NeXT-based systems, including Darwin and Mac OS X.  The macro
+for NeXT-based systems, including Darwin / macOS.  The macro
 \&\f(CW\*(C`_\|_NEXT_RUNTIME_\|_\*(C'\fR is predefined if (and only if) this option is
 used.
 .IP \fB\-fno\-nil\-receivers\fR 4
@@ -9571,6 +9575,7 @@ Enabling this option effectively enables the following warnings:
 \&\-Wanalyzer\-null\-argument
 \&\-Wanalyzer\-null\-dereference
 \&\-Wanalyzer\-out\-of\-bounds
+\&\-Wanalyzer\-overlapping\-buffers
 \&\-Wanalyzer\-possible\-null\-argument
 \&\-Wanalyzer\-possible\-null\-dereference
 \&\-Wanalyzer\-putenv\-of\-auto\-var
@@ -9863,6 +9868,33 @@ apart; which one is before or after in memory, the relative sizes
 involved, the direction of the access (read vs write), and, in some
 cases, the values of data involved.  This diagram can be suppressed
 using \fB\-fdiagnostics\-text\-art\-charset=none\fR.
+.IP \fB\-Wno\-analyzer\-overlapping\-buffers\fR 4
+.IX Item "-Wno-analyzer-overlapping-buffers"
+This warning requires \fB\-fanalyzer\fR, which enables it; use
+\&\fB\-Wno\-analyzer\-overlapping\-buffers\fR to disable it.
+.Sp
+This diagnostic warns for paths through the code in which overlapping
+buffers are passed to an API for which the behavior on such buffers
+is undefined.
+.Sp
+Specifically, the diagnostic occurs on calls to the following functions
+.RS 4
+.ie n .IP "*<""memcpy"">" 4
+.el .IP *<\f(CWmemcpy\fR> 4
+.IX Item "*<memcpy>"
+.PD 0
+.ie n .IP "*<""strcat"">" 4
+.el .IP *<\f(CWstrcat\fR> 4
+.IX Item "*<strcat>"
+.ie n .IP "*<""strcpy"">" 4
+.el .IP *<\f(CWstrcpy\fR> 4
+.IX Item "*<strcpy>"
+.RE
+.RS 4
+.PD
+.Sp
+for cases where the buffers are known to overlap.
+.RE
 .IP \fB\-Wno\-analyzer\-possible\-null\-argument\fR 4
 .IX Item "-Wno-analyzer-possible-null-argument"
 This warning requires \fB\-fanalyzer\fR, which enables it; use
@@ -10670,7 +10702,7 @@ possible.
 Produce debugging information in DWARF format (if that is supported).
 The value of \fIversion\fR may be either 2, 3, 4 or 5; the default
 version for most targets is 5 (with the exception of VxWorks, TPF and
-Darwin/Mac OS X, which default to version 2, and AIX, which defaults
+Darwin / macOS, which default to version 2, and AIX, which defaults
 to version 4).
 .Sp
 Note that with DWARF Version 2, some ports require and always
@@ -11746,8 +11778,8 @@ Attempt to remove redundant extension instructions.  This is especially
 helpful for the x86\-64 architecture, which implicitly zero-extends in 64\-bit
 registers after writing to their lower 32\-bit half.
 .Sp
-Enabled for Alpha, AArch64, PowerPC, RISC-V, SPARC, h83000 and x86 at levels
-\&\fB\-O2\fR, \fB\-O3\fR, \fB\-Os\fR.
+Enabled for Alpha, AArch64, LoongArch, PowerPC, RISC-V, SPARC, h83000 and x86 at
+levels \fB\-O2\fR, \fB\-O3\fR, \fB\-Os\fR.
 .IP \fB\-fno\-lifetime\-dse\fR 4
 .IX Item "-fno-lifetime-dse"
 In C++ the value of an object is only affected by changes within its
@@ -29099,7 +29131,7 @@ processor in big-endian mode.  The \fB\-mbig\-endian\fR option is
 the same as \fB\-mbig\fR.
 .IP \fB\-mdynamic\-no\-pic\fR 4
 .IX Item "-mdynamic-no-pic"
-On Darwin and Mac OS X systems, compile code so that it is not
+On Darwin / macOS systems, compile code so that it is not
 relocatable, but that its external references are relocatable.  The
 resulting code is suitable for applications, but not shared
 libraries.
