@@ -55,7 +55,7 @@
 .\" ========================================================================
 .\"
 .IX Title "GCC 1"
-.TH GCC 1 2023-09-03 gcc-14.0.0 GNU
+.TH GCC 1 2023-09-07 gcc-14.0.0 GNU
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -960,7 +960,8 @@ in the following sections.
 .Sp
 \&\fILoongArch Options\fR
 \&\fB\-march=\fR\fIcpu-type\fR  \fB\-mtune=\fR\fIcpu-type\fR \fB\-mabi=\fR\fIbase-abi-type\fR
-\&\fB\-mfpu=\fR\fIfpu-type\fR \fB\-msoft\-float \-msingle\-float \-mdouble\-float
+\&\fB\-mfpu=\fR\fIfpu-type\fR \fB\-msimd=\fR\fIsimd-type\fR
+\&\fB\-msoft\-float \-msingle\-float \-mdouble\-float \-mlsx \-mno\-lsx \-mlasx \-mno\-lasx
 \&\-mbranch\-cost=\fR\fIn\fR  \fB\-mcheck\-zero\-division \-mno\-check\-zero\-division
 \&\-mcond\-move\-int  \-mno\-cond\-move\-int
 \&\-mcond\-move\-float  \-mno\-cond\-move\-float
@@ -20779,7 +20780,7 @@ Does nothing.  Preserved for backward compatibility.
 Enable the use of pre/post modify with register displacement.
 .IP \fB\-mbbit\-peephole\fR 4
 .IX Item "-mbbit-peephole"
-Enable bbit peephole2.
+Does nothing.  Preserved for backward compatibility.
 .IP \fB\-mno\-brcc\fR 4
 .IX Item "-mno-brcc"
 This option disables a target-specific pass in \fIarc_reorg\fR to
@@ -25111,6 +25112,25 @@ Prevent the use of hardware floating-point instructions.
 .RE
 .RS 4
 .RE
+.IP \fB\-msimd=\fR\fIsimd-type\fR 4
+.IX Item "-msimd=simd-type"
+Enable generation of LoongArch SIMD instructions for vectorization
+and via builtin functions.  The value can be one of:
+.RS 4
+.IP \fBlasx\fR 4
+.IX Item "lasx"
+Enable generating instructions from the 256\-bit LoongArch Advanced
+SIMD Extension (LASX) and the 128\-bit LoongArch SIMD Extension (LSX).
+.IP \fBlsx\fR 4
+.IX Item "lsx"
+Enable generating instructions from the 128\-bit LoongArch SIMD
+Extension (LSX).
+.IP \fBnone\fR 4
+.IX Item "none"
+No LoongArch SIMD instruction may be generated.
+.RE
+.RS 4
+.RE
 .IP \fB\-msoft\-float\fR 4
 .IX Item "-msoft-float"
 Force \fB\-mfpu=none\fR and prevents the use of floating-point
@@ -25126,6 +25146,23 @@ ABI.
 Force \fB\-mfpu=64\fR and allow the use of 32/64\-bit floating-point
 registers for parameter passing.  This option may change the target
 ABI.
+.IP \fB\-mlasx\fR 4
+.IX Item "-mlasx"
+.PD 0
+.IP \fB\-mno\-lasx\fR 4
+.IX Item "-mno-lasx"
+.IP \fB\-mlsx\fR 4
+.IX Item "-mlsx"
+.IP \fB\-mno\-lsx\fR 4
+.IX Item "-mno-lsx"
+.PD
+Incrementally adjust the scope of the SIMD extensions (none / LSX / LASX)
+that can be used by the compiler for code generation.  Enabling LASX with
+\&\fBmlasx\fR automatically enables LSX, and diabling LSX with \fBmno-lsx\fR
+automatically disables LASX.  These driver-only options act upon the final
+\&\fBmsimd\fR configuration state and make incremental chagnes in the order
+they appear on the GCC driver's command line, deriving the final / canonicalized
+\&\fBmsimd\fR option that is passed to the compiler proper.
 .IP \fB\-mbranch\-cost=\fR\fIn\fR 4
 .IX Item "-mbranch-cost=n"
 Set the cost of branches to roughly \fIn\fR instructions.
