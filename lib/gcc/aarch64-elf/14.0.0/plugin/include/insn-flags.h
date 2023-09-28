@@ -266,6 +266,36 @@
 #define HAVE_anddi3 1
 #define HAVE_iordi3 1
 #define HAVE_xordi3 1
+#define HAVE_and_ashlsi3 1
+#define HAVE_ior_ashlsi3 1
+#define HAVE_xor_ashlsi3 1
+#define HAVE_and_ashrsi3 1
+#define HAVE_ior_ashrsi3 1
+#define HAVE_xor_ashrsi3 1
+#define HAVE_and_lshrsi3 1
+#define HAVE_ior_lshrsi3 1
+#define HAVE_xor_lshrsi3 1
+#define HAVE_and_rotrsi3 1
+#define HAVE_ior_rotrsi3 1
+#define HAVE_xor_rotrsi3 1
+#define HAVE_and_rotlsi3 1
+#define HAVE_ior_rotlsi3 1
+#define HAVE_xor_rotlsi3 1
+#define HAVE_and_ashldi3 1
+#define HAVE_ior_ashldi3 1
+#define HAVE_xor_ashldi3 1
+#define HAVE_and_ashrdi3 1
+#define HAVE_ior_ashrdi3 1
+#define HAVE_xor_ashrdi3 1
+#define HAVE_and_lshrdi3 1
+#define HAVE_ior_lshrdi3 1
+#define HAVE_xor_lshrdi3 1
+#define HAVE_and_rotrdi3 1
+#define HAVE_ior_rotrdi3 1
+#define HAVE_xor_rotrdi3 1
+#define HAVE_and_rotldi3 1
+#define HAVE_ior_rotldi3 1
+#define HAVE_xor_rotldi3 1
 #define HAVE_one_cmplsi2 1
 #define HAVE_one_cmpldi2 1
 #define HAVE_and_one_cmpl_ashlsi3 1
@@ -11383,6 +11413,36 @@ extern rtx        gen_xorsi3                                           (rtx, rtx
 extern rtx        gen_anddi3                                           (rtx, rtx, rtx);
 extern rtx        gen_iordi3                                           (rtx, rtx, rtx);
 extern rtx        gen_xordi3                                           (rtx, rtx, rtx);
+extern rtx        gen_and_ashlsi3                                      (rtx, rtx, rtx, rtx);
+extern rtx        gen_ior_ashlsi3                                      (rtx, rtx, rtx, rtx);
+extern rtx        gen_xor_ashlsi3                                      (rtx, rtx, rtx, rtx);
+extern rtx        gen_and_ashrsi3                                      (rtx, rtx, rtx, rtx);
+extern rtx        gen_ior_ashrsi3                                      (rtx, rtx, rtx, rtx);
+extern rtx        gen_xor_ashrsi3                                      (rtx, rtx, rtx, rtx);
+extern rtx        gen_and_lshrsi3                                      (rtx, rtx, rtx, rtx);
+extern rtx        gen_ior_lshrsi3                                      (rtx, rtx, rtx, rtx);
+extern rtx        gen_xor_lshrsi3                                      (rtx, rtx, rtx, rtx);
+extern rtx        gen_and_rotrsi3                                      (rtx, rtx, rtx, rtx);
+extern rtx        gen_ior_rotrsi3                                      (rtx, rtx, rtx, rtx);
+extern rtx        gen_xor_rotrsi3                                      (rtx, rtx, rtx, rtx);
+extern rtx        gen_and_rotlsi3                                      (rtx, rtx, rtx, rtx);
+extern rtx        gen_ior_rotlsi3                                      (rtx, rtx, rtx, rtx);
+extern rtx        gen_xor_rotlsi3                                      (rtx, rtx, rtx, rtx);
+extern rtx        gen_and_ashldi3                                      (rtx, rtx, rtx, rtx);
+extern rtx        gen_ior_ashldi3                                      (rtx, rtx, rtx, rtx);
+extern rtx        gen_xor_ashldi3                                      (rtx, rtx, rtx, rtx);
+extern rtx        gen_and_ashrdi3                                      (rtx, rtx, rtx, rtx);
+extern rtx        gen_ior_ashrdi3                                      (rtx, rtx, rtx, rtx);
+extern rtx        gen_xor_ashrdi3                                      (rtx, rtx, rtx, rtx);
+extern rtx        gen_and_lshrdi3                                      (rtx, rtx, rtx, rtx);
+extern rtx        gen_ior_lshrdi3                                      (rtx, rtx, rtx, rtx);
+extern rtx        gen_xor_lshrdi3                                      (rtx, rtx, rtx, rtx);
+extern rtx        gen_and_rotrdi3                                      (rtx, rtx, rtx, rtx);
+extern rtx        gen_ior_rotrdi3                                      (rtx, rtx, rtx, rtx);
+extern rtx        gen_xor_rotrdi3                                      (rtx, rtx, rtx, rtx);
+extern rtx        gen_and_rotldi3                                      (rtx, rtx, rtx, rtx);
+extern rtx        gen_ior_rotldi3                                      (rtx, rtx, rtx, rtx);
+extern rtx        gen_xor_rotldi3                                      (rtx, rtx, rtx, rtx);
 extern rtx        gen_one_cmplsi2                                      (rtx, rtx);
 extern rtx        gen_one_cmpldi2                                      (rtx, rtx);
 extern rtx        gen_and_one_cmpl_ashlsi3                             (rtx, rtx, rtx, rtx);
