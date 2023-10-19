@@ -93,6 +93,10 @@ extern void gt_ggc_mx_edge_def (void *);
   if ((intptr_t)(X) != 0) gt_ggc_mx_basic_block_def (X);\
   } while (0)
 extern void gt_ggc_mx_basic_block_def (void *);
+#define gt_ggc_m_26vec_unsigned_va_gc_atomic_(X) do { \
+  if ((intptr_t)(X) != 0) gt_ggc_mx_vec_unsigned_va_gc_atomic_ (X);\
+  } while (0)
+extern void gt_ggc_mx_vec_unsigned_va_gc_atomic_ (void *);
 #define gt_ggc_m_14hash_set_tree_(X) do { \
   if ((intptr_t)(X) != 0) gt_ggc_mx_hash_set_tree_ (X);\
   } while (0)
@@ -105,10 +109,6 @@ extern void gt_ggc_mx_machine_function (void *);
   if ((intptr_t)(X) != 0) gt_ggc_mx_bitmap_element (X);\
   } while (0)
 extern void gt_ggc_mx_bitmap_element (void *);
-#define gt_ggc_m_34generic_wide_int_wide_int_storage_(X) do { \
-  if ((intptr_t)(X) != 0) gt_ggc_mx_generic_wide_int_wide_int_storage_ (X);\
-  } while (0)
-extern void gt_ggc_mx_generic_wide_int_wide_int_storage_ (void *);
 #define gt_ggc_m_13coverage_data(X) do { \
   if ((intptr_t)(X) != 0) gt_ggc_mx_coverage_data (X);\
   } while (0)
@@ -445,10 +445,6 @@ extern void gt_ggc_mx_hash_table_function_version_hasher_ (void *);
   if ((intptr_t)(X) != 0) gt_ggc_mx_lto_in_decl_state (X);\
   } while (0)
 extern void gt_ggc_mx_lto_in_decl_state (void *);
-#define gt_ggc_m_35hash_table_ipa_bit_ggc_hash_traits_(X) do { \
-  if ((intptr_t)(X) != 0) gt_ggc_mx_hash_table_ipa_bit_ggc_hash_traits_ (X);\
-  } while (0)
-extern void gt_ggc_mx_hash_table_ipa_bit_ggc_hash_traits_ (void *);
 #define gt_ggc_m_34hash_table_ipa_vr_ggc_hash_traits_(X) do { \
   if ((intptr_t)(X) != 0) gt_ggc_mx_hash_table_ipa_vr_ggc_hash_traits_ (X);\
   } while (0)
@@ -537,6 +533,10 @@ extern void gt_ggc_mx_dw_loc_list_struct (void *);
   if ((intptr_t)(X) != 0) gt_ggc_mx_dw_discr_list_node (X);\
   } while (0)
 extern void gt_ggc_mx_dw_discr_list_node (void *);
+#define gt_ggc_m_11dw_wide_int(X) do { \
+  if ((intptr_t)(X) != 0) gt_ggc_mx_dw_wide_int (X);\
+  } while (0)
+extern void gt_ggc_mx_dw_wide_int (void *);
 #define gt_ggc_m_15dw_cfa_location(X) do { \
   if ((intptr_t)(X) != 0) gt_ggc_mx_dw_cfa_location (X);\
   } while (0)
@@ -953,10 +953,6 @@ extern void gt_ggc_mx_vec_ipa_agg_jf_item_va_gc_ (void *);
   if ((intptr_t)(X) != 0) gt_ggc_mx_ipcp_transformation (X);\
   } while (0)
 extern void gt_ggc_mx_ipcp_transformation (void *);
-#define gt_ggc_m_8ipa_bits(X) do { \
-  if ((intptr_t)(X) != 0) gt_ggc_mx_ipa_bits (X);\
-  } while (0)
-extern void gt_ggc_mx_ipa_bits (void *);
 #define gt_ggc_m_6ipa_vr(X) do { \
   if ((intptr_t)(X) != 0) gt_ggc_mx_ipa_vr (X);\
   } while (0)
@@ -969,10 +965,6 @@ extern void gt_ggc_mx_vec_ipa_param_descriptor_va_gc_ (void *);
   if ((intptr_t)(X) != 0) gt_ggc_mx_vec_ipa_argagg_value_va_gc_ (X);\
   } while (0)
 extern void gt_ggc_mx_vec_ipa_argagg_value_va_gc_ (void *);
-#define gt_ggc_m_20vec_ipa_bits__va_gc_(X) do { \
-  if ((intptr_t)(X) != 0) gt_ggc_mx_vec_ipa_bits__va_gc_ (X);\
-  } while (0)
-extern void gt_ggc_mx_vec_ipa_bits__va_gc_ (void *);
 #define gt_ggc_m_17vec_ipa_vr_va_gc_(X) do { \
   if ((intptr_t)(X) != 0) gt_ggc_mx_vec_ipa_vr_va_gc_ (X);\
   } while (0)
@@ -1586,6 +1578,10 @@ extern void gt_pch_nx_edge_def (void *);
   if ((intptr_t)(X) != 0) gt_pch_nx_basic_block_def (X);\
   } while (0)
 extern void gt_pch_nx_basic_block_def (void *);
+#define gt_pch_n_26vec_unsigned_va_gc_atomic_(X) do { \
+  if ((intptr_t)(X) != 0) gt_pch_nx_vec_unsigned_va_gc_atomic_ (X);\
+  } while (0)
+extern void gt_pch_nx_vec_unsigned_va_gc_atomic_ (void *);
 #define gt_pch_n_14hash_set_tree_(X) do { \
   if ((intptr_t)(X) != 0) gt_pch_nx_hash_set_tree_ (X);\
   } while (0)
@@ -1598,10 +1594,6 @@ extern void gt_pch_nx_machine_function (void *);
   if ((intptr_t)(X) != 0) gt_pch_nx_bitmap_element (X);\
   } while (0)
 extern void gt_pch_nx_bitmap_element (void *);
-#define gt_pch_n_34generic_wide_int_wide_int_storage_(X) do { \
-  if ((intptr_t)(X) != 0) gt_pch_nx_generic_wide_int_wide_int_storage_ (X);\
-  } while (0)
-extern void gt_pch_nx_generic_wide_int_wide_int_storage_ (void *);
 #define gt_pch_n_13coverage_data(X) do { \
   if ((intptr_t)(X) != 0) gt_pch_nx_coverage_data (X);\
   } while (0)
@@ -1938,10 +1930,6 @@ extern void gt_pch_nx_hash_table_function_version_hasher_ (void *);
   if ((intptr_t)(X) != 0) gt_pch_nx_lto_in_decl_state (X);\
   } while (0)
 extern void gt_pch_nx_lto_in_decl_state (void *);
-#define gt_pch_n_35hash_table_ipa_bit_ggc_hash_traits_(X) do { \
-  if ((intptr_t)(X) != 0) gt_pch_nx_hash_table_ipa_bit_ggc_hash_traits_ (X);\
-  } while (0)
-extern void gt_pch_nx_hash_table_ipa_bit_ggc_hash_traits_ (void *);
 #define gt_pch_n_34hash_table_ipa_vr_ggc_hash_traits_(X) do { \
   if ((intptr_t)(X) != 0) gt_pch_nx_hash_table_ipa_vr_ggc_hash_traits_ (X);\
   } while (0)
@@ -2030,6 +2018,10 @@ extern void gt_pch_nx_dw_loc_list_struct (void *);
   if ((intptr_t)(X) != 0) gt_pch_nx_dw_discr_list_node (X);\
   } while (0)
 extern void gt_pch_nx_dw_discr_list_node (void *);
+#define gt_pch_n_11dw_wide_int(X) do { \
+  if ((intptr_t)(X) != 0) gt_pch_nx_dw_wide_int (X);\
+  } while (0)
+extern void gt_pch_nx_dw_wide_int (void *);
 #define gt_pch_n_15dw_cfa_location(X) do { \
   if ((intptr_t)(X) != 0) gt_pch_nx_dw_cfa_location (X);\
   } while (0)
@@ -2446,10 +2438,6 @@ extern void gt_pch_nx_vec_ipa_agg_jf_item_va_gc_ (void *);
   if ((intptr_t)(X) != 0) gt_pch_nx_ipcp_transformation (X);\
   } while (0)
 extern void gt_pch_nx_ipcp_transformation (void *);
-#define gt_pch_n_8ipa_bits(X) do { \
-  if ((intptr_t)(X) != 0) gt_pch_nx_ipa_bits (X);\
-  } while (0)
-extern void gt_pch_nx_ipa_bits (void *);
 #define gt_pch_n_6ipa_vr(X) do { \
   if ((intptr_t)(X) != 0) gt_pch_nx_ipa_vr (X);\
   } while (0)
@@ -2462,10 +2450,6 @@ extern void gt_pch_nx_vec_ipa_param_descriptor_va_gc_ (void *);
   if ((intptr_t)(X) != 0) gt_pch_nx_vec_ipa_argagg_value_va_gc_ (X);\
   } while (0)
 extern void gt_pch_nx_vec_ipa_argagg_value_va_gc_ (void *);
-#define gt_pch_n_20vec_ipa_bits__va_gc_(X) do { \
-  if ((intptr_t)(X) != 0) gt_pch_nx_vec_ipa_bits__va_gc_ (X);\
-  } while (0)
-extern void gt_pch_nx_vec_ipa_bits__va_gc_ (void *);
 #define gt_pch_n_17vec_ipa_vr_va_gc_(X) do { \
   if ((intptr_t)(X) != 0) gt_pch_nx_vec_ipa_vr_va_gc_ (X);\
   } while (0)
@@ -3131,13 +3115,13 @@ extern void gt_pch_p_8edge_def
     (void *, void *, gt_pointer_operator, void *);
 extern void gt_pch_p_15basic_block_def
     (void *, void *, gt_pointer_operator, void *);
+extern void gt_pch_p_26vec_unsigned_va_gc_atomic_
+    (void *, void *, gt_pointer_operator, void *);
 extern void gt_pch_p_14hash_set_tree_
     (void *, void *, gt_pointer_operator, void *);
 extern void gt_pch_p_16machine_function
     (void *, void *, gt_pointer_operator, void *);
 extern void gt_pch_p_14bitmap_element
-    (void *, void *, gt_pointer_operator, void *);
-extern void gt_pch_p_34generic_wide_int_wide_int_storage_
     (void *, void *, gt_pointer_operator, void *);
 extern void gt_pch_p_13coverage_data
     (void *, void *, gt_pointer_operator, void *);
@@ -3307,8 +3291,6 @@ extern void gt_pch_p_35hash_table_function_version_hasher_
     (void *, void *, gt_pointer_operator, void *);
 extern void gt_pch_p_17lto_in_decl_state
     (void *, void *, gt_pointer_operator, void *);
-extern void gt_pch_p_35hash_table_ipa_bit_ggc_hash_traits_
-    (void *, void *, gt_pointer_operator, void *);
 extern void gt_pch_p_34hash_table_ipa_vr_ggc_hash_traits_
     (void *, void *, gt_pointer_operator, void *);
 extern void gt_pch_p_15ipa_node_params
@@ -3352,6 +3334,8 @@ extern void gt_pch_p_17dw_loc_descr_node
 extern void gt_pch_p_18dw_loc_list_struct
     (void *, void *, gt_pointer_operator, void *);
 extern void gt_pch_p_18dw_discr_list_node
+    (void *, void *, gt_pointer_operator, void *);
+extern void gt_pch_p_11dw_wide_int
     (void *, void *, gt_pointer_operator, void *);
 extern void gt_pch_p_15dw_cfa_location
     (void *, void *, gt_pointer_operator, void *);
@@ -3593,15 +3577,11 @@ extern void gt_pch_p_26vec_ipa_agg_jf_item_va_gc_
     (void *, void *, gt_pointer_operator, void *);
 extern void gt_pch_p_19ipcp_transformation
     (void *, void *, gt_pointer_operator, void *);
-extern void gt_pch_p_8ipa_bits
-    (void *, void *, gt_pointer_operator, void *);
 extern void gt_pch_p_6ipa_vr
     (void *, void *, gt_pointer_operator, void *);
 extern void gt_pch_p_31vec_ipa_param_descriptor_va_gc_
     (void *, void *, gt_pointer_operator, void *);
 extern void gt_pch_p_27vec_ipa_argagg_value_va_gc_
-    (void *, void *, gt_pointer_operator, void *);
-extern void gt_pch_p_20vec_ipa_bits__va_gc_
     (void *, void *, gt_pointer_operator, void *);
 extern void gt_pch_p_17vec_ipa_vr_va_gc_
     (void *, void *, gt_pointer_operator, void *);
