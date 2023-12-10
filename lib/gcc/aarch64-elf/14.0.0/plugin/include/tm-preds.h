@@ -226,7 +226,7 @@ extern bool aarch64_granule16_simm9 (rtx, machine_mode);
 
 #ifdef GCC_HARD_REG_SET_H
 struct target_constraints {
-  HARD_REG_SET register_filters[2];
+  HARD_REG_SET register_filters[4];
 };
 
 extern struct target_constraints default_target_constraints;
@@ -242,7 +242,7 @@ extern struct target_constraints *this_target_constraints;
 inline bool
 test_register_filters (unsigned int mask, unsigned int regno)
 {
-  for (unsigned int id = 0; id < 2; ++id)
+  for (unsigned int id = 0; id < 4; ++id)
     if ((mask & (1U << id))
 	&& !TEST_REGISTER_FILTER_BIT (id, regno))
       return false;
@@ -265,6 +265,8 @@ enum constraint_num
   CONSTRAINT_y,
   CONSTRAINT_Uw2,
   CONSTRAINT_Uw4,
+  CONSTRAINT_Uwd,
+  CONSTRAINT_Uwt,
   CONSTRAINT_Upa,
   CONSTRAINT_Up2,
   CONSTRAINT_Upl,
@@ -527,6 +529,10 @@ get_register_filter (constraint_num c)
     return &this_target_constraints->register_filters[0];
   if (c == CONSTRAINT_Uw4)
     return &this_target_constraints->register_filters[1];
+  if (c == CONSTRAINT_Uwd)
+    return &this_target_constraints->register_filters[2];
+  if (c == CONSTRAINT_Uwt)
+    return &this_target_constraints->register_filters[3];
   if (c == CONSTRAINT_Up2)
     return &this_target_constraints->register_filters[0];
   return nullptr;
@@ -540,6 +546,10 @@ get_register_filter_id (constraint_num c)
     return 0;
   if (c == CONSTRAINT_Uw4)
     return 1;
+  if (c == CONSTRAINT_Uwd)
+    return 2;
+  if (c == CONSTRAINT_Uwt)
+    return 3;
   if (c == CONSTRAINT_Up2)
     return 0;
   return -1;
