@@ -25,6 +25,7 @@
 #define HAVE_condjump 1
 #define HAVE_nop 1
 #define HAVE_prefetch 1
+#define HAVE_aarch64_pldx 1
 #define HAVE_trap 1
 #define HAVE_simple_return 1
 #define HAVE_aarch64_cbeqsi1 (!aarch64_track_speculation)
@@ -7546,6 +7547,54 @@
 #define HAVE_aarch64_pred_cntpvnx8bi (TARGET_SVE)
 #define HAVE_aarch64_pred_cntpvnx4bi (TARGET_SVE)
 #define HAVE_aarch64_pred_cntpvnx2bi (TARGET_SVE)
+#define HAVE_aarch64_sve_get_neonq_vnx16qi (TARGET_SVE \
+   && BYTES_BIG_ENDIAN \
+   && known_eq (INTVAL (XVECEXP (operands[2], 0, 0)), \
+		GET_MODE_NUNITS (V16QImode) - 1))
+#define HAVE_aarch64_sve_get_neonq_vnx8hi (TARGET_SVE \
+   && BYTES_BIG_ENDIAN \
+   && known_eq (INTVAL (XVECEXP (operands[2], 0, 0)), \
+		GET_MODE_NUNITS (V8HImode) - 1))
+#define HAVE_aarch64_sve_get_neonq_vnx4si (TARGET_SVE \
+   && BYTES_BIG_ENDIAN \
+   && known_eq (INTVAL (XVECEXP (operands[2], 0, 0)), \
+		GET_MODE_NUNITS (V4SImode) - 1))
+#define HAVE_aarch64_sve_get_neonq_vnx2di (TARGET_SVE \
+   && BYTES_BIG_ENDIAN \
+   && known_eq (INTVAL (XVECEXP (operands[2], 0, 0)), \
+		GET_MODE_NUNITS (V2DImode) - 1))
+#define HAVE_aarch64_sve_get_neonq_vnx8bf (TARGET_SVE \
+   && BYTES_BIG_ENDIAN \
+   && known_eq (INTVAL (XVECEXP (operands[2], 0, 0)), \
+		GET_MODE_NUNITS (V8BFmode) - 1))
+#define HAVE_aarch64_sve_get_neonq_vnx8hf (TARGET_SVE \
+   && BYTES_BIG_ENDIAN \
+   && known_eq (INTVAL (XVECEXP (operands[2], 0, 0)), \
+		GET_MODE_NUNITS (V8HFmode) - 1))
+#define HAVE_aarch64_sve_get_neonq_vnx4sf (TARGET_SVE \
+   && BYTES_BIG_ENDIAN \
+   && known_eq (INTVAL (XVECEXP (operands[2], 0, 0)), \
+		GET_MODE_NUNITS (V4SFmode) - 1))
+#define HAVE_aarch64_sve_get_neonq_vnx2df (TARGET_SVE \
+   && BYTES_BIG_ENDIAN \
+   && known_eq (INTVAL (XVECEXP (operands[2], 0, 0)), \
+		GET_MODE_NUNITS (V2DFmode) - 1))
+#define HAVE_aarch64_sve_set_neonq_vnx16qi (TARGET_SVE \
+   && BYTES_BIG_ENDIAN)
+#define HAVE_aarch64_sve_set_neonq_vnx8hi (TARGET_SVE \
+   && BYTES_BIG_ENDIAN)
+#define HAVE_aarch64_sve_set_neonq_vnx4si (TARGET_SVE \
+   && BYTES_BIG_ENDIAN)
+#define HAVE_aarch64_sve_set_neonq_vnx2di (TARGET_SVE \
+   && BYTES_BIG_ENDIAN)
+#define HAVE_aarch64_sve_set_neonq_vnx8bf (TARGET_SVE \
+   && BYTES_BIG_ENDIAN)
+#define HAVE_aarch64_sve_set_neonq_vnx8hf (TARGET_SVE \
+   && BYTES_BIG_ENDIAN)
+#define HAVE_aarch64_sve_set_neonq_vnx4sf (TARGET_SVE \
+   && BYTES_BIG_ENDIAN)
+#define HAVE_aarch64_sve_set_neonq_vnx2df (TARGET_SVE \
+   && BYTES_BIG_ENDIAN)
 #define HAVE_aarch64_ld1vnx32qi (TARGET_STREAMING_SME2)
 #define HAVE_aarch64_ldnt1vnx32qi (TARGET_STREAMING_SME2)
 #define HAVE_aarch64_ld1vnx16hi (TARGET_STREAMING_SME2)
@@ -13120,6 +13169,7 @@ extern rtx        gen_ccmpccfpedf_rev                                  (rtx, rtx
 extern rtx        gen_condjump                                         (rtx, rtx, rtx);
 extern rtx        gen_nop                                              (void);
 extern rtx        gen_prefetch                                         (rtx, rtx, rtx);
+extern rtx        gen_aarch64_pldx                                     (rtx, rtx);
 extern rtx        gen_trap                                             (void);
 extern rtx        gen_simple_return                                    (void);
 extern rtx        gen_aarch64_cbeqsi1                                  (rtx, rtx);
@@ -21298,6 +21348,22 @@ extern rtx        gen_aarch64_pred_cntpvnx16bi                         (rtx, rtx
 extern rtx        gen_aarch64_pred_cntpvnx8bi                          (rtx, rtx, rtx, rtx);
 extern rtx        gen_aarch64_pred_cntpvnx4bi                          (rtx, rtx, rtx, rtx);
 extern rtx        gen_aarch64_pred_cntpvnx2bi                          (rtx, rtx, rtx, rtx);
+extern rtx        gen_aarch64_sve_get_neonq_vnx16qi                    (rtx, rtx, rtx);
+extern rtx        gen_aarch64_sve_get_neonq_vnx8hi                     (rtx, rtx, rtx);
+extern rtx        gen_aarch64_sve_get_neonq_vnx4si                     (rtx, rtx, rtx);
+extern rtx        gen_aarch64_sve_get_neonq_vnx2di                     (rtx, rtx, rtx);
+extern rtx        gen_aarch64_sve_get_neonq_vnx8bf                     (rtx, rtx, rtx);
+extern rtx        gen_aarch64_sve_get_neonq_vnx8hf                     (rtx, rtx, rtx);
+extern rtx        gen_aarch64_sve_get_neonq_vnx4sf                     (rtx, rtx, rtx);
+extern rtx        gen_aarch64_sve_get_neonq_vnx2df                     (rtx, rtx, rtx);
+extern rtx        gen_aarch64_sve_set_neonq_vnx16qi                    (rtx, rtx, rtx, rtx);
+extern rtx        gen_aarch64_sve_set_neonq_vnx8hi                     (rtx, rtx, rtx, rtx);
+extern rtx        gen_aarch64_sve_set_neonq_vnx4si                     (rtx, rtx, rtx, rtx);
+extern rtx        gen_aarch64_sve_set_neonq_vnx2di                     (rtx, rtx, rtx, rtx);
+extern rtx        gen_aarch64_sve_set_neonq_vnx8bf                     (rtx, rtx, rtx, rtx);
+extern rtx        gen_aarch64_sve_set_neonq_vnx8hf                     (rtx, rtx, rtx, rtx);
+extern rtx        gen_aarch64_sve_set_neonq_vnx4sf                     (rtx, rtx, rtx, rtx);
+extern rtx        gen_aarch64_sve_set_neonq_vnx2df                     (rtx, rtx, rtx, rtx);
 extern rtx        gen_aarch64_ld1vnx32qi                               (rtx, rtx, rtx);
 extern rtx        gen_aarch64_ldnt1vnx32qi                             (rtx, rtx, rtx);
 extern rtx        gen_aarch64_ld1vnx16hi                               (rtx, rtx, rtx);
