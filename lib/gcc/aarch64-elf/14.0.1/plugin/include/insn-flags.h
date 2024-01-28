@@ -3798,6 +3798,14 @@
 #define HAVE_aarch64_trn2v2df (TARGET_SIMD)
 #define HAVE_aarch64_uzp1v2df (TARGET_SIMD)
 #define HAVE_aarch64_uzp2v2df (TARGET_SIMD)
+#define HAVE_aarch64_zip1v16qi_low (TARGET_SIMD)
+#define HAVE_aarch64_zip1v8hi_low (TARGET_SIMD)
+#define HAVE_aarch64_zip1v4si_low (TARGET_SIMD)
+#define HAVE_aarch64_zip1v2di_low (TARGET_SIMD)
+#define HAVE_aarch64_zip1v8hf_low (TARGET_SIMD)
+#define HAVE_aarch64_zip1v4sf_low (TARGET_SIMD)
+#define HAVE_aarch64_zip1v2df_low (TARGET_SIMD)
+#define HAVE_aarch64_zip1v8bf_low (TARGET_SIMD)
 #define HAVE_aarch64_extv8qi (TARGET_SIMD)
 #define HAVE_aarch64_extv16qi (TARGET_SIMD)
 #define HAVE_aarch64_extv4hi (TARGET_SIMD)
@@ -15636,6 +15644,14 @@ extern rtx        gen_aarch64_trn1v2df                                 (rtx, rtx
 extern rtx        gen_aarch64_trn2v2df                                 (rtx, rtx, rtx);
 extern rtx        gen_aarch64_uzp1v2df                                 (rtx, rtx, rtx);
 extern rtx        gen_aarch64_uzp2v2df                                 (rtx, rtx, rtx);
+extern rtx        gen_aarch64_zip1v16qi_low                            (rtx, rtx, rtx);
+extern rtx        gen_aarch64_zip1v8hi_low                             (rtx, rtx, rtx);
+extern rtx        gen_aarch64_zip1v4si_low                             (rtx, rtx, rtx);
+extern rtx        gen_aarch64_zip1v2di_low                             (rtx, rtx, rtx);
+extern rtx        gen_aarch64_zip1v8hf_low                             (rtx, rtx, rtx);
+extern rtx        gen_aarch64_zip1v4sf_low                             (rtx, rtx, rtx);
+extern rtx        gen_aarch64_zip1v2df_low                             (rtx, rtx, rtx);
+extern rtx        gen_aarch64_zip1v8bf_low                             (rtx, rtx, rtx);
 extern rtx        gen_aarch64_extv8qi                                  (rtx, rtx, rtx, rtx);
 extern rtx        gen_aarch64_extv16qi                                 (rtx, rtx, rtx, rtx);
 extern rtx        gen_aarch64_extv4hi                                  (rtx, rtx, rtx, rtx);
